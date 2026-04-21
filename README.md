@@ -88,13 +88,15 @@ cd firmware/single_inference && idf.py set-target esp32s3 && cd ../..
 ```bash
 cd models
 
-# Train FatCNN (takes ~5 minutes on GPU)
+# Train FatCNN (takes ~5 minutes on GPU; SEED=42 is set for reproducibility
+# of the training procedure, though TF/hardware version differences can still
+# perturb the final weights)
 python train_fatcnn.py
-# Output: fatcnn_float32.keras (77.4% CIFAR-10 accuracy)
+# Output: fatcnn_float32.keras (~77% CIFAR-10 accuracy on the full 10k test set)
 
 # Train FatCNN-Lite baseline
 python train_fatcnn_lite.py
-# Output: fatcnn_lite_float32.keras (74.3% accuracy)
+# Output: fatcnn_lite_float32.keras (~74% accuracy on the full 10k test set)
 
 # Quantize + export weights for N=4 workers
 python fix_quantize.py
@@ -281,6 +283,45 @@ Evaluated on 1,000 CIFAR-10 test images per configuration.
 | Bitmap sparsification | −5.5% latency (lossless) |
 | 240 MHz vs 160 MHz | −23% latency |
 | ESP-NOW throughput | 81.3 KB/s unicast, 0% loss |
+
+## Reproducing the Paper's Numbers Without Hardware
+
+Every table and statistical claim in the paper can be regenerated from the
+raw serial captures shipped in [`logs/reference_paper_runs/`](logs/reference_paper_runs/)
+(three gzipped log files, one per configuration, ~300 KB total). These are
+the exact 1,000-image runs that produced the numbers cited in the
+manuscript.
+
+```bash
+gunzip -k logs/reference_paper_runs/*.log.gz
+python scripts/analyze_logs.py \
+    logs/reference_paper_runs/lite_n1.log \
+    logs/reference_paper_runs/fatcnn_n2.log \
+    logs/reference_paper_runs/fatcnn_n4.log
+# Regenerates: results/summary_table.tex, per_layer_table.tex,
+#              accuracy_table.tex, scalability_table.tex, stats.json
+# Prints: accuracy, Wilson 95% CIs, per-layer latency, CI overlap analysis
+
+python scripts/mcnemar.py \
+    --log-a logs/reference_paper_runs/lite_n1.log \
+    --log-b logs/reference_paper_runs/fatcnn_n4.log \
+    --out results/mcnemar_lite_vs_n4.json
+# Prints: χ² = 10.96, p = 9.3×10⁻⁴ (paper's main statistical claim)
+```
+
+The `logs/reference_paper_runs/README.md` file lists every paper number
+reproduced by these artifacts. Running the full hardware experiment suite
+(requires 4 ESP32-S3 + 1 coordinator board, ~6 hours wall-clock time) is
+only necessary to collect *new* data — for verifying the paper's existing
+claims, the shipped logs are sufficient.
+
+The worker firmware now emits `CSV_SPARSE` telemetry lines after each
+convolutional layer (`layer, worker_id, result_size, zero_count,
+sparsity_ppm`); `analyze_logs.py` aggregates these into the per-layer
+activation-sparsity values cited in Section III. Because sparsity depends
+on trained-weight values, the shipped reference logs predate this
+instrumentation; to reproduce the ~50% / ~67% sparsity figures from §III
+you need to re-run the distributed firmware on hardware.
 
 ## Technical Details
 

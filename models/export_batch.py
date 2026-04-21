@@ -1,11 +1,15 @@
 """
 Export batch of CIFAR-10 test images for distributed accuracy test.
 Generates test_images_batch.h with N images as INT8 arrays.
+
+Default N is 1000, which matches the sample size used in the paper.
+Pass a smaller N (e.g., 50 or 100) as argv[1] for faster bring-up.
 """
+import sys
 import numpy as np
 from tensorflow import keras
 
-N_IMAGES = 100
+N_IMAGES = int(sys.argv[1]) if len(sys.argv) > 1 else 1000
 
 cifar_classes = ["airplane","automobile","bird","cat","deer",
                  "dog","frog","horse","ship","truck"]

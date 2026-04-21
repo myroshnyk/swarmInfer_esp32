@@ -19,8 +19,11 @@ venv/
 *.h5
 *.keras
 
-# Experiment outputs (regenerate via scripts/run_experiment.sh)
-logs/
+# Experiment outputs (regenerate via scripts/run_experiment.sh).
+# The reference-paper-runs subdir is explicitly kept — those are the
+# archived logs that reproduce every table in the paper.
+logs/*
+!logs/reference_paper_runs/
 results/
 
 # OS / editor

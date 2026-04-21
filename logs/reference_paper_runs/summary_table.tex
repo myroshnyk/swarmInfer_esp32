@@ -1,0 +1,14 @@
+\begin{table}[htbp]
+\centering
+\caption{Inference performance comparison across configurations.}
+\label{tab:summary}
+\begin{tabular}{lcccccc}
+\toprule
+Configuration & Images & Accuracy (\%) & Mean (ms) & Std (ms) & P95 (ms) & P99 (ms) \\
+\midrule
+FatCNN-Lite (N=1) & 1000 & 74.4 & 1897.3 & 0.0 & 1897.3 & 1897.3 \\
+FatCNN (N=2) & 1000 & 79.1 & 3653.0 & 12.9 & 3673.8 & 3680.1 \\
+FatCNN (N=4) & 1000 & 79.1 & 2114.8 & 14.2 & 2136.3 & 2151.2 \\
+\bottomrule
+\end{tabular}
+\end{table}

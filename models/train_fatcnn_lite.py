@@ -4,9 +4,17 @@ Channels: 32-64-128 instead of 64-128-256.
 Total weights ~102 KB (fits in 512 KB SRAM with OS).
 """
 import os
+import random
 import numpy as np
 import tensorflow as tf
 from tensorflow import keras
+
+# Fixed seeds for reproducibility (single-seed limitation documented in paper).
+SEED = 42
+os.environ["PYTHONHASHSEED"] = str(SEED)
+random.seed(SEED)
+np.random.seed(SEED)
+tf.keras.utils.set_random_seed(SEED)
 
 # ============================================================
 # 1. MODEL
@@ -47,7 +55,14 @@ model.fit(x_train, y_train, epochs=30, batch_size=128,
           validation_data=(x_test, y_test), verbose=1)
 
 test_loss, test_acc = model.evaluate(x_test, y_test, verbose=0)
-print(f"\nTest accuracy (float32): {test_acc:.4f}")
+print(f"\nTest accuracy (float32, full 10k): {test_acc:.4f}")
+
+# Also evaluate on the first 1000 images -- same subset the firmware runs on-device.
+subset_preds = np.argmax(model(x_test[:1000]).numpy(), axis=1)
+subset_correct = int(np.sum(subset_preds == y_test[:1000].flatten()))
+print(f"Test accuracy (float32, first 1000 images used in paper): "
+      f"{subset_correct}/1000 = {subset_correct/1000:.4f}")
+
 model.save("fatcnn_lite_float32.keras")
 
 # ============================================================

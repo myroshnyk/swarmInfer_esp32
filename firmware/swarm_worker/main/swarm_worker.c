@@ -396,6 +396,21 @@ void app_main(void) {
         default: output_zp = (int8_t)MY_CONV3_OZP; break;
         }
 
+        /* Count zeros in pool_out (post-ReLU) for sparsity telemetry.
+         * A value equal to output_zp represents zero in the real-valued tensor. */
+        uint32_t zero_count = 0;
+        for (uint32_t i = 0; i < result_size; i++) {
+            if (pool_out[i] == output_zp) zero_count++;
+        }
+        uint32_t sparsity_ppm = (uint32_t)((uint64_t)zero_count * 1000000ULL / result_size);
+        /* Machine-parseable sparsity line (consumed by scripts/analyze_logs.py).
+         * Format: CSV_SPARSE,layer,worker_id,result_size,zero_count,sparsity_ppm */
+        printf("CSV_SPARSE,%d,%d,%lu,%lu,%lu\n",
+               layer, WORKER_ID,
+               (unsigned long)result_size,
+               (unsigned long)zero_count,
+               (unsigned long)sparsity_ppm);
+
         uint32_t enc_size = sparse_encode(pool_out, result_size, input_buf, output_zp);
         bool use_sparse = (enc_size < result_size);
 

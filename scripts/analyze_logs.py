@@ -24,6 +24,29 @@ import numpy as np
 from collections import defaultdict
 
 
+def parse_sparse_log(filepath):
+    """Parse CSV_SPARSE telemetry lines emitted by workers.
+
+    Line format: CSV_SPARSE,<layer>,<worker_id>,<result_size>,<zero_count>,<sparsity_ppm>
+    Returns a list of dicts. Used to compute per-layer activation sparsity
+    (cited in the paper's bitmap-sparsification discussion).
+    """
+    rows = []
+    with open(filepath, 'r', errors='replace') as f:
+        for line in f:
+            m = re.search(r'CSV_SPARSE,(\d+),(\d+),(\d+),(\d+),(\d+)', line)
+            if not m:
+                continue
+            rows.append({
+                'layer': int(m.group(1)),
+                'worker_id': int(m.group(2)),
+                'result_size': int(m.group(3)),
+                'zero_count': int(m.group(4)),
+                'sparsity': int(m.group(5)) / 1_000_000.0,
+            })
+    return rows
+
+
 def parse_log(filepath):
     """Parse a monitor log file and extract CSV data lines."""
     rows = []
@@ -75,6 +98,35 @@ def compute_stats(values):
     }
 
 
+def wilson_ci(k, n, confidence=0.95):
+    """Wilson score confidence interval for a binomial proportion.
+
+    Reference: Wilson, E. B. (1927). "Probable inference, the law of succession,
+    and statistical inference". J. Am. Stat. Assoc. 22, 209-212.
+
+    Used by the paper to report 95% CIs for accuracy on the 1000-image test set.
+    No scipy dependency -- we hard-code z for the two most common confidence levels.
+
+    Args:
+        k: number of successes (correctly classified images)
+        n: total trials (images)
+        confidence: 0.95 (default) or 0.99
+    Returns:
+        (low, high) tuple, each in [0, 1]
+    """
+    if n == 0:
+        return (0.0, 0.0)
+    z_table = {0.95: 1.959963984540054, 0.99: 2.5758293035489004}
+    if confidence not in z_table:
+        raise ValueError(f"confidence must be one of {list(z_table)}, got {confidence}")
+    z = z_table[confidence]
+    p = k / n
+    denom = 1.0 + z * z / n
+    center = (p + z * z / (2.0 * n)) / denom
+    half = (z / denom) * ((p * (1.0 - p) / n + z * z / (4.0 * n * n)) ** 0.5)
+    return (max(0.0, center - half), min(1.0, center + half))
+
+
 CIFAR_CLASSES = ["airplane", "automobile", "bird", "cat", "deer",
                  "dog", "frog", "horse", "ship", "truck"]
 
@@ -98,11 +150,14 @@ def analyze(all_rows):
         n_images = len(rows)
         n_correct = sum(matches)
 
+        ci_low, ci_high = wilson_ci(n_correct, n_images, confidence=0.95)
         res = {
             'label': CONFIG_LABELS.get(cfg, cfg),
             'n_images': n_images,
             'accuracy': n_correct / n_images if n_images > 0 else 0,
             'n_correct': n_correct,
+            'wilson_ci95_low': ci_low,
+            'wilson_ci95_high': ci_high,
             'latency': compute_stats(latencies),
         }
 
@@ -149,9 +204,9 @@ def gen_summary_table(results):
     lines.append(r'\centering')
     lines.append(r'\caption{Inference performance comparison across configurations.}')
     lines.append(r'\label{tab:summary}')
-    lines.append(r'\begin{tabular}{lcccccc}')
+    lines.append(r'\begin{tabular}{lccccccc}')
     lines.append(r'\toprule')
-    lines.append(r'Configuration & Images & Accuracy (\%) & Mean (ms) & Std (ms) & P95 (ms) & P99 (ms) \\')
+    lines.append(r'Configuration & Images & Accuracy (\%) & 95\% CI (\%) & Mean (ms) & Std (ms) & P95 (ms) & P99 (ms) \\')
     lines.append(r'\midrule')
 
     for cfg in ['lite_n1', 'fatcnn_n2', 'fatcnn_n4']:
@@ -161,6 +216,7 @@ def gen_summary_table(results):
         lat = r['latency']
         lines.append(
             f"{r['label']} & {r['n_images']} & {r['accuracy']*100:.1f} "
+            f"& [{r['wilson_ci95_low']*100:.1f}, {r['wilson_ci95_high']*100:.1f}] "
             f"& {lat['mean']/1000:.1f} & {lat['std']/1000:.1f} "
             f"& {lat['p95']/1000:.1f} & {lat['p99']/1000:.1f} \\\\"
         )
@@ -339,11 +395,14 @@ def main():
 
     # Parse all logs
     all_rows = []
+    all_sparse = []
     for logpath in sys.argv[1:]:
         print(f"Parsing {logpath}...")
         rows = parse_log(logpath)
-        print(f"  Found {len(rows)} CSV data rows")
+        sparse_rows = parse_sparse_log(logpath)
+        print(f"  Found {len(rows)} CSV data rows, {len(sparse_rows)} sparsity samples")
         all_rows.extend(rows)
+        all_sparse.extend(sparse_rows)
 
     if not all_rows:
         print("ERROR: No CSV data found in any log file.")
@@ -363,10 +422,40 @@ def main():
         lat = r['latency']
         print(f"\n{r['label']}:")
         print(f"  Images:   {r['n_images']}")
-        print(f"  Accuracy: {r['n_correct']}/{r['n_images']} = {r['accuracy']*100:.1f}%")
+        print(f"  Accuracy: {r['n_correct']}/{r['n_images']} = {r['accuracy']*100:.1f}% "
+              f"(95% Wilson CI: [{r['wilson_ci95_low']*100:.1f}%, {r['wilson_ci95_high']*100:.1f}%])")
         print(f"  Latency:  {lat['mean']/1000:.1f} +/- {lat['std']/1000:.1f} ms "
               f"(min={lat['min']/1000:.1f}, max={lat['max']/1000:.1f}, "
               f"p95={lat['p95']/1000:.1f}, p99={lat['p99']/1000:.1f})")
+
+    # Per-layer sparsity analysis (referenced in paper's sparsification section)
+    if all_sparse:
+        print("\nActivation sparsity (post-ReLU, across all workers x all images):")
+        by_layer = defaultdict(list)
+        for s in all_sparse:
+            by_layer[s['layer']].append(s['sparsity'])
+        sparsity_stats = {}
+        for layer in sorted(by_layer):
+            vals = np.array(by_layer[layer])
+            sparsity_stats[layer] = {
+                'mean': float(vals.mean()),
+                'std': float(vals.std(ddof=1)) if len(vals) > 1 else 0.0,
+                'n_samples': len(vals),
+            }
+            print(f"  Layer {layer}: mean={vals.mean()*100:.1f}%, "
+                  f"std={vals.std(ddof=1)*100:.2f}%, n={len(vals)}")
+        results['__sparsity__'] = sparsity_stats
+
+    # CI overlap analysis (referenced in paper results)
+    if 'lite_n1' in results and 'fatcnn_n4' in results:
+        lite = results['lite_n1']
+        fat = results['fatcnn_n4']
+        overlap = max(0.0, min(lite['wilson_ci95_high'], fat['wilson_ci95_high'])
+                          - max(lite['wilson_ci95_low'], fat['wilson_ci95_low']))
+        print("\nCI overlap (FatCNN-Lite N=1 vs FatCNN N=4):")
+        print(f"  Lite CI:   [{lite['wilson_ci95_low']*100:.1f}%, {lite['wilson_ci95_high']*100:.1f}%]")
+        print(f"  FatCNN CI: [{fat['wilson_ci95_low']*100:.1f}%, {fat['wilson_ci95_high']*100:.1f}%]")
+        print(f"  Overlap:   {overlap*100:.2f} pp")
 
     # Output directory
     outdir = 'results'

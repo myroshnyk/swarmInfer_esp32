@@ -12,9 +12,19 @@ Total weights: ~407 KB (INT8) — does NOT fit in single ESP32-S3 (512 KB SRAM)
 """
 
 import os
+import random
 import numpy as np
 import tensorflow as tf
 from tensorflow import keras
+
+# Fixed seeds for reproducibility. The paper reports a single-seed result
+# (this is documented as a limitation in sec. "Limitations"); these seeds
+# reproduce the exact model used for the 2026-04 experiment suite.
+SEED = 42
+os.environ["PYTHONHASHSEED"] = str(SEED)
+random.seed(SEED)
+np.random.seed(SEED)
+tf.keras.utils.set_random_seed(SEED)
 
 # ============================================================
 # 1. DEFINE MODEL
@@ -76,9 +86,19 @@ def train_model(model, epochs=30):
         verbose=1
     )
 
-    # Evaluate
+    # Evaluate on full 10k test set
     test_loss, test_acc = model.evaluate(x_test, y_test, verbose=0)
-    print(f"\nTest accuracy (float32): {test_acc:.4f}")
+    print(f"\nTest accuracy (float32, full 10k): {test_acc:.4f}")
+
+    # Evaluate on the first 1000 test images -- the same subset that the
+    # firmware runs on-device, so this float32 number is directly comparable
+    # to the on-device INT8 accuracy reported in the paper.
+    subset_x, subset_y = x_test[:1000], y_test[:1000]
+    subset_loss, subset_acc = model.evaluate(subset_x, subset_y, verbose=0)
+    subset_preds = np.argmax(model(subset_x).numpy(), axis=1)
+    subset_correct = int(np.sum(subset_preds == subset_y.flatten()))
+    print(f"Test accuracy (float32, first 1000 images used in paper): "
+          f"{subset_correct}/1000 = {subset_acc:.4f}")
 
     return model, history, (x_train, y_train, x_test, y_test)
 

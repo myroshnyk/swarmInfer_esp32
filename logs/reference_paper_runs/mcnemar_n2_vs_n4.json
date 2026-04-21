@@ -1,0 +1,14 @@
+{
+  "config_a": "fatcnn_n2",
+  "config_b": "fatcnn_n4",
+  "n_paired": 1000,
+  "n00_both_wrong": 209,
+  "n01_a_wrong_b_right": 0,
+  "n10_a_right_b_wrong": 0,
+  "n11_both_right": 791,
+  "acc_a": 0.791,
+  "acc_b": 0.791,
+  "chi2_cc": 0.0,
+  "p_chi2_cc": 1.0,
+  "p_exact_binomial": 1.0
+}
