@@ -1,0 +1,18 @@
+cff-version: 1.2.0
+message: "If you use this software, please cite it as below."
+title: "SwarmInfer: Intra-Layer Tensor-Parallel Distributed Inference on ESP32-S3 Microcontroller Clusters via ESP-NOW"
+authors:
+  - family-names: Myroshnyk
+    given-names: Yurii
+license: MIT
+repository-code: "https://github.com/myroshnyk/swarmInfer_esp32"
+version: "1.0.0"
+date-released: "2026-04-20"
+preferred-citation:
+  type: article
+  title: "SwarmInfer: Intra-Layer Tensor-Parallel Distributed Inference on ESP32-S3 Microcontroller Clusters via ESP-NOW"
+  authors:
+    - family-names: Myroshnyk
+      given-names: Yurii
+  journal: "IEEE Access"
+  year: 2026

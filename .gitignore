@@ -1,0 +1,31 @@
+# ESP-IDF build artifacts
+build/
+sdkconfig
+sdkconfig.old
+managed_components/
+dependencies.lock
+
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.pytest_cache/
+.ipynb_checkpoints/
+.venv/
+venv/
+
+# ML artifacts (regenerate via scripts)
+*.tflite
+*.h5
+*.keras
+
+# Experiment outputs (regenerate via scripts/run_experiment.sh)
+logs/
+results/
+
+# OS / editor
+.DS_Store
+.idea/
+.vscode/
+*.swp
+*~
