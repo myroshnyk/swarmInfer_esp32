@@ -16,6 +16,9 @@ identifiers:
   - type: doi
     value: "10.5281/zenodo.19682784"
     description: "Version DOI (v1.0.0)"
+  - type: doi
+    value: "10.5281/zenodo.19683266"
+    description: "Version DOI (v1.1.0)"
 preferred-citation:
   type: article
   title: "SwarmInfer: Intra-Layer Tensor-Parallel Distributed Inference on ESP32-S3 Microcontroller Clusters via ESP-NOW"
