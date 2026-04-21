@@ -7,7 +7,15 @@ authors:
 license: MIT
 repository-code: "https://github.com/myroshnyk/swarmInfer_esp32"
 version: "1.0.0"
-date-released: "2026-04-20"
+date-released: "2026-04-21"
+doi: "10.5281/zenodo.19682783"
+identifiers:
+  - type: doi
+    value: "10.5281/zenodo.19682783"
+    description: "Concept DOI (all versions)"
+  - type: doi
+    value: "10.5281/zenodo.19682784"
+    description: "Version DOI (v1.0.0)"
 preferred-citation:
   type: article
   title: "SwarmInfer: Intra-Layer Tensor-Parallel Distributed Inference on ESP32-S3 Microcontroller Clusters via ESP-NOW"
