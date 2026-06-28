@@ -28,7 +28,7 @@ static const char *TAG = "GBWORK";
 #define WORKER_ID 3
 #endif
 
-static const uint8_t MAC_COORD[] = {0xB8,0xF8,0x62,0xE2,0xD0,0x8C};
+static const uint8_t MAC_COORD[] = {0x02, 0x00, 0x00, 0x00, 0x00, 0x00};  /* PLACEHOLDER MAC — set to YOUR coordinator's MAC (each board prints its own MAC at boot via esp_read_mac / the get_mac sketch) */
 
 static SemaphoreHandle_t go_sem;
 static volatile uint16_t requested_size;

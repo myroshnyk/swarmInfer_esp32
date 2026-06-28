@@ -88,15 +88,22 @@ cd firmware/single_inference && idf.py set-target esp32s3 && cd ../..
 ```bash
 cd models
 
-# Train FatCNN (takes ~5 minutes on GPU; SEED=42 is set for reproducibility
-# of the training procedure, though TF/hardware version differences can still
-# perturb the final weights)
+# Train FatCNN (~5 minutes on GPU). NOTE: the original training runs did not
+# fix a random seed, so retraining produces a model near—but not bit-identical
+# to—the one used in the paper. The exact per-table numbers in the paper are
+# reproducible bit-identically from the committed raw serial logs
+# (logs/reference_paper_runs/) via the analysis scripts, independent of
+# retraining or TF/hardware version differences.
 python train_fatcnn.py
 # Output: fatcnn_float32.keras (~77% CIFAR-10 accuracy on the full 10k test set)
 
 # Train FatCNN-Lite baseline
 python train_fatcnn_lite.py
 # Output: fatcnn_lite_float32.keras (~74% accuracy on the full 10k test set)
+
+# Training-time variance is characterized by a deterministic, fixed-seed sweep
+# (seeds 0-2) — see results/seed_sweep.json (gap 2.95 pp, 95% CI [1.76, 4.13]):
+python seed_sweep.py
 
 # Quantize + export weights for N=4 workers
 python fix_quantize.py
@@ -261,13 +268,38 @@ Then `idf.py fullclean && idf.py build` for both, flash all boards, and run E4.
 
 **Expected output:** ~1,623 ms avg latency (−23% vs 160 MHz).
 
-### E8: Power Estimation
+### E8: Power & Energy (measured, INA219)
+
+Active power and energy per inference are measured directly with an INA219
+high-side sensor (0.1 Ω shunt on the 5 V rail). Because USB power bypasses the
+shunt, each board is battery-powered through the sensor; see
+[`docs/power_measurement_procedure.md`](docs/power_measurement_procedure.md)
+for the full capture procedure. Then derive the table:
 
 ```bash
-python scripts/power_estimation.py
+python models/power_analyze.py \
+    --single logs/power_runs/single.log \
+    --coord  logs/power_runs/coord.log \
+    --pwrw   logs/power_runs/coord_workers_run.log
+# -> results/power.json : single-node 0.37 W / 0.71 J, N=4 cluster 3.40 W / 7.20 J (~10x energy)
 ```
 
-No hardware needed — uses datasheet values + measured timing.
+The legacy `scripts/power_estimation.py` is a **deprecated** datasheet estimate,
+superseded by this direct measurement.
+
+### E9–E14: Resubmission experiments (v1.2.0)
+
+The revised paper adds five experiments; each ships its scripts, raw logs, and
+derived results so the corresponding table/figure reproduces without hardware:
+
+| # | Experiment | Run / analyze | Data |
+|---|---|---|---|
+| E9  | Uneven shards + N=5 scaling | `firmware/swarm_*_nscale`, `models/partition_nscale.py`, `models/analyze_nscale.py` | `results/nscale_scaling.json`, `logs/fatcnn_nscale_n{3,5}.log` |
+| E10 | Robustness under a degraded link | `firmware/swarm_*_rel`, `models/analyze_rf_sweep.py` | `results/rf_sweep.{json,md}` |
+| E11 | Scaled MobileNet 96×96 | `firmware/*_mbnet`, `models/mobilenet/` | `results/mbnet_r2_11.{json,md}`, `logs/mbnet_distributed.log` |
+| E12 | Quantization ablation (per-tensor vs per-channel, ranges, saturation) | `models/quant_ablation.py` | `results/quant_ablation.{json,md}` |
+| E13 | Sparsity distribution + encode/decode overhead | `firmware/sparse_bench`, `models/sparsity_dist.py` | `results/sparsity_dist.{json,md}`, `results/sparse_bench.csv` |
+| E14 | Training-time variance (3 seeds) | `models/seed_sweep.py` | `results/seed_sweep.json` |
 
 ## Key Results
 
@@ -278,11 +310,14 @@ Evaluated on 1,000 CIFAR-10 test images per configuration.
 | Single-node FatCNN-Lite (103K params) | 1,897 ms, 74.4% accuracy (744/1000) |
 | **Distributed FatCNN N=4 (408K params)** | **2,115 ms, 79.1% accuracy (791/1000)** |
 | Distributed FatCNN N=2 | 3,653 ms, 79.1% accuracy (identical predictions to N=4) |
-| Scalability N=2→N=4 | 1.73× speedup |
-| Accuracy difference (Lite vs N=4) | McNemar χ²=10.96, p<10⁻³ |
-| Bitmap sparsification | −5.5% latency (lossless) |
+| Scalability N=2→N=4→N=5 | 1.73× → 1.99× speedup (1,838 ms at N=5) |
+| Accuracy difference (Lite vs N=4) | McNemar χ²=10.96, p<10⁻³; 3-seed gap 2.95 pp, 95% CI [1.76, 4.13] |
+| Bitmap sparsification | −5.9% latency (lossless, isolated on/off ablation) |
+| Measured power / energy | single 0.37 W / 0.71 J; N=4 cluster 3.40 W / 7.20 J (~10×) |
+| Robustness (one worker behind a wall) | released firmware ~14× latency tail; reliability-layer prototype 30/30 bit-exact |
+| Scaled MobileNet 96×96 (1.09M params) | float 89.3% / INT8 89.2%, communication-bound, 670 KB/inference |
 | 240 MHz vs 160 MHz | −23% latency |
-| ESP-NOW throughput | 81.3 KB/s unicast, 0% loss |
+| ESP-NOW throughput | 81.3 KB/s unicast, 0% loss (1 m bench, no contention) |
 
 ## Reproducing the Paper's Numbers Without Hardware
 

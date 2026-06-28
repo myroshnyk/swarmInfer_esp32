@@ -1,0 +1,29 @@
+{
+  "meta": {
+    "shunt_ohm": 0.1,
+    "source": "INA219 high-side, measured",
+    "lat_single_ms": 1897.0,
+    "lat_n4_ms": 2115.0
+  },
+  "single_node": {
+    "power_w": 0.372,
+    "energy_j": 0.706,
+    "mean_mw": 372,
+    "mean_ma": 72,
+    "src": "PWRDUMP/SINGLE"
+  },
+  "cluster_n4": {
+    "power_w": 3.405,
+    "energy_j": 7.202,
+    "coord_mw": 689,
+    "worker_mw": [
+      670,
+      735,
+      648,
+      663
+    ],
+    "worker_mean_mw": 679,
+    "n_workers": 4
+  },
+  "energy_ratio": 10.2
+}

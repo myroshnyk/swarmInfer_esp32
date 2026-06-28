@@ -1,0 +1,116 @@
+[
+  {
+    "dist": "d0_verify_postfix",
+    "images_completed": 100,
+    "total_retry_events": 1,
+    "retries_per_image_mean": 0.01,
+    "max_retries_single_image": 1,
+    "images_needing_retry": 1,
+    "retry_by_layer": {
+      "L2": 1
+    },
+    "failed_attempt_workers_done_hist": {
+      "3": 1
+    },
+    "compute_latency_ms": {
+      "mean": 2167.0,
+      "sd": 15.0,
+      "min": 2126.0,
+      "p95": 2194.0,
+      "max": 2206.0
+    },
+    "effective_walltime_s": {
+      "mean": 3.0,
+      "p95": 2.0,
+      "max": 33.0
+    },
+    "bit_exact_vs_reference": "100/100",
+    "mismatches": [],
+    "accuracy_pct": 86.0
+  },
+  {
+    "dist": "released_d2_wall",
+    "images_completed": 13,
+    "total_retry_events": 11,
+    "retries_per_image_mean": 0.85,
+    "max_retries_single_image": 6,
+    "images_needing_retry": 4,
+    "retry_by_layer": {
+      "L2": 9,
+      "L1": 1,
+      "L3": 1
+    },
+    "failed_attempt_workers_done_hist": {
+      "3": 11
+    },
+    "compute_latency_ms": {
+      "mean": 2175.0,
+      "sd": 15.0,
+      "min": 2152.0,
+      "p95": 2186.0,
+      "max": 2215.0
+    },
+    "effective_walltime_s": {
+      "mean": 29.0,
+      "p95": 98.0,
+      "max": 186.0
+    },
+    "bit_exact_vs_reference": "13/13",
+    "mismatches": [],
+    "accuracy_pct": 92.3
+  },
+  {
+    "dist": "rel2_clean",
+    "images_completed": 40,
+    "total_retry_events": 0,
+    "retries_per_image_mean": 0.0,
+    "max_retries_single_image": 0,
+    "images_needing_retry": 0,
+    "retry_by_layer": {},
+    "failed_attempt_workers_done_hist": {},
+    "compute_latency_ms": {
+      "mean": 2181.0,
+      "sd": 16.0,
+      "min": 2148.0,
+      "p95": 2206.0,
+      "max": 2217.0
+    },
+    "effective_walltime_s": {
+      "mean": 2.0,
+      "p95": 2.0,
+      "max": 2.0
+    },
+    "bit_exact_vs_reference": "40/40",
+    "mismatches": [],
+    "accuracy_pct": 87.5
+  },
+  {
+    "dist": "rel2_d2_wall",
+    "images_completed": 30,
+    "total_retry_events": 1,
+    "retries_per_image_mean": 0.03,
+    "max_retries_single_image": 1,
+    "images_needing_retry": 1,
+    "retry_by_layer": {
+      "L2": 1
+    },
+    "failed_attempt_workers_done_hist": {
+      "3": 1
+    },
+    "compute_latency_ms": {
+      "mean": 2418.0,
+      "sd": 228.0,
+      "min": 2169.0,
+      "p95": 2777.0,
+      "max": 2957.0
+    },
+    "effective_walltime_s": {
+      "mean": 3.0,
+      "p95": 3.0,
+      "max": 13.0
+    },
+    "bit_exact_vs_reference": "30/30",
+    "mismatches": [],
+    "accuracy_pct": 93.3
+  }
+]

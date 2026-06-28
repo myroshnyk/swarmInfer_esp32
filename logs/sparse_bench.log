@@ -1,0 +1,7 @@
+I (263) SPARSEBENCH: === Sparsification encode/decode microbenchmark (LX7) ===
+I (263) SPARSEBENCH: ITERS=200, unicast=81300 B/s
+I (273) SPARSEBENCH: CSV,layer,size,sparsity,enc_size,enc_us,dec_us,tx_dense_us,tx_sparse_us,saved_us,net_us
+I (453) SPARSEBENCH: CSV,Conv1,4096,54,2396,450.4,392.3,50381.3,29471.1,20910.2,20067.5  [decode OK]
+I (523) SPARSEBENCH: CSV,Conv2,2048,75,768,193.1,182.7,25190.7,9446.5,15744.2,15368.3  [decode OK]
+I (533) SPARSEBENCH: CSV,Conv3 (GAP),64,42,45,8.0,6.6,787.2,553.5,233.7,219.1  [decode OK]
+I (533) SPARSEBENCH: === done ===

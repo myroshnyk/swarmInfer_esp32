@@ -1,0 +1,470 @@
+
+===== mbnet distributed capture: 5 runs, port /dev/cu.usbmodem212301 =====
+----- RUN 1/5 -----
+I (79) esp_image: segment 0: paddr=00010020 vaddr=3c090020 size=29a10h (170512) map
+I (117) esp_image: segment 1: paddr=00039a38 vaddr=3fc98f00 size=05520h ( 21792) load
+I (122) esp_image: segment 2: paddr=0003ef60 vaddr=40374000 size=010b8h (  4280) load
+I (123) esp_image: segment 3: paddr=00040020 vaddr=42000020 size=82c78h (535672) map
+I (224) esp_image: segment 4: paddr=000c2ca0 vaddr=403750b8 size=13d80h ( 81280) load
+I (242) esp_image: segment 5: paddr=000d6a28 vaddr=50000000 size=00024h (    36) load
+I (252) boot: Loaded app from partition at offset 0x10000
+I (252) boot: Disabling RNG early entropy source...
+I (262) octal_psram: vendor id    : 0x0d (AP)
+I (262) octal_psram: dev id       : 0x02 (generation 3)
+I (263) octal_psram: density      : 0x03 (64 Mbit)
+I (264) octal_psram: good-die     : 0x01 (Pass)
+I (269) octal_psram: Latency      : 0x01 (Fixed)
+I (273) octal_psram: VCC          : 0x01 (3V)
+I (277) octal_psram: SRF          : 0x01 (Fast Refresh)
+I (282) octal_psram: BurstType    : 0x01 (Hybrid Wrap)
+I (287) octal_psram: BurstLen     : 0x01 (32 Byte)
+I (291) octal_psram: Readlatency  : 0x02 (10 cycles@Fixed)
+I (297) octal_psram: DriveStrength: 0x00 (1/1)
+I (301) MSPI Timing: Enter psram timing tuning
+I (306) esp_psram: Found 8MB PSRAM device
+I (309) esp_psram: Speed: 80MHz
+I (312) cpu_start: Multicore app
+I (747) esp_psram: SPI SRAM memory test OK
+I (755) cpu_start: GPIO 44 and 43 are used as console UART I/O pins
+I (756) cpu_start: Pro cpu start user code
+I (756) cpu_start: cpu freq: 160000000 Hz
+I (758) app_init: Application information:
+I (762) app_init: Project name:     swarm_coordinator_mbnet
+I (767) app_init: App version:      12f57e2-dirty
+I (771) app_init: Compile time:     Jun 19 2026 17:29:09
+I (776) app_init: ELF file SHA256:  584ea938b...
+I (781) app_init: ESP-IDF:          v6.0
+I (784) efuse_init: Min chip rev:     v0.0
+I (788) efuse_init: Max chip rev:     v0.99
+I (792) efuse_init: Chip rev:         v0.2
+I (796) heap_init: Initializing. RAM available for dynamic allocation:
+I (802) heap_init: At 3FCA2410 len 00047300 (284 KiB): RAM
+I (807) heap_init: At 3FCE9710 len 00005724 (21 KiB): RAM
+I (813) heap_init: At 3FCF0000 len 00008000 (32 KiB): DRAM
+I (818) heap_init: At 600FE000 len 00001FE8 (7 KiB): RTCRAM
+I (823) esp_psram: Adding pool of 8192K of PSRAM memory to heap allocator
+I (830) spi_flash: detected chip: generic
+I (833) spi_flash: flash io: dio
+I (837) sleep_gpio: Configure to isolate all GPIO pins in sleep state
+I (843) sleep_gpio: Enable automatic switching of GPIO sleep configuration
+I (850) main_task: Started on CPU0
+I (860) esp_psram: Reserving pool of 32K of internal memory for DMA/internal allocations
+I (860) main_task: Calling app_main()
+I (860) MBCOORD: MobileNet coordinator (N=4), 18 layers
+I (890) pp: pp rom version: e7ae62f
+I (890) net80211: net80211 rom version: e7ae62f
+I (900) wifi:wifi driver task: 3fcee9ac, prio:23, stack:6656, core=0
+I (900) wifi:wifi firmware version: 44738b4
+I (900) wifi:wifi certification version: v7.0
+I (900) wifi:config NVS flash: enabled
+I (900) wifi:config nano formatting: disabled
+I (910) wifi:Init data frame dynamic rx buffer num: 32
+I (910) wifi:Init static rx mgmt buffer num: 5
+I (920) wifi:Init management short buffer num: 32
+I (920) wifi:Init dynamic tx buffer num: 32
+I (930) wifi:Init static tx FG buffer num: 2
+I (930) wifi:Init static rx buffer size: 1600
+I (930) wifi:Init static rx buffer num: 10
+I (940) wifi:Init dynamic rx buffer num: 32
+I (940) wifi_init: rx ba win: 6
+I (940) wifi_init: accept mbox: 6
+I (950) wifi_init: tcpip mbox: 32
+I (950) wifi_init: udp mbox: 6
+I (950) wifi_init: tcp mbox: 6
+I (960) wifi_init: tcp tx win: 5760
+I (960) wifi_init: tcp rx win: 5760
+I (960) wifi_init: tcp mss: 1440
+I (970) wifi_init: WiFi IRAM OP enabled
+I (970) wifi_init: WiFi RX IRAM OP enabled
+I (970) phy_init: phy_version 711,97bcf0a2,Aug 25 2025,19:04:10
+I (1020) phy_init: Saving new calibration data due to checksum failure or outdated calibration data, mode(0)
+I (1040) wifi:mode : sta (02:00:00:00:00:00)
+I (1040) wifi:enable tsf
+I (1040) ESPNOW: espnow [version: 2.0] init
+I (1040) MBCOORD: Waiting for 4 workers...
+I (4860) MBCOORD: All workers ready. Running inference.
+I (8310) MBCOORD: pw0 (L02) 48x48x64 bcast=1746ms gather=870ms comp=212ms
+I (9800) MBCOORD: pw1 (L04) 24x24x128 bcast=594ms gather=747ms comp=187ms
+I (11560) MBCOORD: pw2 (L06) 24x24x128 bcast=874ms gather=655ms comp=349ms
+I (12280) MBCOORD: pw3 (L08) 12x12x256 bcast=184ms gather=457ms comp=172ms
+I (13240) MBCOORD: pw4 (L10) 12x12x256 bcast=390ms gather=454ms comp=333ms
+I (13670) MBCOORD: pw5 (L12) 6x6x512 bcast=49ms gather=348ms comp=168ms
+I (14340) MBCOORD: pw6 (L14) 6x6x512 bcast=146ms gather=466ms comp=371ms
+I (14630) MBCOORD: pw7 (L16) 3x3x1024 bcast=9ms gather=260ms comp=184ms
+I (14640) MBCOORD: pred=3 expected=3 label=3  total=9770ms (bcast=3995ms gather=4261ms)  mism=0
+I (14640) MBCOORD: PROFILE: local_conv/dw=1312ms wait_ready=0ms bcast=3995ms gather=4261ms other=201ms
+I (14640) MBCOORD: RESULT: DISTRIBUTED BIT-EXACT PASS
+----- RUN 2/5 -----
+I (79) esp_image: segment 0: paddr=00010020 vaddr=3c090020 size=29a10h (170512) map
+I (117) esp_image: segment 1: paddr=00039a38 vaddr=3fc98f00 size=05520h ( 21792) load
+I (122) esp_image: segment 2: paddr=0003ef60 vaddr=40374000 size=010b8h (  4280) load
+I (123) esp_image: segment 3: paddr=00040020 vaddr=42000020 size=82c78h (535672) map
+I (224) esp_image: segment 4: paddr=000c2ca0 vaddr=403750b8 size=13d80h ( 81280) load
+I (242) esp_image: segment 5: paddr=000d6a28 vaddr=50000000 size=00024h (    36) load
+I (252) boot: Loaded app from partition at offset 0x10000
+I (252) boot: Disabling RNG early entropy source...
+I (262) octal_psram: vendor id    : 0x0d (AP)
+I (262) octal_psram: dev id       : 0x02 (generation 3)
+I (263) octal_psram: density      : 0x03 (64 Mbit)
+I (264) octal_psram: good-die     : 0x01 (Pass)
+I (269) octal_psram: Latency      : 0x01 (Fixed)
+I (273) octal_psram: VCC          : 0x01 (3V)
+I (277) octal_psram: SRF          : 0x01 (Fast Refresh)
+I (282) octal_psram: BurstType    : 0x01 (Hybrid Wrap)
+I (287) octal_psram: BurstLen     : 0x01 (32 Byte)
+I (291) octal_psram: Readlatency  : 0x02 (10 cycles@Fixed)
+I (297) octal_psram: DriveStrength: 0x00 (1/1)
+I (301) MSPI Timing: Enter psram timing tuning
+I (306) esp_psram: Found 8MB PSRAM device
+I (309) esp_psram: Speed: 80MHz
+I (312) cpu_start: Multicore app
+I (747) esp_psram: SPI SRAM memory test OK
+I (755) cpu_start: GPIO 44 and 43 are used as console UART I/O pins
+I (756) cpu_start: Pro cpu start user code
+I (756) cpu_start: cpu freq: 160000000 Hz
+I (758) app_init: Application information:
+I (762) app_init: Project name:     swarm_coordinator_mbnet
+I (767) app_init: App version:      12f57e2-dirty
+I (771) app_init: Compile time:     Jun 19 2026 17:29:09
+I (776) app_init: ELF file SHA256:  584ea938b...
+I (781) app_init: ESP-IDF:          v6.0
+I (784) efuse_init: Min chip rev:     v0.0
+I (788) efuse_init: Max chip rev:     v0.99
+I (792) efuse_init: Chip rev:         v0.2
+I (796) heap_init: Initializing. RAM available for dynamic allocation:
+I (802) heap_init: At 3FCA2410 len 00047300 (284 KiB): RAM
+I (807) heap_init: At 3FCE9710 len 00005724 (21 KiB): RAM
+I (813) heap_init: At 3FCF0000 len 00008000 (32 KiB): DRAM
+I (818) heap_init: At 600FE000 len 00001FE8 (7 KiB): RTCRAM
+I (823) esp_psram: Adding pool of 8192K of PSRAM memory to heap allocator
+I (830) spi_flash: detected chip: generic
+I (833) spi_flash: flash io: dio
+I (837) sleep_gpio: Configure to isolate all GPIO pins in sleep state
+I (843) sleep_gpio: Enable automatic switching of GPIO sleep configuration
+I (850) main_task: Started on CPU0
+I (860) esp_psram: Reserving pool of 32K of internal memory for DMA/internal allocations
+I (860) main_task: Calling app_main()
+I (860) MBCOORD: MobileNet coordinator (N=4), 18 layers
+I (890) pp: pp rom version: e7ae62f
+I (890) net80211: net80211 rom version: e7ae62f
+I (900) wifi:wifi driver task: 3fcee928, prio:23, stack:6656, core=0
+I (900) wifi:wifi firmware version: 44738b4
+I (900) wifi:wifi certification version: v7.0
+I (900) wifi:config NVS flash: enabled
+I (900) wifi:config nano formatting: disabled
+I (910) wifi:Init data frame dynamic rx buffer num: 32
+I (910) wifi:Init static rx mgmt buffer num: 5
+I (920) wifi:Init management short buffer num: 32
+I (920) wifi:Init dynamic tx buffer num: 32
+I (930) wifi:Init static tx FG buffer num: 2
+I (930) wifi:Init static rx buffer size: 1600
+I (930) wifi:Init static rx buffer num: 10
+I (940) wifi:Init dynamic rx buffer num: 32
+I (940) wifi_init: rx ba win: 6
+I (940) wifi_init: accept mbox: 6
+I (950) wifi_init: tcpip mbox: 32
+I (950) wifi_init: udp mbox: 6
+I (950) wifi_init: tcp mbox: 6
+I (960) wifi_init: tcp tx win: 5760
+I (960) wifi_init: tcp rx win: 5760
+I (960) wifi_init: tcp mss: 1440
+I (970) wifi_init: WiFi IRAM OP enabled
+I (970) wifi_init: WiFi RX IRAM OP enabled
+I (970) phy_init: phy_version 711,97bcf0a2,Aug 25 2025,19:04:10
+I (1020) wifi:mode : sta (02:00:00:00:00:00)
+I (1020) wifi:enable tsf
+I (1020) ESPNOW: espnow [version: 2.0] init
+I (1020) MBCOORD: Waiting for 4 workers...
+I (4930) MBCOORD: All workers ready. Running inference.
+I (8410) MBCOORD: pw0 (L02) 48x48x64 bcast=1630ms gather=1022ms comp=212ms
+I (9870) MBCOORD: pw1 (L04) 24x24x128 bcast=577ms gather=734ms comp=187ms
+I (11670) MBCOORD: pw2 (L06) 24x24x128 bcast=920ms gather=644ms comp=349ms
+I (12380) MBCOORD: pw3 (L08) 12x12x256 bcast=183ms gather=455ms comp=172ms
+I (13350) MBCOORD: pw4 (L10) 12x12x256 bcast=401ms gather=452ms comp=333ms
+I (13780) MBCOORD: pw5 (L12) 6x6x512 bcast=54ms gather=337ms comp=169ms
+I (14440) MBCOORD: pw6 (L14) 6x6x512 bcast=139ms gather=465ms comp=370ms
+I (14730) MBCOORD: pw7 (L16) 3x3x1024 bcast=9ms gather=258ms comp=184ms
+I (14740) MBCOORD: pred=3 expected=3 label=3  total=9804ms (bcast=3917ms gather=4373ms)  mism=0
+I (14740) MBCOORD: PROFILE: local_conv/dw=1312ms wait_ready=0ms bcast=3917ms gather=4373ms other=201ms
+I (14740) MBCOORD: RESULT: DISTRIBUTED BIT-EXACT PASS
+----- RUN 3/5 -----
+I (79) esp_image: segment 0: paddr=00010020 vaddr=3c090020 size=29a10h (170512) map
+I (117) esp_image: segment 1: paddr=00039a38 vaddr=3fc98f00 size=05520h ( 21792) load
+I (122) esp_image: segment 2: paddr=0003ef60 vaddr=40374000 size=010b8h (  4280) load
+I (123) esp_image: segment 3: paddr=00040020 vaddr=42000020 size=82c78h (535672) map
+I (224) esp_image: segment 4: paddr=000c2ca0 vaddr=403750b8 size=13d80h ( 81280) load
+I (242) esp_image: segment 5: paddr=000d6a28 vaddr=50000000 size=00024h (    36) load
+I (252) boot: Loaded app from partition at offset 0x10000
+I (252) boot: Disabling RNG early entropy source...
+I (262) octal_psram: vendor id    : 0x0d (AP)
+I (262) octal_psram: dev id       : 0x02 (generation 3)
+I (263) octal_psram: density      : 0x03 (64 Mbit)
+I (264) octal_psram: good-die     : 0x01 (Pass)
+I (269) octal_psram: Latency      : 0x01 (Fixed)
+I (273) octal_psram: VCC          : 0x01 (3V)
+I (277) octal_psram: SRF          : 0x01 (Fast Refresh)
+I (282) octal_psram: BurstType    : 0x01 (Hybrid Wrap)
+I (287) octal_psram: BurstLen     : 0x01 (32 Byte)
+I (291) octal_psram: Readlatency  : 0x02 (10 cycles@Fixed)
+I (297) octal_psram: DriveStrength: 0x00 (1/1)
+I (301) MSPI Timing: Enter psram timing tuning
+I (306) esp_psram: Found 8MB PSRAM device
+I (309) esp_psram: Speed: 80MHz
+I (312) cpu_start: Multicore app
+I (747) esp_psram: SPI SRAM memory test OK
+I (755) cpu_start: GPIO 44 and 43 are used as console UART I/O pins
+I (756) cpu_start: Pro cpu start user code
+I (756) cpu_start: cpu freq: 160000000 Hz
+I (758) app_init: Application information:
+I (762) app_init: Project name:     swarm_coordinator_mbnet
+I (767) app_init: App version:      12f57e2-dirty
+I (771) app_init: Compile time:     Jun 19 2026 17:29:09
+I (776) app_init: ELF file SHA256:  584ea938b...
+I (781) app_init: ESP-IDF:          v6.0
+I (784) efuse_init: Min chip rev:     v0.0
+I (788) efuse_init: Max chip rev:     v0.99
+I (792) efuse_init: Chip rev:         v0.2
+I (796) heap_init: Initializing. RAM available for dynamic allocation:
+I (802) heap_init: At 3FCA2410 len 00047300 (284 KiB): RAM
+I (807) heap_init: At 3FCE9710 len 00005724 (21 KiB): RAM
+I (813) heap_init: At 3FCF0000 len 00008000 (32 KiB): DRAM
+I (818) heap_init: At 600FE000 len 00001FE8 (7 KiB): RTCRAM
+I (823) esp_psram: Adding pool of 8192K of PSRAM memory to heap allocator
+I (830) spi_flash: detected chip: generic
+I (833) spi_flash: flash io: dio
+I (837) sleep_gpio: Configure to isolate all GPIO pins in sleep state
+I (843) sleep_gpio: Enable automatic switching of GPIO sleep configuration
+I (850) main_task: Started on CPU0
+I (860) esp_psram: Reserving pool of 32K of internal memory for DMA/internal allocations
+I (860) main_task: Calling app_main()
+I (860) MBCOORD: MobileNet coordinator (N=4), 18 layers
+I (890) pp: pp rom version: e7ae62f
+I (890) net80211: net80211 rom version: e7ae62f
+I (900) wifi:wifi driver task: 3fcee928, prio:23, stack:6656, core=0
+I (900) wifi:wifi firmware version: 44738b4
+I (900) wifi:wifi certification version: v7.0
+I (900) wifi:config NVS flash: enabled
+I (900) wifi:config nano formatting: disabled
+I (910) wifi:Init data frame dynamic rx buffer num: 32
+I (910) wifi:Init static rx mgmt buffer num: 5
+I (920) wifi:Init management short buffer num: 32
+I (920) wifi:Init dynamic tx buffer num: 32
+I (930) wifi:Init static tx FG buffer num: 2
+I (930) wifi:Init static rx buffer size: 1600
+I (930) wifi:Init static rx buffer num: 10
+I (940) wifi:Init dynamic rx buffer num: 32
+I (940) wifi_init: rx ba win: 6
+I (940) wifi_init: accept mbox: 6
+I (950) wifi_init: tcpip mbox: 32
+I (950) wifi_init: udp mbox: 6
+I (950) wifi_init: tcp mbox: 6
+I (960) wifi_init: tcp tx win: 5760
+I (960) wifi_init: tcp rx win: 5760
+I (960) wifi_init: tcp mss: 1440
+I (970) wifi_init: WiFi IRAM OP enabled
+I (970) wifi_init: WiFi RX IRAM OP enabled
+I (970) phy_init: phy_version 711,97bcf0a2,Aug 25 2025,19:04:10
+I (1020) phy_init: Saving new calibration data due to checksum failure or outdated calibration data, mode(0)
+I (1090) wifi:mode : sta (02:00:00:00:00:00)
+I (1090) wifi:enable tsf
+I (1100) ESPNOW: espnow [version: 2.0] init
+I (1100) MBCOORD: Waiting for 4 workers...
+I (4930) MBCOORD: All workers ready. Running inference.
+I (8390) MBCOORD: pw0 (L02) 48x48x64 bcast=1627ms gather=996ms comp=212ms
+I (9860) MBCOORD: pw1 (L04) 24x24x128 bcast=597ms gather=726ms comp=187ms
+I (11630) MBCOORD: pw2 (L06) 24x24x128 bcast=865ms gather=673ms comp=349ms
+I (12350) MBCOORD: pw3 (L08) 12x12x256 bcast=186ms gather=458ms comp=172ms
+I (13320) MBCOORD: pw4 (L10) 12x12x256 bcast=399ms gather=454ms comp=333ms
+I (13740) MBCOORD: pw5 (L12) 6x6x512 bcast=49ms gather=340ms comp=169ms
+I (14410) MBCOORD: pw6 (L14) 6x6x512 bcast=138ms gather=466ms comp=370ms
+I (14700) MBCOORD: pw7 (L16) 3x3x1024 bcast=8ms gather=264ms comp=184ms
+I (14710) MBCOORD: pred=3 expected=3 label=3  total=9770ms (bcast=3874ms gather=4381ms)  mism=0
+I (14710) MBCOORD: PROFILE: local_conv/dw=1312ms wait_ready=0ms bcast=3874ms gather=4381ms other=201ms
+I (14710) MBCOORD: RESULT: DISTRIBUTED BIT-EXACT PASS
+----- RUN 4/5 -----
+I (79) esp_image: segment 0: paddr=00010020 vaddr=3c090020 size=29a10h (170512) map
+I (117) esp_image: segment 1: paddr=00039a38 vaddr=3fc98f00 size=05520h ( 21792) load
+I (122) esp_image: segment 2: paddr=0003ef60 vaddr=40374000 size=010b8h (  4280) load
+I (123) esp_image: segment 3: paddr=00040020 vaddr=42000020 size=82c78h (535672) map
+I (224) esp_image: segment 4: paddr=000c2ca0 vaddr=403750b8 size=13d80h ( 81280) load
+I (242) esp_image: segment 5: paddr=000d6a28 vaddr=50000000 size=00024h (    36) load
+I (252) boot: Loaded app from partition at offset 0x10000
+I (252) boot: Disabling RNG early entropy source...
+I (262) octal_psram: vendor id    : 0x0d (AP)
+I (262) octal_psram: dev id       : 0x02 (generation 3)
+I (263) octal_psram: density      : 0x03 (64 Mbit)
+I (264) octal_psram: good-die     : 0x01 (Pass)
+I (269) octal_psram: Latency      : 0x01 (Fixed)
+I (273) octal_psram: VCC          : 0x01 (3V)
+I (277) octal_psram: SRF          : 0x01 (Fast Refresh)
+I (282) octal_psram: BurstType    : 0x01 (Hybrid Wrap)
+I (287) octal_psram: BurstLen     : 0x01 (32 Byte)
+I (291) octal_psram: Readlatency  : 0x02 (10 cycles@Fixed)
+I (297) octal_psram: DriveStrength: 0x00 (1/1)
+I (301) MSPI Timing: Enter psram timing tuning
+I (306) esp_psram: Found 8MB PSRAM device
+I (309) esp_psram: Speed: 80MHz
+I (312) cpu_start: Multicore app
+I (747) esp_psram: SPI SRAM memory test OK
+I (755) cpu_start: GPIO 44 and 43 are used as console UART I/O pins
+I (756) cpu_start: Pro cpu start user code
+I (756) cpu_start: cpu freq: 160000000 Hz
+I (758) app_init: Application information:
+I (762) app_init: Project name:     swarm_coordinator_mbnet
+I (767) app_init: App version:      12f57e2-dirty
+I (771) app_init: Compile time:     Jun 19 2026 17:29:09
+I (776) app_init: ELF file SHA256:  584ea938b...
+I (781) app_init: ESP-IDF:          v6.0
+I (784) efuse_init: Min chip rev:     v0.0
+I (788) efuse_init: Max chip rev:     v0.99
+I (792) efuse_init: Chip rev:         v0.2
+I (796) heap_init: Initializing. RAM available for dynamic allocation:
+I (802) heap_init: At 3FCA2410 len 00047300 (284 KiB): RAM
+I (807) heap_init: At 3FCE9710 len 00005724 (21 KiB): RAM
+I (813) heap_init: At 3FCF0000 len 00008000 (32 KiB): DRAM
+I (818) heap_init: At 600FE000 len 00001FE8 (7 KiB): RTCRAM
+I (823) esp_psram: Adding pool of 8192K of PSRAM memory to heap allocator
+I (830) spi_flash: detected chip: generic
+I (833) spi_flash: flash io: dio
+I (837) sleep_gpio: Configure to isolate all GPIO pins in sleep state
+I (843) sleep_gpio: Enable automatic switching of GPIO sleep configuration
+I (850) main_task: Started on CPU0
+I (860) esp_psram: Reserving pool of 32K of internal memory for DMA/internal allocations
+I (860) main_task: Calling app_main()
+I (860) MBCOORD: MobileNet coordinator (N=4), 18 layers
+I (890) pp: pp rom version: e7ae62f
+I (890) net80211: net80211 rom version: e7ae62f
+I (900) wifi:wifi driver task: 3fcee9ac, prio:23, stack:6656, core=0
+I (900) wifi:wifi firmware version: 44738b4
+I (900) wifi:wifi certification version: v7.0
+I (900) wifi:config NVS flash: enabled
+I (900) wifi:config nano formatting: disabled
+I (910) wifi:Init data frame dynamic rx buffer num: 32
+I (910) wifi:Init static rx mgmt buffer num: 5
+I (920) wifi:Init management short buffer num: 32
+I (920) wifi:Init dynamic tx buffer num: 32
+I (930) wifi:Init static tx FG buffer num: 2
+I (930) wifi:Init static rx buffer size: 1600
+I (930) wifi:Init static rx buffer num: 10
+I (940) wifi:Init dynamic rx buffer num: 32
+I (940) wifi_init: rx ba win: 6
+I (940) wifi_init: accept mbox: 6
+I (950) wifi_init: tcpip mbox: 32
+I (950) wifi_init: udp mbox: 6
+I (950) wifi_init: tcp mbox: 6
+I (960) wifi_init: tcp tx win: 5760
+I (960) wifi_init: tcp rx win: 5760
+I (960) wifi_init: tcp mss: 1440
+I (970) wifi_init: WiFi IRAM OP enabled
+I (970) wifi_init: WiFi RX IRAM OP enabled
+I (970) phy_init: phy_version 711,97bcf0a2,Aug 25 2025,19:04:10
+I (1020) wifi:mode : sta (02:00:00:00:00:00)
+I (1020) wifi:enable tsf
+I (1020) ESPNOW: espnow [version: 2.0] init
+I (1020) MBCOORD: Waiting for 4 workers...
+I (4930) MBCOORD: All workers ready. Running inference.
+I (8410) MBCOORD: pw0 (L02) 48x48x64 bcast=1729ms gather=926ms comp=212ms
+I (9900) MBCOORD: pw1 (L04) 24x24x128 bcast=598ms gather=743ms comp=187ms
+I (11730) MBCOORD: pw2 (L06) 24x24x128 bcast=928ms gather=666ms comp=349ms
+I (12450) MBCOORD: pw3 (L08) 12x12x256 bcast=187ms gather=456ms comp=172ms
+I (13400) MBCOORD: pw4 (L10) 12x12x256 bcast=390ms gather=450ms comp=333ms
+I (13830) MBCOORD: pw5 (L12) 6x6x512 bcast=51ms gather=335ms comp=168ms
+I (14490) MBCOORD: pw6 (L14) 6x6x512 bcast=138ms gather=470ms comp=370ms
+I (14780) MBCOORD: pw7 (L16) 3x3x1024 bcast=9ms gather=256ms comp=184ms
+I (14790) MBCOORD: pred=3 expected=3 label=3  total=9852ms (bcast=4032ms gather=4306ms)  mism=0
+I (14790) MBCOORD: PROFILE: local_conv/dw=1312ms wait_ready=0ms bcast=4032ms gather=4306ms other=201ms
+I (14790) MBCOORD: RESULT: DISTRIBUTED BIT-EXACT PASS
+----- RUN 5/5 -----
+I (79) esp_image: segment 0: paddr=00010020 vaddr=3c090020 size=29a10h (170512) map
+I (117) esp_image: segment 1: paddr=00039a38 vaddr=3fc98f00 size=05520h ( 21792) load
+I (122) esp_image: segment 2: paddr=0003ef60 vaddr=40374000 size=010b8h (  4280) load
+I (123) esp_image: segment 3: paddr=00040020 vaddr=42000020 size=82c78h (535672) map
+I (224) esp_image: segment 4: paddr=000c2ca0 vaddr=403750b8 size=13d80h ( 81280) load
+I (242) esp_image: segment 5: paddr=000d6a28 vaddr=50000000 size=00024h (    36) load
+I (252) boot: Loaded app from partition at offset 0x10000
+I (252) boot: Disabling RNG early entropy source...
+I (262) octal_psram: vendor id    : 0x0d (AP)
+I (262) octal_psram: dev id       : 0x02 (generation 3)
+I (263) octal_psram: density      : 0x03 (64 Mbit)
+I (264) octal_psram: good-die     : 0x01 (Pass)
+I (269) octal_psram: Latency      : 0x01 (Fixed)
+I (273) octal_psram: VCC          : 0x01 (3V)
+I (277) octal_psram: SRF          : 0x01 (Fast Refresh)
+I (282) octal_psram: BurstType    : 0x01 (Hybrid Wrap)
+I (287) octal_psram: BurstLen     : 0x01 (32 Byte)
+I (291) octal_psram: Readlatency  : 0x02 (10 cycles@Fixed)
+I (297) octal_psram: DriveStrength: 0x00 (1/1)
+I (301) MSPI Timing: Enter psram timing tuning
+I (306) esp_psram: Found 8MB PSRAM device
+I (309) esp_psram: Speed: 80MHz
+I (312) cpu_start: Multicore app
+I (747) esp_psram: SPI SRAM memory test OK
+I (756) cpu_start: GPIO 44 and 43 are used as console UART I/O pins
+I (756) cpu_start: Pro cpu start user code
+I (756) cpu_start: cpu freq: 160000000 Hz
+I (758) app_init: Application information:
+I (762) app_init: Project name:     swarm_coordinator_mbnet
+I (767) app_init: App version:      12f57e2-dirty
+I (771) app_init: Compile time:     Jun 19 2026 17:29:09
+I (776) app_init: ELF file SHA256:  584ea938b...
+I (781) app_init: ESP-IDF:          v6.0
+I (784) efuse_init: Min chip rev:     v0.0
+I (788) efuse_init: Max chip rev:     v0.99
+I (792) efuse_init: Chip rev:         v0.2
+I (796) heap_init: Initializing. RAM available for dynamic allocation:
+I (802) heap_init: At 3FCA2410 len 00047300 (284 KiB): RAM
+I (807) heap_init: At 3FCE9710 len 00005724 (21 KiB): RAM
+I (813) heap_init: At 3FCF0000 len 00008000 (32 KiB): DRAM
+I (818) heap_init: At 600FE000 len 00001FE8 (7 KiB): RTCRAM
+I (823) esp_psram: Adding pool of 8192K of PSRAM memory to heap allocator
+I (830) spi_flash: detected chip: generic
+I (833) spi_flash: flash io: dio
+I (837) sleep_gpio: Configure to isolate all GPIO pins in sleep state
+I (843) sleep_gpio: Enable automatic switching of GPIO sleep configuration
+I (850) main_task: Started on CPU0
+I (860) esp_psram: Reserving pool of 32K of internal memory for DMA/internal allocations
+I (860) main_task: Calling app_main()
+I (860) MBCOORD: MobileNet coordinator (N=4), 18 layers
+I (890) pp: pp rom version: e7ae62f
+I (890) net80211: net80211 rom version: e7ae62f
+I (900) wifi:wifi driver task: 3fcee9ac, prio:23, stack:6656, core=0
+I (900) wifi:wifi firmware version: 44738b4
+I (900) wifi:wifi certification version: v7.0
+I (900) wifi:config NVS flash: enabled
+I (900) wifi:config nano formatting: disabled
+I (910) wifi:Init data frame dynamic rx buffer num: 32
+I (910) wifi:Init static rx mgmt buffer num: 5
+I (920) wifi:Init management short buffer num: 32
+I (920) wifi:Init dynamic tx buffer num: 32
+I (930) wifi:Init static tx FG buffer num: 2
+I (930) wifi:Init static rx buffer size: 1600
+I (930) wifi:Init static rx buffer num: 10
+I (940) wifi:Init dynamic rx buffer num: 32
+I (940) wifi_init: rx ba win: 6
+I (940) wifi_init: accept mbox: 6
+I (950) wifi_init: tcpip mbox: 32
+I (950) wifi_init: udp mbox: 6
+I (950) wifi_init: tcp mbox: 6
+I (960) wifi_init: tcp tx win: 5760
+I (960) wifi_init: tcp rx win: 5760
+I (960) wifi_init: tcp mss: 1440
+I (970) wifi_init: WiFi IRAM OP enabled
+I (970) wifi_init: WiFi RX IRAM OP enabled
+I (970) phy_init: phy_version 711,97bcf0a2,Aug 25 2025,19:04:10
+I (1020) wifi:mode : sta (02:00:00:00:00:00)
+I (1020) wifi:enable tsf
+I (1020) ESPNOW: espnow [version: 2.0] init
+I (1030) MBCOORD: Waiting for 4 workers...
+I (4930) MBCOORD: All workers ready. Running inference.
+I (8410) MBCOORD: pw0 (L02) 48x48x64 bcast=1763ms gather=886ms comp=212ms
+I (9930) MBCOORD: pw1 (L04) 24x24x128 bcast=606ms gather=767ms comp=187ms
+I (11720) MBCOORD: pw2 (L06) 24x24x128 bcast=885ms gather=668ms comp=349ms
+I (12440) MBCOORD: pw3 (L08) 12x12x256 bcast=197ms gather=446ms comp=173ms
+I (13410) MBCOORD: pw4 (L10) 12x12x256 bcast=395ms gather=456ms comp=333ms
+I (13840) MBCOORD: pw5 (L12) 6x6x512 bcast=55ms gather=344ms comp=169ms
+I (14500) MBCOORD: pw6 (L14) 6x6x512 bcast=137ms gather=464ms comp=370ms
+I (14790) MBCOORD: pw7 (L16) 3x3x1024 bcast=9ms gather=257ms comp=184ms
+I (14790) MBCOORD: pred=3 expected=3 label=3  total=9857ms (bcast=4050ms gather=4293ms)  mism=0
+I (14790) MBCOORD: PROFILE: local_conv/dw=1312ms wait_ready=0ms bcast=4050ms gather=4293ms other=201ms
+I (14800) MBCOORD: RESULT: DISTRIBUTED BIT-EXACT PASS
+===== SUMMARY: 5/5 bit-exact PASS =====

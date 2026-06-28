@@ -7,12 +7,12 @@
 
 | USB Port | MAC Address | Board | Role |
 |----------|-------------|-------|------|
-| `/dev/cu.usbmodem212301` | B8:F8:62:E2:D0:8C | Board 0 | **Coordinator** |
-| `/dev/cu.usbmodem212401` | B8:F8:62:E2:D1:98 | Board 1 | **Worker 1** |
-| `/dev/cu.usbmodem212201` | B8:F8:62:E2:CD:E4 | Board 2 | **Worker 2** |
-| `/dev/cu.usbmodem2121401` | B8:F8:62:E2:DA:28 | Board 3 | **Worker 3** |
-| `/dev/cu.usbmodem2121301` | B8:F8:62:E2:D0:DC | Board 4 | **Worker 4** |
-| `/dev/cu.usbmodem2121201` | B8:F8:62:E2:C7:30 | Board 5 | **Monitor/Spare** |
+| `/dev/cu.usbmodem212301` | 02:00:00:00:00:00 | Board 0 | **Coordinator** |
+| `/dev/cu.usbmodem212401` | 02:00:00:00:00:01 | Board 1 | **Worker 1** |
+| `/dev/cu.usbmodem212201` | 02:00:00:00:00:02 | Board 2 | **Worker 2** |
+| `/dev/cu.usbmodem2121401` | 02:00:00:00:00:03 | Board 3 | **Worker 3** |
+| `/dev/cu.usbmodem2121301` | 02:00:00:00:00:04 | Board 4 | **Worker 4** |
+| `/dev/cu.usbmodem2121201` | 02:00:00:00:00:05 | Board 5 | **Monitor/Spare** |
 
 ## Quick Flash Commands
 

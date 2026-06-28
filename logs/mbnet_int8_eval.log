@@ -1,0 +1,6 @@
+Folded graph: 18 layers
+BN-folding check (n=200): keras_acc=90.5%  folded_acc=90.5%  pred_agree=100.0%  max|logit_diff|=0.0000
+  OK: BN folding is correct (folded float == keras).
+
+Calibrating on 200 images...
+INT8 eval (n=10000, pc_dw=False): keras=89.3%  int8=89.2%  drop=+0.2pp

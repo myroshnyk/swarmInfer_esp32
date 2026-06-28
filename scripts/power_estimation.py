@@ -1,10 +1,14 @@
 """
 SwarmInfer: Datasheet-based Power & Energy Estimation
 
-Uses ESP32-S3 datasheet power profiles (Table 14, ESP32-S3 TRM v1.4)
-combined with measured timing data to estimate energy-per-inference.
+DEPRECATED / SUPERSEDED. This script produces a *datasheet-based estimate* only
+(ESP32-S3 TRM typical currents x measured timing). The manuscript's Power and
+Energy table (Table 12) is NOT derived from this file — it comes from on-device
+INA219 measurement, analysed by `models/power_analyze.py`. This script is kept
+only for historical reference; its numbers are estimates and will differ from
+the measured figures. Do not cite its output as measured power.
 
-Usage: python power_estimation.py
+Usage: python power_estimation.py   # prints datasheet estimates only
 """
 
 # ============================================================

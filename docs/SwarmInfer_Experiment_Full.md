@@ -327,12 +327,12 @@ Y_full[H_out, W_out, C_out] = concatenate(Y_0, Y_1, ..., Y_{N-1}) along dimensio
 
 | Board | Role | MAC Address | USB Port | C Array |
 |-------|------|-------------|----------|---------|
-| Board 0 | **Coordinator** | B8:F8:62:E2:D0:8C | `/dev/cu.usbmodem212301` | `{0xB8, 0xF8, 0x62, 0xE2, 0xD0, 0x8C}` |
-| Board 1 | **Worker 1** | B8:F8:62:E2:D1:98 | `/dev/cu.usbmodem212401` | `{0xB8, 0xF8, 0x62, 0xE2, 0xD1, 0x98}` |
-| Board 2 | **Worker 2** | B8:F8:62:E2:CD:E4 | `/dev/cu.usbmodem212201` | `{0xB8, 0xF8, 0x62, 0xE2, 0xCD, 0xE4}` |
-| Board 3 | **Worker 3** | B8:F8:62:E2:DA:28 | `/dev/cu.usbmodem2121401` | `{0xB8, 0xF8, 0x62, 0xE2, 0xDA, 0x28}` |
-| Board 4 | **Worker 4** | B8:F8:62:E2:D0:DC | `/dev/cu.usbmodem2121301` | `{0xB8, 0xF8, 0x62, 0xE2, 0xD0, 0xDC}` |
-| Board 5 | **Monitor/Spare** | B8:F8:62:E2:C7:30 | `/dev/cu.usbmodem2121201` | `{0xB8, 0xF8, 0x62, 0xE2, 0xC7, 0x30}` |
+| Board 0 | **Coordinator** | 02:00:00:00:00:00 | `/dev/cu.usbmodem212301` | `{0x02, 0x00, 0x00, 0x00, 0x00, 0x00}` |
+| Board 1 | **Worker 1** | 02:00:00:00:00:01 | `/dev/cu.usbmodem212401` | `{0x02, 0x00, 0x00, 0x00, 0x00, 0x01}` |
+| Board 2 | **Worker 2** | 02:00:00:00:00:02 | `/dev/cu.usbmodem212201` | `{0x02, 0x00, 0x00, 0x00, 0x00, 0x02}` |
+| Board 3 | **Worker 3** | 02:00:00:00:00:03 | `/dev/cu.usbmodem2121401` | `{0x02, 0x00, 0x00, 0x00, 0x00, 0x03}` |
+| Board 4 | **Worker 4** | 02:00:00:00:00:04 | `/dev/cu.usbmodem2121301` | `{0x02, 0x00, 0x00, 0x00, 0x00, 0x04}` |
+| Board 5 | **Monitor/Spare** | 02:00:00:00:00:05 | `/dev/cu.usbmodem2121201` | `{0x02, 0x00, 0x00, 0x00, 0x00, 0x05}` |
 
 ---
 
@@ -505,7 +505,7 @@ static const char *TAG = "BENCH";
 #define MY_ROLE ROLE_PING  // Change to ROLE_PONG for the second board
 
 // MAC address of the peer (the second board)
-static uint8_t peer_mac[] = {0xB8, 0xF8, 0x62, 0xE2, 0xD1, 0x98};
+static uint8_t peer_mac[] = {0x02, 0x00, 0x00, 0x00, 0x00, 0x01};
 
 #define NUM_TESTS        500
 #define WARMUP_PACKETS   10

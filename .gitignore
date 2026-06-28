@@ -19,12 +19,12 @@ venv/
 *.h5
 *.keras
 
-# Experiment outputs (regenerate via scripts/run_experiment.sh).
-# The reference-paper-runs subdir is explicitly kept — those are the
-# archived logs that reproduce every table in the paper.
-logs/*
-!logs/reference_paper_runs/
-results/
+# Experiment outputs. We ship the derived results (results/) and the raw serial
+# logs (logs/) that back every table in the paper, so readers can reproduce
+# every numerical claim without the hardware. Large instrumented serial
+# captures are gzipped. Only transient scratch files are ignored.
+*.tmp
+logs/**/*.tmp
 
 # OS / editor
 .DS_Store

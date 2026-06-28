@@ -1,0 +1,26 @@
+{
+  "n_images": 1000,
+  "per_layer": {
+    "Conv1 (pool)": {
+      "mean": 54.0,
+      "std": 5.6,
+      "min": 39.2,
+      "max": 71.6,
+      "size_elems": 16384
+    },
+    "Conv2 (pool)": {
+      "mean": 75.5,
+      "std": 1.7,
+      "min": 69.7,
+      "max": 80.9,
+      "size_elems": 8192
+    },
+    "Conv3 (GAP)": {
+      "mean": 41.6,
+      "std": 5.7,
+      "min": 31.2,
+      "max": 69.5,
+      "size_elems": 256
+    }
+  }
+}

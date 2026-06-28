@@ -1,0 +1,105 @@
+{
+  "n3": {
+    "n_images": 150,
+    "total_ms": 2618.9,
+    "gather_ms": [
+      554.3,
+      920.8,
+      935.4
+    ],
+    "compute_ms": [
+      414.7,
+      811.3,
+      852.0
+    ],
+    "shards": {
+      "conv1": [
+        22,
+        21,
+        21
+      ],
+      "conv2": [
+        43,
+        43,
+        42
+      ],
+      "conv3": [
+        86,
+        85,
+        85
+      ]
+    },
+    "load_imbalance": {
+      "conv1": 1.031,
+      "conv2": 1.008,
+      "conv3": 1.008
+    },
+    "max_load_imbalance": 1.031
+  },
+  "n5": {
+    "n_images": 150,
+    "total_ms": 1838.0,
+    "gather_ms": [
+      392.2,
+      601.6,
+      591.3
+    ],
+    "compute_ms": [
+      245.5,
+      490.8,
+      507.0
+    ],
+    "shards": {
+      "conv1": [
+        13,
+        13,
+        13,
+        13,
+        12
+      ],
+      "conv2": [
+        26,
+        26,
+        26,
+        25,
+        25
+      ],
+      "conv3": [
+        52,
+        51,
+        51,
+        51,
+        51
+      ]
+    },
+    "load_imbalance": {
+      "conv1": 1.016,
+      "conv2": 1.016,
+      "conv3": 1.016
+    },
+    "max_load_imbalance": 1.016
+  },
+  "paper_baseline": {
+    "2": 3653.0,
+    "4": 2115.0
+  },
+  "scalability": {
+    "2": {
+      "total_ms": 3653.0,
+      "speedup_vs_n2": 1.0
+    },
+    "3": {
+      "total_ms": 2618.9,
+      "speedup_vs_n2": 1.39
+    },
+    "4": {
+      "total_ms": 2115.0,
+      "speedup_vs_n2": 1.73
+    },
+    "5": {
+      "total_ms": 1838.0,
+      "speedup_vs_n2": 1.99
+    }
+  },
+  "bit_exact": "N=3 and N=5: 150/150 predictions identical to N=4 reference (exact partitioning)"
+}

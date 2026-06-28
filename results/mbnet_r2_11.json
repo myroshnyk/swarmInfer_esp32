@@ -1,0 +1,107 @@
+{
+  "model": "scaled MobileNet-V1 (depthwise-separable), 96x96x3, 1,089,738 params",
+  "sram_exceeding_layer": "b8_pw 512->1024: 524,288 INT8 weight bytes (512 KB) > 512 KB SRAM; 128 KB/worker at N=4",
+  "n_workers": 4,
+  "distributed_pointwise_rounds": 8,
+  "accuracy": {
+    "float_test_10k_pct": 89.34,
+    "int8_test_10k_pct": 89.2
+  },
+  "bit_exact": {
+    "runs": 5,
+    "pass": 5,
+    "predicted_class": 3,
+    "label": 3
+  },
+  "latency_ms": {
+    "total_mean": 9810.6,
+    "broadcast_mean": 3973.6,
+    "gather_mean": 4322.8,
+    "local_compute": 1312,
+    "other": 201,
+    "worker_pw_compute": 1976.0,
+    "gather_transmit_derived": 2346.8,
+    "per_run_totals": [
+      9770,
+      9804,
+      9770,
+      9852,
+      9857
+    ],
+    "per_round": {
+      "pw0": {
+        "dims": "48x48x64",
+        "bcast": 1699,
+        "gather": 940,
+        "compute": 212,
+        "transmit": 728
+      },
+      "pw1": {
+        "dims": "24x24x128",
+        "bcast": 594.4,
+        "gather": 743.4,
+        "compute": 187,
+        "transmit": 556.4
+      },
+      "pw2": {
+        "dims": "24x24x128",
+        "bcast": 894.4,
+        "gather": 661.2,
+        "compute": 349,
+        "transmit": 312.2
+      },
+      "pw3": {
+        "dims": "12x12x256",
+        "bcast": 187.4,
+        "gather": 454.4,
+        "compute": 172.2,
+        "transmit": 282.2
+      },
+      "pw4": {
+        "dims": "12x12x256",
+        "bcast": 395,
+        "gather": 453.2,
+        "compute": 333,
+        "transmit": 120.2
+      },
+      "pw5": {
+        "dims": "6x6x512",
+        "bcast": 51.6,
+        "gather": 340.8,
+        "compute": 168.6,
+        "transmit": 172.2
+      },
+      "pw6": {
+        "dims": "6x6x512",
+        "bcast": 139.6,
+        "gather": 466.2,
+        "compute": 370.2,
+        "transmit": 96.0
+      },
+      "pw7": {
+        "dims": "3x3x1024",
+        "bcast": 8.8,
+        "gather": 259,
+        "compute": 184,
+        "transmit": 75
+      }
+    }
+  },
+  "compute_vs_communication": {
+    "compute_ms": 3288.0,
+    "compute_pct": 33.5,
+    "communication_ms": 6320.4,
+    "communication_pct": 64.4,
+    "other_ms": 201,
+    "other_pct": 2.0,
+    "verdict": "communication-bound"
+  },
+  "communication_volume_bytes": {
+    "broadcast": 271872,
+    "gather": 414720,
+    "total": 686592,
+    "broadcast_KB": 265.5,
+    "gather_KB": 405.0,
+    "total_KB": 670.5
+  }
+}

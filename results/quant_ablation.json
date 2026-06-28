@@ -1,0 +1,254 @@
+{
+  "meta": {
+    "smoke": false,
+    "n_eval": 10000,
+    "calibration": "activation ranges from x_test[:1000] (matches fix_quantize.py)",
+    "modes": [
+      "float32",
+      "int8_per_tensor",
+      "int8_per_channel"
+    ],
+    "per_channel": "symmetric per-output-channel weight scale; activations per-tensor",
+    "note": "INT8 paths bit-exact with ESP32 firmware integer math"
+  },
+  "arch": {
+    "fatcnn": {
+      "bit_exact": true,
+      "subsets": {
+        "1k": {
+          "n": 1000,
+          "acc_float32": 0.785,
+          "acc_int8_per_tensor": 0.792,
+          "acc_int8_per_channel": 0.788,
+          "delta_f32_to_pt": 0.007000000000000006,
+          "delta_pt_to_pc": -0.0040000000000000036
+        },
+        "10k": {
+          "n": 10000,
+          "acc_float32": 0.774,
+          "acc_int8_per_tensor": 0.7699,
+          "acc_int8_per_channel": 0.7704,
+          "delta_f32_to_pt": -0.0040999999999999925,
+          "delta_pt_to_pc": 0.0004999999999999449
+        }
+      },
+      "per_layer": {
+        "conv1": {
+          "activation_real_range": [
+            0.0,
+            4.196296215057373
+          ],
+          "weight_real_range": [
+            -0.6276440620422363,
+            0.42432981729507446
+          ],
+          "output_scale": 0.016456063588460287,
+          "output_zp": -128,
+          "pt_weight_scale": 0.004125387762107101,
+          "pt_weight_zp": 24,
+          "pc_weight_scale_min": 0.0007271107169799507,
+          "pc_weight_scale_max": 0.004942079074680805,
+          "saturation_per_tensor": {
+            "sat_hi_127": 240,
+            "sat_lo_neg128": 445381166,
+            "n_outputs": 655360000,
+            "sat_hi_frac": 3.662109375e-07,
+            "relu_zero_frac": 0.6795977264404297,
+            "sat_frac": 0.6795980926513672
+          },
+          "saturation_per_channel": {
+            "sat_hi_127": 55,
+            "sat_lo_neg128": 445983979,
+            "n_outputs": 655360000,
+            "sat_hi_frac": 8.392333984375e-08,
+            "relu_zero_frac": 0.680517546081543,
+            "sat_frac": 0.6805176300048829
+          }
+        },
+        "conv2": {
+          "activation_real_range": [
+            0.0,
+            16.822589874267578
+          ],
+          "weight_real_range": [
+            -1.0642478466033936,
+            0.8672457337379456
+          ],
+          "output_scale": 0.06597094068340227,
+          "output_zp": -128,
+          "pt_weight_scale": 0.007574484628789565,
+          "pt_weight_zp": 13,
+          "pc_weight_scale_min": 0.0005701482878066599,
+          "pc_weight_scale_max": 0.008379904553294182,
+          "saturation_per_tensor": {
+            "sat_hi_127": 24,
+            "sat_lo_neg128": 289949920,
+            "n_outputs": 327680000,
+            "sat_hi_frac": 7.32421875e-08,
+            "relu_zero_frac": 0.88485693359375,
+            "sat_frac": 0.8848570068359375
+          },
+          "saturation_per_channel": {
+            "sat_hi_127": 23,
+            "sat_lo_neg128": 289785757,
+            "n_outputs": 327680000,
+            "sat_hi_frac": 7.01904296875e-08,
+            "relu_zero_frac": 0.8843559478759766,
+            "sat_frac": 0.8843560180664063
+          }
+        },
+        "conv3": {
+          "activation_real_range": [
+            0.0,
+            30.012248992919922
+          ],
+          "weight_real_range": [
+            -1.4623738527297974,
+            0.6515892148017883
+          ],
+          "output_scale": 0.11769509408988205,
+          "output_zp": -128,
+          "pt_weight_scale": 0.008290051245221905,
+          "pt_weight_zp": 48,
+          "pc_weight_scale_min": 0.00044089523726142943,
+          "pc_weight_scale_max": 0.011514754965901375,
+          "saturation_per_tensor": {
+            "sat_hi_127": 10,
+            "sat_lo_neg128": 146851531,
+            "n_outputs": 163840000,
+            "sat_hi_frac": 6.103515625e-08,
+            "relu_zero_frac": 0.8963106140136718,
+            "sat_frac": 0.8963106750488281
+          },
+          "saturation_per_channel": {
+            "sat_hi_127": 10,
+            "sat_lo_neg128": 146834035,
+            "n_outputs": 163840000,
+            "sat_hi_frac": 6.103515625e-08,
+            "relu_zero_frac": 0.8962038269042969,
+            "sat_frac": 0.8962038879394532
+          }
+        }
+      }
+    },
+    "fatcnn_lite": {
+      "bit_exact": true,
+      "subsets": {
+        "1k": {
+          "n": 1000,
+          "acc_float32": 0.754,
+          "acc_int8_per_tensor": 0.743,
+          "acc_int8_per_channel": 0.741,
+          "delta_f32_to_pt": -0.01100000000000001,
+          "delta_pt_to_pc": -0.0020000000000000018
+        },
+        "10k": {
+          "n": 10000,
+          "acc_float32": 0.7434,
+          "acc_int8_per_tensor": 0.7401,
+          "acc_int8_per_channel": 0.7408,
+          "delta_f32_to_pt": -0.0032999999999999696,
+          "delta_pt_to_pc": 0.0007000000000000339
+        }
+      },
+      "per_layer": {
+        "conv1": {
+          "activation_real_range": [
+            0.0,
+            3.436208724975586
+          ],
+          "weight_real_range": [
+            -0.4831678867340088,
+            0.36339226365089417
+          ],
+          "output_scale": 0.013475328333237592,
+          "output_zp": -128,
+          "pt_weight_scale": 0.0033198437269996196,
+          "pt_weight_zp": 18,
+          "pc_weight_scale_min": 0.0007498154882341623,
+          "pc_weight_scale_max": 0.0038044715765863657,
+          "saturation_per_tensor": {
+            "sat_hi_127": 4694,
+            "sat_lo_neg128": 185524643,
+            "n_outputs": 327680000,
+            "sat_hi_frac": 1.4324951171875e-05,
+            "relu_zero_frac": 0.5661762786865234,
+            "sat_frac": 0.5661906036376954
+          },
+          "saturation_per_channel": {
+            "sat_hi_127": 2750,
+            "sat_lo_neg128": 185893114,
+            "n_outputs": 327680000,
+            "sat_hi_frac": 8.392333984375e-06,
+            "relu_zero_frac": 0.5673007629394531,
+            "sat_frac": 0.5673091552734375
+          }
+        },
+        "conv2": {
+          "activation_real_range": [
+            0.0,
+            9.856108665466309
+          ],
+          "weight_real_range": [
+            -1.5062532424926758,
+            0.736515998840332
+          ],
+          "output_scale": 0.038651406531240426,
+          "output_zp": -128,
+          "pt_weight_scale": 0.00879517349542356,
+          "pt_weight_zp": 43,
+          "pc_weight_scale_min": 0.0009017304400913417,
+          "pc_weight_scale_max": 0.011860261671245098,
+          "saturation_per_tensor": {
+            "sat_hi_127": 15,
+            "sat_lo_neg128": 128950850,
+            "n_outputs": 163840000,
+            "sat_hi_frac": 9.1552734375e-08,
+            "relu_zero_frac": 0.7870535278320312,
+            "sat_frac": 0.7870536193847656
+          },
+          "saturation_per_channel": {
+            "sat_hi_127": 12,
+            "sat_lo_neg128": 128759339,
+            "n_outputs": 163840000,
+            "sat_hi_frac": 7.32421875e-08,
+            "relu_zero_frac": 0.7858846374511719,
+            "sat_frac": 0.7858847106933594
+          }
+        },
+        "conv3": {
+          "activation_real_range": [
+            0.0,
+            24.840024948120117
+          ],
+          "weight_real_range": [
+            -1.7516993284225464,
+            0.7707622647285461
+          ],
+          "output_scale": 0.09741186254164752,
+          "output_zp": -128,
+          "pt_weight_scale": 0.009892006247651344,
+          "pt_weight_zp": 49,
+          "pc_weight_scale_min": 0.0007029559928923845,
+          "pc_weight_scale_max": 0.013792907819151878,
+          "saturation_per_tensor": {
+            "sat_hi_127": 3,
+            "sat_lo_neg128": 67186234,
+            "n_outputs": 81920000,
+            "sat_hi_frac": 3.662109375e-08,
+            "relu_zero_frac": 0.8201444580078125,
+            "sat_frac": 0.8201444946289063
+          },
+          "saturation_per_channel": {
+            "sat_hi_127": 1,
+            "sat_lo_neg128": 67191118,
+            "n_outputs": 81920000,
+            "sat_hi_frac": 1.220703125e-08,
+            "relu_zero_frac": 0.8202040771484375,
+            "sat_frac": 0.8202040893554687
+          }
+        }
+      }
+    }
+  }
+}

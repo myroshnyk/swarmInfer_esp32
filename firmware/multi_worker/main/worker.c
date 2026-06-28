@@ -14,7 +14,7 @@
 static const char *TAG = "WORKER";
 
 // Coordinator MAC
-static uint8_t coord_mac[] = {0xB8, 0xF8, 0x62, 0xE2, 0xD0, 0x8C};
+static uint8_t coord_mac[] = {0x02, 0x00, 0x00, 0x00, 0x00, 0x00};  /* PLACEHOLDER MAC — set to YOUR coordinator's MAC (each board prints its own MAC at boot via esp_read_mac / the get_mac sketch) */
 
 static SemaphoreHandle_t recv_sem;
 static uint8_t recv_buf[250];

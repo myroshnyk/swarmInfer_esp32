@@ -1,0 +1,83 @@
+{
+  "meta": {
+    "smoke": false,
+    "epochs": 30,
+    "seeds": [
+      0,
+      1,
+      2
+    ],
+    "batch": 128,
+    "lr": 0.001,
+    "augmentation": "none (matches canonical train_fatcnn*.py and the shipped INT8 weights)",
+    "full_test_set": 10000,
+    "subset": "first 1000 test images (comparable to on-device INT8)",
+    "ci_method": "two-sided 95% Student-t interval over 3 paired-by-seed gaps"
+  },
+  "per_arch": {
+    "fatcnn": {
+      "per_seed": {
+        "0": {
+          "acc_10k": 0.7629,
+          "acc_1k": 0.769
+        },
+        "1": {
+          "acc_10k": 0.7572,
+          "acc_1k": 0.745
+        },
+        "2": {
+          "acc_10k": 0.7392,
+          "acc_1k": 0.734
+        }
+      },
+      "acc_10k_mean": 0.7531,
+      "acc_10k_sd": 0.012370529495539009,
+      "acc_1k_mean": 0.7493333333333334,
+      "acc_1k_sd": 0.017897858344878417
+    },
+    "fatcnn_lite": {
+      "per_seed": {
+        "0": {
+          "acc_10k": 0.7283,
+          "acc_1k": 0.725
+        },
+        "1": {
+          "acc_10k": 0.732,
+          "acc_1k": 0.724
+        },
+        "2": {
+          "acc_10k": 0.7106,
+          "acc_1k": 0.708
+        }
+      },
+      "acc_10k_mean": 0.7236333333333334,
+      "acc_10k_sd": 0.011437802819306373,
+      "acc_1k_mean": 0.719,
+      "acc_1k_sd": 0.009539392014169465
+    }
+  },
+  "gap": {
+    "10k": {
+      "per_seed_gap": {
+        "0": 0.034600000000000075,
+        "1": 0.0252,
+        "2": 0.02859999999999996
+      },
+      "gap_mean": 0.02946666666666668,
+      "gap_sd": 0.00475955179962712,
+      "gap_ci95_low": 0.017642330276360724,
+      "gap_ci95_high": 0.041291003056972635
+    },
+    "1k": {
+      "per_seed_gap": {
+        "0": 0.04400000000000004,
+        "1": 0.02100000000000002,
+        "2": 0.026000000000000023
+      },
+      "gap_mean": 0.03033333333333336,
+      "gap_sd": 0.012096831541082714,
+      "gap_ci95_low": 0.00028071253617526284,
+      "gap_ci95_high": 0.06038595413049146
+    }
+  }
+}

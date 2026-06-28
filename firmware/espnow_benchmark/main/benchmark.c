@@ -18,7 +18,7 @@ static const char *TAG = "BENCH";
 #define ROLE_PONG 1
 #define MY_ROLE ROLE_PING
 
-static uint8_t peer_mac[] = {0xB8, 0xF8, 0x62, 0xE2, 0xD1, 0x98};
+static uint8_t peer_mac[] = {0x02, 0x00, 0x00, 0x00, 0x00, 0x01};  /* PLACEHOLDER MAC — set to YOUR coordinator's MAC (each board prints its own MAC at boot via esp_read_mac / the get_mac sketch) */
 
 #define NUM_TESTS        500
 #define WARMUP_PACKETS   10

@@ -1,0 +1,1766 @@
+ESP-ROM:esp32s3-20210327
+Build:Mar 27 2021
+rst:0x15 (USB_UART_CHIP_RESET),boot:0xa (SPI_FAST_FLASH_BOOT)
+Saved PC:0x4037b522
+SPIWP:0xee
+mode:DIO, clock div:1
+load:0x3fce2820,len:0x14f0
+load:0x403c8700,len:0xda0
+load:0x403cb700,len:0x2f58
+entry 0x403c8908
+I (24) boot: ESP-IDF v6.0 2nd stage bootloader
+I (24) boot: compile time Jun 20 2026 12:12:22
+I (25) boot: Multicore bootloader
+I (25) boot: chip revision: v0.2
+I (27) boot: efuse block revision: v1.3
+I (31) boot.esp32s3: Boot SPI Speed : 80MHz
+I (35) boot.esp32s3: SPI Mode       : DIO
+I (39) boot.esp32s3: SPI Flash Size : 16MB
+I (42) boot: Enabling RNG early entropy source...
+I (47) boot: Partition Table:
+I (49) boot: ## Label            Usage          Type ST Offset   Length
+I (56) boot:  0 nvs              WiFi data        01 02 00009000 00006000
+I (62) boot:  1 phy_init         RF data          01 01 0000f000 00001000
+I (69) boot:  2 factory          factory app      00 00 00010000 00ff0000
+I (75) boot: End of partition table
+I (79) esp_image: segment 0: paddr=00010020 vaddr=3c090020 size=312a38h (3222072) map
+I (664) esp_image: segment 1: paddr=00322a60 vaddr=3fc97b00 size=05060h ( 20576) load
+I (668) esp_image: segment 2: paddr=00327ac8 vaddr=40374000 size=08550h ( 34128) load
+I (676) esp_image: segment 3: paddr=00330020 vaddr=42000020 size=86ab4h (551604) map
+I (776) esp_image: segment 4: paddr=003b6adc vaddr=4037c550 size=0b54ch ( 46412) load
+I (786) esp_image: segment 5: paddr=003c2030 vaddr=50000000 size=00024h (    36) load
+I (795) boot: Loaded app from partition at offset 0x10000
+I (796) boot: Disabling RNG early entropy source...
+I (806) cpu_start: Multicore app
+I (814) cpu_start: GPIO 44 and 43 are used as console UART I/O pins
+I (815) cpu_start: Pro cpu start user code
+I (815) cpu_start: cpu freq: 160000000 Hz
+I (816) app_init: Application information:
+I (820) app_init: Project name:     swarm_coordinator
+I (825) app_init: App version:      091c952-dirty
+I (829) app_init: Compile time:     Jun 21 2026 11:30:02
+I (834) app_init: ELF file SHA256:  47ae785a8...
+I (839) app_init: ESP-IDF:          v6.0
+I (842) efuse_init: Min chip rev:     v0.0
+I (846) efuse_init: Max chip rev:     v0.99 
+I (850) efuse_init: Chip rev:         v0.2
+I (854) heap_init: Initializing. RAM available for dynamic allocation:
+I (860) heap_init: At 3FCA0A60 len 00048CB0 (291 KiB): RAM
+I (866) heap_init: At 3FCE9710 len 00005724 (21 KiB): RAM
+I (871) heap_init: At 3FCF0000 len 00008000 (32 KiB): DRAM
+I (876) heap_init: At 600FE000 len 00001FE8 (7 KiB): RTCRAM
+I (882) spi_flash: detected chip: generic
+I (885) spi_flash: flash io: dio
+I (889) sleep_gpio: Configure to isolate all GPIO pins in sleep state
+I (894) sleep_gpio: Enable automatic switching of GPIO sleep configuration
+I (901) main_task: Started on CPU0
+I (911) main_task: Calling app_main()
+I (911) COORD: ========================================
+I (911) COORD:   SwarmInfer Coordinator — Full Pipeline
+I (921) COORD: ========================================
+I (921) COORD: MAC: 02:00:00:00:00:00
+I (941) pp: pp rom version: e7ae62f
+I (941) net80211: net80211 rom version: e7ae62f
+I (951) wifi:wifi driver task: 3fcee91c, prio:23, stack:6656, core=0
+I (951) wifi:wifi firmware version: 44738b4
+I (951) wifi:wifi certification version: v7.0
+I (951) wifi:config NVS flash: enabled
+I (961) wifi:config nano formatting: disabled
+I (961) wifi:Init data frame dynamic rx buffer num: 32
+I (961) wifi:Init static rx mgmt buffer num: 5
+I (971) wifi:Init management short buffer num: 32
+I (971) wifi:Init dynamic tx buffer num: 32
+I (981) wifi:Init static tx FG buffer num: 2
+I (981) wifi:Init static rx buffer size: 1600
+I (991) wifi:Init static rx buffer num: 10
+I (991) wifi:Init dynamic rx buffer num: 32
+I (991) wifi_init: rx ba win: 6
+I (1001) wifi_init: accept mbox: 6
+I (1001) wifi_init: tcpip mbox: 32
+I (1001) wifi_init: udp mbox: 6
+I (1001) wifi_init: tcp mbox: 6
+I (1011) wifi_init: tcp tx win: 5760
+I (1011) wifi_init: tcp rx win: 5760
+I (1011) wifi_init: tcp mss: 1440
+I (1021) wifi_init: WiFi IRAM OP enabled
+I (1021) wifi_init: WiFi RX IRAM OP enabled
+I (1031) phy_init: phy_version 711,97bcf0a2,Aug 25 2025,19:04:10
+I (1081) wifi:mode : sta (02:00:00:00:00:00)
+I (1081) wifi:enable tsf
+I (1091) ESPNOW: espnow [version: 2.0] init
+I (1091) pmeter: INA219 @0x40 on SDA=8 SCL=9; sampling on core 1
+PWRSAVED,COORD,211401,0,0,0,3
+I (1091) COORD: Worker 0: 02:00:00:00:00:01
+I (1091) COORD: Worker 1: 02:00:00:00:00:02
+I (1101) COORD: Worker 2: 02:00:00:00:00:03
+I (1101) COORD: Worker 3: 02:00:00:00:00:04
+I (1111) COORD: Free heap: 241468
+I (1111) COORD: Waiting for workers to report READY...
+PWR,1000,2,0,4652
+PWR,2000,1,0,4652
+I (4941) COORD: All 4 workers READY!
+I (4941) COORD: CSV_HEADER,config,img,label,pred,match,total_us,l1_bcast_us,l1_gather_us,l1_comp_us,l1_tx_us,l2_bcast_us,l2_gather_us,l2_comp_us,l2_tx_us,l3_bcast_us,l3_gather_us,l3_comp_us,l3_tx_us
+I (4951) COORD: L1: Broadcasting 3072 bytes (14 chunks)...
+I (4961) COORD: L1: Broadcast 3 ms. Waiting for workers...
+I (5451) COORD: L1: Gather 482 ms (comp 308 ms, tx 173 ms), Assemble 416 us
+I (5451) COORD:   W0: 11 chunks (sparse), done=1, compute=308497 us, send=9787 us
+I (5451) COORD:   W1: 11 chunks (sparse), done=1, compute=308639 us, send=9273 us
+I (5461) COORD:   W2: 13 chunks (sparse), done=1, compute=308472 us, send=10687 us
+I (5461) COORD:   W3: 12 chunks (sparse), done=1, compute=308908 us, send=10189 us
+I (5471) COORD: L2: Broadcasting 16384 bytes (71 chunks)...
+I (5581) COORD: L2: Broadcast 106 ms. Waiting for workers...
+I (6341) COORD: L2: Gather 750 ms (comp 618 ms, tx 131 ms), Assemble 147 us
+I (6341) COORD:   W0: 4 chunks (sparse), done=1, compute=618070 us, send=4876 us
+I (6341) COORD:   W1: 4 chunks (sparse), done=1, compute=617864 us, send=5211 us
+I (6351) COORD:   W2: 4 chunks (sparse), done=1, compute=618132 us, send=4871 us
+I (6361) COORD:   W3: 4 chunks (sparse), done=1, compute=618056 us, send=5274 us
+I (6371) COORD: L3: Broadcasting 8192 bytes (36 chunks)...
+I (6391) COORD: L3: Broadcast 14 ms. Waiting for workers...
+PWR,3000,0,0,4652
+I (7131) COORD: L3: Gather 739 ms (comp 644 ms, tx 95 ms), Assemble 11 us
+I (7131) COORD:   W0: 1 chunks (sparse), done=1, compute=644216 us, send=3101 us
+I (7131) COORD:   W1: 1 chunks (sparse), done=1, compute=643590 us, send=3285 us
+I (7141) COORD:   W2: 1 chunks (sparse), done=1, compute=644000 us, send=3069 us
+I (7141) COORD:   W3: 1 chunks (sparse), done=1, compute=643534 us, send=3372 us
+I (7161) COORD: [  1/64] pred=3(cat) true=3(cat) OK  2206 ms
+I (7161) COORD: CSV,fatcnn_n4,0,3,3,1,2206570,3896,482801,308908,173893,106753,750090,618132,131958,14337,739694,644216,95478
+PWRW,0,635,125,695,139,614,122,629,125
+I (7171) COORD: L1: Broadcasting 3072 bytes (14 chunks)...
+I (7181) COORD: L1: Broadcast 4 ms. Waiting for workers...
+I (7661) COORD: L1: Gather 471 ms (comp 308 ms, tx 162 ms), Assemble 407 us
+I (7661) COORD:   W0: 11 chunks (sparse), done=1, compute=308442 us, send=9663 us
+I (7661) COORD:   W1: 11 chunks (sparse), done=1, compute=308754 us, send=9131 us
+I (7671) COORD:   W2: 11 chunks (sparse), done=1, compute=308534 us, send=9731 us
+I (7671) COORD:   W3: 11 chunks (sparse), done=1, compute=308833 us, send=9496 us
+I (7681) COORD: L2: Broadcasting 16384 bytes (71 chunks)...
+I (7791) COORD: L2: Broadcast 106 ms. Waiting for workers...
+I (8541) COORD: L2: Gather 747 ms (comp 618 ms, tx 129 ms), Assemble 134 us
+I (8541) COORD:   W0: 4 chunks (sparse), done=1, compute=617866 us, send=5039 us
+I (8551) COORD:   W1: 4 chunks (sparse), done=1, compute=618043 us, send=5117 us
+I (8551) COORD:   W2: 3 chunks (sparse), done=1, compute=617860 us, send=4423 us
+I (8561) COORD:   W3: 4 chunks (sparse), done=1, compute=618578 us, send=4865 us
+I (8571) COORD: L3: Broadcasting 8192 bytes (36 chunks)...
+PWR,4000,1,0,4536
+I (8591) COORD: L3: Broadcast 13 ms. Waiting for workers...
+I (9331) COORD: L3: Gather 736 ms (comp 643 ms, tx 92 ms), Assemble 11 us
+I (9331) COORD:   W0: 1 chunks (sparse), done=1, compute=643769 us, send=3090 us
+I (9331) COORD:   W1: 1 chunks (sparse), done=1, compute=643393 us, send=3247 us
+I (9341) COORD:   W2: 1 chunks (sparse), done=1, compute=643773 us, send=3083 us
+I (9341) COORD:   W3: 1 chunks (sparse), done=1, compute=643489 us, send=3232 us
+I (9361) COORD: [  2/64] pred=8(ship) true=8(ship) OK  2185 ms
+I (9361) COORD: CSV,fatcnn_n4,1,8,8,1,2185714,4055,471697,308833,162864,106697,747930,618578,129352,13860,736045,643773,92272
+PWRW,1,637,125,698,140,616,123,632,125
+I (9371) COORD: L1: Broadcasting 3072 bytes (14 chunks)...
+I (9381) COORD: L1: Broadcast 4 ms. Waiting for workers...
+I (9861) COORD: L1: Gather 472 ms (comp 309 ms, tx 163 ms), Assemble 409 us
+I (9861) COORD:   W0: 11 chunks (sparse), done=1, compute=309216 us, send=9357 us
+I (9861) COORD:   W1: 11 chunks (sparse), done=1, compute=309059 us, send=9601 us
+I (9871) COORD:   W2: 11 chunks (sparse), done=1, compute=309024 us, send=9397 us
+I (9881) COORD:   W3: 11 chunks (sparse), done=1, compute=308780 us, send=9124 us
+I (9881) COORD: L2: Broadcasting 16384 bytes (71 chunks)...
+I (10001) COORD: L2: Broadcast 107 ms. Waiting for workers...
+PWR,5000,2,0,4656
+I (10751) COORD: L2: Gather 752 ms (comp 618 ms, tx 133 ms), Assemble 132 us
+I (10751) COORD:   W0: 4 chunks (sparse), done=1, compute=618338 us, send=5348 us
+I (10751) COORD:   W1: 4 chunks (sparse), done=1, compute=618825 us, send=4892 us
+I (10761) COORD:   W2: 4 chunks (sparse), done=1, compute=617974 us, send=5266 us
+I (10771) COORD:   W3: 4 chunks (sparse), done=1, compute=618535 us, send=5016 us
+I (10781) COORD: L3: Broadcasting 8192 bytes (36 chunks)...
+I (10801) COORD: L3: Broadcast 13 ms. Waiting for workers...
+I (11541) COORD: L3: Gather 734 ms (comp 643 ms, tx 90 ms), Assemble 12 us
+I (11541) COORD:   W0: 1 chunks (sparse), done=1, compute=643148 us, send=3092 us
+I (11541) COORD:   W1: 1 chunks (sparse), done=1, compute=643272 us, send=3186 us
+I (11551) COORD:   W2: 1 chunks (sparse), done=1, compute=643267 us, send=3073 us
+I (11551) COORD:   W3: 1 chunks (sparse), done=1, compute=643801 us, send=3127 us
+I (11571) COORD: [  3/64] pred=8(ship) true=8(ship) OK  2195 ms
+I (11571) COORD: CSV,fatcnn_n4,2,8,8,1,2195510,4658,472260,309216,163044,107513,752418,618825,133593,13409,734173,643801,90372
+PWRW,2,639,126,700,140,619,123,634,126
+I (11581) COORD: L1: Broadcasting 3072 bytes (14 chunks)...
+I (11591) COORD: L1: Broadcast 4 ms. Waiting for workers...
+I (12071) COORD: L1: Gather 470 ms (comp 309 ms, tx 161 ms), Assemble 408 us
+I (12071) COORD:   W0: 11 chunks (sparse), done=1, compute=308722 us, send=9407 us
+I (12071) COORD:   W1: 10 chunks (sparse), done=1, compute=308470 us, send=8453 us
+I (12081) COORD:   W2: 11 chunks (sparse), done=1, compute=309009 us, send=9713 us
+I (12081) COORD:   W3: 11 chunks (sparse), done=1, compute=308620 us, send=9081 us
+I (12091) COORD: L2: Broadcasting 16384 bytes (71 chunks)...
+I (12211) COORD: L2: Broadcast 115 ms. Waiting for workers...
+PWR,6000,0,0,4656
+I (12961) COORD: L2: Gather 742 ms (comp 618 ms, tx 124 ms), Assemble 136 us
+I (12961) COORD:   W0: 4 chunks (sparse), done=1, compute=618567 us, send=4902 us
+I (12961) COORD:   W1: 4 chunks (sparse), done=1, compute=618405 us, send=5021 us
+I (12971) COORD:   W2: 3 chunks (sparse), done=1, compute=618424 us, send=4295 us
+I (12981) COORD:   W3: 3 chunks (sparse), done=1, compute=617926 us, send=4547 us
+I (12981) COORD: L3: Broadcasting 8192 bytes (36 chunks)...
+I (13001) COORD: L3: Broadcast 13 ms. Waiting for workers...
+I (13741) COORD: L3: Gather 735 ms (comp 644 ms, tx 91 ms), Assemble 11 us
+I (13741) COORD:   W0: 1 chunks (sparse), done=1, compute=643548 us, send=3119 us
+I (13751) COORD:   W1: 1 chunks (sparse), done=1, compute=644067 us, send=3331 us
+I (13751) COORD:   W2: 1 chunks (sparse), done=1, compute=643454 us, send=3201 us
+I (13761) COORD:   W3: 1 chunks (sparse), done=1, compute=643716 us, send=3203 us
+I (13771) COORD: [  4/64] pred=0(airplane) true=0(airplane) OK  2191 ms
+I (13771) COORD: CSV,fatcnn_n4,3,0,0,1,2191031,4062,470629,309009,161620,115573,742845,618567,124278,13848,735827,644067,91760
+PWRW,3,640,126,702,140,621,123,636,126
+I (13791) COORD: L1: Broadcasting 3072 bytes (14 chunks)...
+I (13801) COORD: L1: Broadcast 4 ms. Waiting for workers...
+PWR,7000,1,0,4660
+I (14271) COORD: L1: Gather 470 ms (comp 308 ms, tx 162 ms), Assemble 439 us
+I (14271) COORD:   W0: 10 chunks (sparse), done=1, compute=308657 us, send=8681 us
+I (14281) COORD:   W1: 11 chunks (sparse), done=1, compute=308651 us, send=9555 us
+I (14281) COORD:   W2: 11 chunks (sparse), done=1, compute=308633 us, send=9299 us
+I (14291) COORD:   W3: 12 chunks (sparse), done=1, compute=308569 us, send=10020 us
+I (14301) COORD: L2: Broadcasting 16384 bytes (71 chunks)...
+I (14411) COORD: L2: Broadcast 107 ms. Waiting for workers...
+I (15161) COORD: L2: Gather 741 ms (comp 618 ms, tx 122 ms), Assemble 131 us
+I (15161) COORD:   W0: 4 chunks (sparse), done=1, compute=618496 us, send=5284 us
+I (15171) COORD:   W1: 4 chunks (sparse), done=1, compute=618462 us, send=5054 us
+I (15171) COORD:   W2: 4 chunks (sparse), done=1, compute=618690 us, send=5247 us
+I (15181) COORD:   W3: 4 chunks (sparse), done=1, compute=617678 us, send=5078 us
+I (15191) COORD: L3: Broadcasting 8192 bytes (36 chunks)...
+I (15211) COORD: L3: Broadcast 13 ms. Waiting for workers...
+I (15951) COORD: L3: Gather 739 ms (comp 644 ms, tx 95 ms), Assemble 11 us
+I (15951) COORD:   W0: 1 chunks (sparse), done=1, compute=644107 us, send=3388 us
+I (15951) COORD:   W1: 1 chunks (sparse), done=1, compute=643497 us, send=3216 us
+I (15961) COORD:   W2: 1 chunks (sparse), done=1, compute=644075 us, send=3403 us
+I (15971) COORD:   W3: 1 chunks (sparse), done=1, compute=643440 us, send=3445 us
+I (15981) COORD: [  5/64] pred=6(frog) true=6(frog) OK  2193 ms
+I (15981) COORD: CSV,fatcnn_n4,4,6,6,1,2193003,4686,470852,308657,162195,107489,741133,618496,122637,13934,739343,644107,95236
+PWRW,4,642,126,704,141,622,124,638,127
+I (16001) COORD: L1: Broadcasting 3072 bytes (14 chunks)...
+I (16011) COORD: L1: Broadcast 4 ms. Waiting for workers...
+PWR,8000,1,0,4656
+I (16481) COORD: L1: Gather 468 ms (comp 308 ms, tx 159 ms), Assemble 408 us
+I (16481) COORD:   W0: 10 chunks (sparse), done=1, compute=308687 us, send=8766 us
+I (16481) COORD:   W1: 10 chunks (sparse), done=1, compute=308583 us, send=8588 us
+I (16491) COORD:   W2: 12 chunks (sparse), done=1, compute=308609 us, send=10349 us
+I (16501) COORD:   W3: 11 chunks (sparse), done=1, compute=308955 us, send=9778 us
+I (16501) COORD: L2: Broadcasting 16384 bytes (71 chunks)...
+I (16621) COORD: L2: Broadcast 106 ms. Waiting for workers...
+I (17371) COORD: L2: Gather 748 ms (comp 618 ms, tx 130 ms), Assemble 134 us
+I (17371) COORD:   W0: 4 chunks (sparse), done=1, compute=618082 us, send=5052 us
+I (17371) COORD:   W1: 4 chunks (sparse), done=1, compute=617761 us, send=5135 us
+I (17381) COORD:   W2: 4 chunks (sparse), done=1, compute=618325 us, send=5198 us
+I (17391) COORD:   W3: 4 chunks (sparse), done=1, compute=618256 us, send=4889 us
+I (17391) COORD: L3: Broadcasting 8192 bytes (36 chunks)...
+I (17411) COORD: L3: Broadcast 13 ms. Waiting for workers...
+PWR,9000,2,0,4652
+I (18151) COORD: L3: Gather 736 ms (comp 643 ms, tx 93 ms), Assemble 12 us
+I (18151) COORD:   W0: 1 chunks (sparse), done=1, compute=643780 us, send=3133 us
+I (18161) COORD:   W1: 1 chunks (sparse), done=1, compute=643824 us, send=3080 us
+I (18161) COORD:   W2: 1 chunks (sparse), done=1, compute=643765 us, send=3106 us
+I (18171) COORD:   W3: 1 chunks (sparse), done=1, compute=643028 us, send=3313 us
+I (18181) COORD: [  6/64] pred=6(frog) true=6(frog) OK  2186 ms
+I (18181) COORD: CSV,fatcnn_n4,5,6,6,1,2186901,4525,468539,308955,159584,106957,748711,618325,130386,13990,736860,643824,93036
+PWRW,5,643,126,706,141,624,124,640,127
+I (18201) COORD: L1: Broadcasting 3072 bytes (14 chunks)...
+I (18211) COORD: L1: Broadcast 4 ms. Waiting for workers...
+I (18701) COORD: L1: Gather 487 ms (comp 308 ms, tx 179 ms), Assemble 408 us
+I (18701) COORD:   W0: 12 chunks (sparse), done=1, compute=308702 us, send=10386 us
+I (18701) COORD:   W1: 12 chunks (sparse), done=1, compute=308944 us, send=10255 us
+I (18711) COORD:   W2: 14 chunks (sparse), done=1, compute=308781 us, send=11210 us
+I (18721) COORD:   W3: 11 chunks (sparse), done=1, compute=308880 us, send=9186 us
+I (18721) COORD: L2: Broadcasting 16384 bytes (71 chunks)...
+I (18841) COORD: L2: Broadcast 106 ms. Waiting for workers...
+I (19591) COORD: L2: Gather 750 ms (comp 618 ms, tx 132 ms), Assemble 130 us
+I (19591) COORD:   W0: 4 chunks (sparse), done=1, compute=618049 us, send=5342 us
+I (19601) COORD:   W1: 4 chunks (sparse), done=1, compute=617988 us, send=5224 us
+I (19601) COORD:   W2: 4 chunks (sparse), done=1, compute=618059 us, send=5269 us
+I (19611) COORD:   W3: 4 chunks (sparse), done=1, compute=618469 us, send=4901 us
+I (19621) COORD: L3: Broadcasting 8192 bytes (36 chunks)...
+I (19641) COORD: L3: Broadcast 14 ms. Waiting for workers...
+PWR,10000,0,0,4652
+I (20371) COORD: L3: Gather 734 ms (comp 643 ms, tx 90 ms), Assemble 11 us
+I (20371) COORD:   W0: 1 chunks (sparse), done=1, compute=642990 us, send=3594 us
+I (20381) COORD:   W1: 1 chunks (sparse), done=1, compute=643306 us, send=3314 us
+I (20381) COORD:   W2: 1 chunks (sparse), done=1, compute=643162 us, send=3167 us
+I (20391) COORD:   W3: 1 chunks (sparse), done=1, compute=643386 us, send=3067 us
+I (20401) COORD: [  7/64] pred=1(automobile) true=1(automobile) OK  2206 ms
+I (20401) COORD: CSV,fatcnn_n4,6,1,1,1,2206912,4644,487991,308944,179047,106652,750766,618469,132297,14743,734185,643386,90799
+PWRW,6,645,127,708,142,626,125,641,127
+I (20421) COORD: L1: Broadcasting 3072 bytes (14 chunks)...
+I (20431) COORD: L1: Broadcast 4 ms. Waiting for workers...
+I (20901) COORD: L1: Gather 470 ms (comp 309 ms, tx 160 ms), Assemble 449 us
+I (20901) COORD:   W0: 10 chunks (sparse), done=1, compute=309105 us, send=8651 us
+I (20911) COORD:   W1: 10 chunks (sparse), done=1, compute=308959 us, send=9031 us
+I (20911) COORD:   W2: 11 chunks (sparse), done=1, compute=308707 us, send=9294 us
+I (20921) COORD:   W3: 11 chunks (sparse), done=1, compute=308386 us, send=9717 us
+I (20931) COORD: L2: Broadcasting 16384 bytes (71 chunks)...
+I (21041) COORD: L2: Broadcast 106 ms. Waiting for workers...
+PWR,11000,1,0,4652
+I (21801) COORD: L2: Gather 751 ms (comp 618 ms, tx 132 ms), Assemble 138 us
+I (21801) COORD:   W0: 4 chunks (sparse), done=1, compute=618268 us, send=5395 us
+I (21801) COORD:   W1: 4 chunks (sparse), done=1, compute=618655 us, send=4863 us
+I (21811) COORD:   W2: 4 chunks (sparse), done=1, compute=618010 us, send=5186 us
+I (21811) COORD:   W3: 4 chunks (sparse), done=1, compute=618322 us, send=5122 us
+I (21821) COORD: L3: Broadcasting 8192 bytes (36 chunks)...
+I (21841) COORD: L3: Broadcast 14 ms. Waiting for workers...
+I (22581) COORD: L3: Gather 735 ms (comp 643 ms, tx 91 ms), Assemble 11 us
+I (22581) COORD:   W0: 1 chunks (sparse), done=1, compute=643889 us, send=3101 us
+I (22581) COORD:   W1: 1 chunks (sparse), done=1, compute=643553 us, send=3269 us
+I (22591) COORD:   W2: 1 chunks (sparse), done=1, compute=643510 us, send=3385 us
+I (22601) COORD:   W3: 1 chunks (sparse), done=1, compute=643913 us, send=3097 us
+I (22611) COORD: [  8/64] pred=2(bird) true=6(frog) MISS  2191 ms
+I (22611) COORD: CSV,fatcnn_n4,7,6,2,0,2191213,4534,470069,309105,160964,106828,751312,618655,132657,14073,735893,643913,91980
+PWRW,7,646,127,709,142,627,125,643,128
+I (22631) COORD: L1: Broadcasting 3072 bytes (14 chunks)...
+I (22641) COORD: L1: Broadcast 4 ms. Waiting for workers...
+I (23101) COORD: L1: Gather 455 ms (comp 308 ms, tx 146 ms), Assemble 440 us
+I (23101) COORD:   W0: 9 chunks (sparse), done=1, compute=308819 us, send=8295 us
+I (23101) COORD:   W1: 9 chunks (sparse), done=1, compute=308581 us, send=8164 us
+I (23111) COORD:   W2: 10 chunks (sparse), done=1, compute=308847 us, send=9258 us
+I (23111) COORD:   W3: 10 chunks (sparse), done=1, compute=308661 us, send=9122 us
+I (23121) COORD: L2: Broadcasting 16384 bytes (71 chunks)...
+I (23231) COORD: L2: Broadcast 106 ms. Waiting for workers...
+PWR,12000,1,0,4656
+I (23991) COORD: L2: Gather 748 ms (comp 618 ms, tx 130 ms), Assemble 133 us
+I (23991) COORD:   W0: 4 chunks (sparse), done=1, compute=618394 us, send=5042 us
+I (23991) COORD:   W1: 4 chunks (sparse), done=1, compute=618590 us, send=4872 us
+I (24001) COORD:   W2: 4 chunks (sparse), done=1, compute=618286 us, send=5051 us
+I (24001) COORD:   W3: 4 chunks (sparse), done=1, compute=618053 us, send=5164 us
+I (24011) COORD: L3: Broadcasting 8192 bytes (36 chunks)...
+I (24031) COORD: L3: Broadcast 16 ms. Waiting for workers...
+I (24771) COORD: L3: Gather 732 ms (comp 643 ms, tx 88 ms), Assemble 11 us
+I (24771) COORD:   W0: 1 chunks (sparse), done=1, compute=643911 us, send=3350 us
+I (24771) COORD:   W1: 1 chunks (sparse), done=1, compute=643570 us, send=3119 us
+I (24781) COORD:   W2: 1 chunks (sparse), done=1, compute=643707 us, send=3242 us
+I (24791) COORD:   W3: 1 chunks (sparse), done=1, compute=643776 us, send=3158 us
+I (24801) COORD: [  9/64] pred=3(cat) true=3(cat) OK  2174 ms
+I (24801) COORD: CSV,fatcnn_n4,8,3,3,1,2174797,4691,455224,308847,146377,106874,748599,618590,130009,16326,732834,643911,88923
+PWRW,8,647,127,711,142,629,125,644,128
+I (24811) COORD: L1: Broadcasting 3072 bytes (14 chunks)...
+I (24831) COORD: L1: Broadcast 4 ms. Waiting for workers...
+I (25321) COORD: L1: Gather 486 ms (comp 308 ms, tx 178 ms), Assemble 410 us
+I (25321) COORD:   W0: 12 chunks (sparse), done=1, compute=308744 us, send=10177 us
+I (25321) COORD:   W1: 12 chunks (sparse), done=1, compute=308449 us, send=10174 us
+I (25331) COORD:   W2: 13 chunks (sparse), done=1, compute=308736 us, send=11051 us
+I (25331) COORD:   W3: 12 chunks (sparse), done=1, compute=308439 us, send=9962 us
+I (25341) COORD: L2: Broadcasting 16384 bytes (71 chunks)...
+I (25451) COORD: L2: Broadcast 106 ms. Waiting for workers...
+PWR,13000,2,0,4656
+I (26201) COORD: L2: Gather 746 ms (comp 618 ms, tx 127 ms), Assemble 141 us
+I (26201) COORD:   W0: 4 chunks (sparse), done=1, compute=618405 us, send=5070 us
+I (26211) COORD:   W1: 4 chunks (sparse), done=1, compute=618100 us, send=4881 us
+I (26211) COORD:   W2: 4 chunks (sparse), done=1, compute=618293 us, send=5011 us
+I (26221) COORD:   W3: 3 chunks (sparse), done=1, compute=617743 us, send=4569 us
+I (26231) COORD: L3: Broadcasting 8192 bytes (36 chunks)...
+I (26251) COORD: L3: Broadcast 14 ms. Waiting for workers...
+I (26991) COORD: L3: Gather 737 ms (comp 644 ms, tx 93 ms), Assemble 11 us
+I (26991) COORD:   W0: 1 chunks (sparse), done=1, compute=644013 us, send=3091 us
+I (26991) COORD:   W1: 1 chunks (sparse), done=1, compute=643761 us, send=3396 us
+I (27001) COORD:   W2: 1 chunks (sparse), done=1, compute=644030 us, send=3087 us
+I (27011) COORD:   W3: 1 chunks (sparse), done=1, compute=643655 us, send=3264 us
+I (27021) COORD: [ 10/64] pred=1(automobile) true=1(automobile) OK  2204 ms
+I (27021) COORD: CSV,fatcnn_n4,9,1,1,1,2204045,4558,486816,308744,178072,106800,746208,618405,127803,14030,737509,644030,93479
+PWRW,9,648,128,712,142,630,125,645,128
+I (27031) COORD: L1: Broadcasting 3072 bytes (14 chunks)...
+I (27051) COORD: L1: Broadcast 4 ms. Waiting for workers...
+PWR,14000,1,0,4652
+I (27501) COORD: L1: Gather 454 ms (comp 309 ms, tx 145 ms), Assemble 438 us
+I (27501) COORD:   W0: 10 chunks (sparse), done=1, compute=308552 us, send=9186 us
+I (27511) COORD:   W1: 9 chunks (sparse), done=1, compute=308654 us, send=8185 us
+I (27511) COORD:   W2: 10 chunks (sparse), done=1, compute=308570 us, send=8893 us
+I (27521) COORD:   W3: 10 chunks (sparse), done=1, compute=309038 us, send=9127 us
+I (27531) COORD: L2: Broadcasting 16384 bytes (71 chunks)...
+I (27641) COORD: L2: Broadcast 106 ms. Waiting for workers...
+I (28401) COORD: L2: Gather 752 ms (comp 618 ms, tx 134 ms), Assemble 134 us
+I (28401) COORD:   W0: 4 chunks (sparse), done=1, compute=617769 us, send=5234 us
+I (28401) COORD:   W1: 4 chunks (sparse), done=1, compute=618007 us, send=4854 us
+I (28411) COORD:   W2: 4 chunks (sparse), done=1, compute=618091 us, send=5028 us
+I (28411) COORD:   W3: 3 chunks (sparse), done=1, compute=618066 us, send=4391 us
+I (28421) COORD: L3: Broadcasting 8192 bytes (36 chunks)...
+I (28441) COORD: L3: Broadcast 16 ms. Waiting for workers...
+I (29181) COORD: L3: Gather 735 ms (comp 643 ms, tx 91 ms), Assemble 11 us
+I (29181) COORD:   W0: 1 chunks (sparse), done=1, compute=643990 us, send=3075 us
+I (29181) COORD:   W1: 2 chunks (sparse), done=1, compute=643453 us, send=3139 us
+I (29191) COORD:   W2: 1 chunks (sparse), done=1, compute=643979 us, send=3075 us
+I (29201) COORD:   W3: 1 chunks (sparse), done=1, compute=643465 us, send=3205 us
+PWR,15000,0,0,4632
+I (29211) COORD: [ 11/64] pred=0(airplane) true=0(airplane) OK  2177 ms
+I (29211) COORD: CSV,fatcnn_n4,10,0,0,1,2177532,4674,454815,309038,145777,106595,752326,618091,134235,16687,735562,643990,91572
+PWRW,10,649,128,713,143,631,126,647,128
+I (29231) COORD: L1: Broadcasting 3072 bytes (14 chunks)...
+I (29241) COORD: L1: Broadcast 4 ms. Waiting for workers...
+I (29731) COORD: L1: Gather 484 ms (comp 309 ms, tx 175 ms), Assemble 444 us
+I (29731) COORD:   W0: 12 chunks (sparse), done=1, compute=309025 us, send=10549 us
+I (29731) COORD:   W1: 12 chunks (sparse), done=1, compute=308761 us, send=10255 us
+I (29741) COORD:   W2: 13 chunks (sparse), done=1, compute=308455 us, send=10694 us
+I (29751) COORD:   W3: 11 chunks (sparse), done=1, compute=309313 us, send=9281 us
+I (29751) COORD: L2: Broadcasting 16384 bytes (71 chunks)...
+I (29871) COORD: L2: Broadcast 106 ms. Waiting for workers...
+I (30621) COORD: L2: Gather 755 ms (comp 618 ms, tx 137 ms), Assemble 132 us
+I (30621) COORD:   W0: 4 chunks (sparse), done=1, compute=618079 us, send=5140 us
+I (30631) COORD:   W1: 5 chunks (sparse), done=1, compute=618149 us, send=4862 us
+I (30631) COORD:   W2: 4 chunks (sparse), done=1, compute=617743 us, send=5223 us
+I (30641) COORD:   W3: 4 chunks (sparse), done=1, compute=618296 us, send=5010 us
+I (30651) COORD: L3: Broadcasting 8192 bytes (36 chunks)...
+I (30671) COORD: L3: Broadcast 13 ms. Waiting for workers...
+PWR,16000,0,0,4652
+I (31411) COORD: L3: Gather 737 ms (comp 643 ms, tx 93 ms), Assemble 13 us
+I (31411) COORD:   W0: 1 chunks (sparse), done=1, compute=643279 us, send=3282 us
+I (31411) COORD:   W1: 1 chunks (sparse), done=1, compute=643319 us, send=3185 us
+I (31421) COORD:   W2: 1 chunks (sparse), done=1, compute=643398 us, send=3096 us
+I (31431) COORD:   W3: 1 chunks (sparse), done=1, compute=643606 us, send=3370 us
+I (31441) COORD: [ 12/64] pred=9(truck) true=9(truck) OK  2210 ms
+I (31441) COORD: CSV,fatcnn_n4,11,9,9,1,2210297,4490,484646,309313,175333,106380,755396,618296,137100,13547,737234,643606,93628
+PWRW,11,650,128,715,143,632,126,648,129
+I (31451) COORD: L1: Broadcasting 3072 bytes (14 chunks)...
+I (31461) COORD: L1: Broadcast 4 ms. Waiting for workers...
+I (31941) COORD: L1: Gather 472 ms (comp 309 ms, tx 162 ms), Assemble 409 us
+I (31941) COORD:   W0: 10 chunks (sparse), done=1, compute=309329 us, send=8850 us
+I (31941) COORD:   W1: 11 chunks (sparse), done=1, compute=308774 us, send=9643 us
+I (31951) COORD:   W2: 12 chunks (sparse), done=1, compute=309372 us, send=9984 us
+I (31961) COORD:   W3: 11 chunks (sparse), done=1, compute=308457 us, send=9107 us
+I (31971) COORD: L2: Broadcasting 16384 bytes (71 chunks)...
+I (32081) COORD: L2: Broadcast 106 ms. Waiting for workers...
+I (32831) COORD: L2: Gather 749 ms (comp 618 ms, tx 131 ms), Assemble 131 us
+I (32831) COORD:   W0: 4 chunks (sparse), done=1, compute=618289 us, send=5047 us
+I (32831) COORD:   W1: 4 chunks (sparse), done=1, compute=618515 us, send=5237 us
+I (32841) COORD:   W2: 4 chunks (sparse), done=1, compute=618048 us, send=5035 us
+I (32851) COORD:   W3: 4 chunks (sparse), done=1, compute=618297 us, send=4995 us
+I (32861) COORD: L3: Broadcasting 8192 bytes (36 chunks)...
+I (32881) COORD: L3: Broadcast 14 ms. Waiting for workers...
+PWR,17000,0,0,4656
+I (33621) COORD: L3: Gather 736 ms (comp 643 ms, tx 92 ms), Assemble 11 us
+I (33621) COORD:   W0: 1 chunks (sparse), done=1, compute=643833 us, send=3103 us
+I (33621) COORD:   W1: 1 chunks (sparse), done=1, compute=643609 us, send=3284 us
+I (33631) COORD:   W2: 1 chunks (sparse), done=1, compute=643368 us, send=3314 us
+I (33631) COORD:   W3: 1 chunks (sparse), done=1, compute=643980 us, send=3100 us
+I (33651) COORD: [ 13/64] pred=5(dog) true=5(dog) OK  2191 ms
+I (33651) COORD: CSV,fatcnn_n4,12,5,5,1,2191148,4547,472047,309372,162675,106934,749622,618515,131107,14143,736749,643980,92769
+PWRW,12,651,128,716,143,633,126,649,129
+I (33661) COORD: L1: Broadcasting 3072 bytes (14 chunks)...
+I (33671) COORD: L1: Broadcast 3 ms. Waiting for workers...
+I (34171) COORD: L1: Gather 498 ms (comp 308 ms, tx 189 ms), Assemble 410 us
+I (34171) COORD:   W0: 13 chunks (sparse), done=1, compute=308437 us, send=10905 us
+I (34181) COORD:   W1: 13 chunks (sparse), done=1, compute=308667 us, send=10479 us
+I (34181) COORD:   W2: 14 chunks (sparse), done=1, compute=308629 us, send=11442 us
+I (34191) COORD:   W3: 13 chunks (sparse), done=1, compute=308578 us, send=10825 us
+I (34201) COORD: L2: Broadcasting 16384 bytes (71 chunks)...
+I (34311) COORD: L2: Broadcast 106 ms. Waiting for workers...
+PWR,18000,1,0,4652
+I (35061) COORD: L2: Gather 746 ms (comp 618 ms, tx 127 ms), Assemble 134 us
+I (35061) COORD:   W0: 3 chunks (sparse), done=1, compute=618308 us, send=4724 us
+I (35061) COORD:   W1: 4 chunks (sparse), done=1, compute=618398 us, send=5177 us
+I (35071) COORD:   W2: 4 chunks (sparse), done=1, compute=618290 us, send=5269 us
+I (35081) COORD:   W3: 4 chunks (sparse), done=1, compute=618056 us, send=5244 us
+I (35091) COORD: L3: Broadcasting 8192 bytes (36 chunks)...
+I (35111) COORD: L3: Broadcast 13 ms. Waiting for workers...
+I (35841) COORD: L3: Gather 732 ms (comp 644 ms, tx 88 ms), Assemble 11 us
+I (35841) COORD:   W0: 1 chunks (sparse), done=1, compute=643982 us, send=3265 us
+I (35841) COORD:   W1: 1 chunks (sparse), done=1, compute=643791 us, send=3124 us
+I (35851) COORD:   W2: 1 chunks (sparse), done=1, compute=644168 us, send=3338 us
+I (35861) COORD:   W3: 1 chunks (sparse), done=1, compute=643680 us, send=3228 us
+I (35871) COORD: [ 14/64] pred=7(horse) true=7(horse) OK  2211 ms
+I (35871) COORD: CSV,fatcnn_n4,13,7,7,1,2211371,3898,498164,308667,189497,106736,746204,618398,127806,13772,732426,644168,88258
+PWRW,13,652,128,717,143,635,126,650,129
+I (35891) COORD: L1: Broadcasting 3072 bytes (14 chunks)...
+I (35901) COORD: L1: Broadcast 4 ms. Waiting for workers...
+I (36391) COORD: L1: Gather 487 ms (comp 308 ms, tx 178 ms), Assemble 436 us
+I (36391) COORD:   W0: 12 chunks (sparse), done=1, compute=308453 us, send=10209 us
+I (36391) COORD:   W1: 12 chunks (sparse), done=1, compute=308417 us, send=10381 us
+I (36401) COORD:   W2: 13 chunks (sparse), done=1, compute=308456 us, send=10987 us
+I (36411) COORD:   W3: 12 chunks (sparse), done=1, compute=308957 us, send=10339 us
+I (36411) COORD: L2: Broadcasting 16384 bytes (71 chunks)...
+I (36531) COORD: L2: Broadcast 107 ms. Waiting for workers...
+PWR,19000,1,0,4652
+I (37271) COORD: L2: Gather 744 ms (comp 618 ms, tx 125 ms), Assemble 131 us
+I (37281) COORD:   W0: 4 chunks (sparse), done=1, compute=618333 us, send=5238 us
+I (37281) COORD:   W1: 4 chunks (sparse), done=1, compute=618496 us, send=4875 us
+I (37291) COORD:   W2: 4 chunks (sparse), done=1, compute=618509 us, send=5331 us
+I (37291) COORD:   W3: 4 chunks (sparse), done=1, compute=618243 us, send=5224 us
+I (37301) COORD: L3: Broadcasting 8192 bytes (36 chunks)...
+I (37321) COORD: L3: Broadcast 14 ms. Waiting for workers...
+I (38061) COORD: L3: Gather 740 ms (comp 644 ms, tx 96 ms), Assemble 11 us
+I (38061) COORD:   W0: 1 chunks (sparse), done=1, compute=644038 us, send=3269 us
+I (38061) COORD:   W1: 1 chunks (sparse), done=1, compute=643732 us, send=3215 us
+I (38071) COORD:   W2: 1 chunks (sparse), done=1, compute=644120 us, send=3309 us
+I (38081) COORD:   W3: 1 chunks (sparse), done=1, compute=643435 us, send=3280 us
+I (38091) COORD: [ 15/64] pred=9(truck) true=9(truck) OK  2205 ms
+I (38091) COORD: CSV,fatcnn_n4,14,9,9,1,2205397,4478,487192,308957,178235,107365,744422,618509,125913,14093,740316,644120,96196
+PWRW,14,653,129,718,144,635,127,651,129
+I (38111) COORD: L1: Broadcasting 3072 bytes (14 chunks)...
+I (38121) COORD: L1: Broadcast 4 ms. Waiting for workers...
+PWR,20000,1,0,4656
+I (38601) COORD: L1: Gather 476 ms (comp 309 ms, tx 167 ms), Assemble 443 us
+I (38601) COORD:   W0: 11 chunks (sparse), done=1, compute=308656 us, send=9426 us
+I (38601) COORD:   W1: 11 chunks (sparse), done=1, compute=308807 us, send=9392 us
+I (38611) COORD:   W2: 11 chunks (sparse), done=1, compute=308657 us, send=9582 us
+I (38621) COORD:   W3: 12 chunks (sparse), done=1, compute=309198 us, send=10516 us
+I (38621) COORD: L2: Broadcasting 16384 bytes (71 chunks)...
+I (38741) COORD: L2: Broadcast 107 ms. Waiting for workers...
+I (39481) COORD: L2: Gather 742 ms (comp 618 ms, tx 124 ms), Assemble 132 us
+I (39481) COORD:   W0: 3 chunks (sparse), done=1, compute=617794 us, send=4356 us
+I (39491) COORD:   W1: 4 chunks (sparse), done=1, compute=618162 us, send=5016 us
+I (39491) COORD:   W2: 4 chunks (sparse), done=1, compute=618034 us, send=4996 us
+I (39501) COORD:   W3: 3 chunks (sparse), done=1, compute=618447 us, send=4387 us
+I (39511) COORD: L3: Broadcasting 8192 bytes (36 chunks)...
+I (39531) COORD: L3: Broadcast 13 ms. Waiting for workers...
+I (40271) COORD: L3: Gather 737 ms (comp 643 ms, tx 94 ms), Assemble 11 us
+I (40271) COORD:   W0: 1 chunks (sparse), done=1, compute=643228 us, send=3338 us
+I (40271) COORD:   W1: 1 chunks (sparse), done=1, compute=643543 us, send=3225 us
+I (40281) COORD:   W2: 1 chunks (sparse), done=1, compute=643518 us, send=3118 us
+I (40281) COORD:   W3: 1 chunks (sparse), done=1, compute=643393 us, send=3154 us
+I (40301) COORD: [ 16/64] pred=8(ship) true=8(ship) OK  2189 ms
+I (40301) COORD: CSV,fatcnn_n4,15,8,8,1,2189628,4599,476833,309198,167635,107433,742913,618447,124466,13225,737599,643543,94056
+PWRW,15,654,129,720,144,636,127,652,129
+I (40311) COORD: L1: Broadcasting 3072 bytes (14 chunks)...
+I (40321) COORD: L1: Broadcast 4 ms. Waiting for workers...
+PWR,21000,1,0,4652
+I (40801) COORD: L1: Gather 474 ms (comp 309 ms, tx 164 ms), Assemble 410 us
+I (40801) COORD:   W0: 11 chunks (sparse), done=1, compute=308721 us, send=9152 us
+I (40801) COORD:   W1: 11 chunks (sparse), done=1, compute=309373 us, send=9732 us
+I (40811) COORD:   W2: 12 chunks (sparse), done=1, compute=308708 us, send=9980 us
+I (40821) COORD:   W3: 11 chunks (sparse), done=1, compute=308718 us, send=9632 us
+I (40831) COORD: L2: Broadcasting 16384 bytes (71 chunks)...
+I (40941) COORD: L2: Broadcast 107 ms. Waiting for workers...
+I (41691) COORD: L2: Gather 744 ms (comp 618 ms, tx 126 ms), Assemble 137 us
+I (41691) COORD:   W0: 4 chunks (sparse), done=1, compute=618264 us, send=5084 us
+I (41691) COORD:   W1: 4 chunks (sparse), done=1, compute=618605 us, send=4893 us
+I (41701) COORD:   W2: 4 chunks (sparse), done=1, compute=618314 us, send=5028 us
+I (41701) COORD:   W3: 4 chunks (sparse), done=1, compute=618483 us, send=5354 us
+I (41711) COORD: L3: Broadcasting 8192 bytes (36 chunks)...
+I (41731) COORD: L3: Broadcast 14 ms. Waiting for workers...
+PWR,22000,0,0,4652
+I (42471) COORD: L3: Gather 738 ms (comp 644 ms, tx 94 ms), Assemble 11 us
+I (42471) COORD:   W0: 1 chunks (sparse), done=1, compute=643439 us, send=3264 us
+I (42471) COORD:   W1: 1 chunks (sparse), done=1, compute=643572 us, send=3273 us
+I (42481) COORD:   W2: 1 chunks (sparse), done=1, compute=643450 us, send=3414 us
+I (42491) COORD:   W3: 1 chunks (sparse), done=1, compute=644148 us, send=3101 us
+I (42501) COORD: [ 17/64] pred=5(dog) true=5(dog) OK  2190 ms
+I (42501) COORD: CSV,fatcnn_n4,16,5,5,1,2190196,4522,474318,309373,164945,107043,744999,618605,126394,14326,738768,644148,94620
+PWRW,16,655,129,721,144,637,127,653,130
+I (42521) COORD: L1: Broadcasting 3072 bytes (14 chunks)...
+I (42531) COORD: L1: Broadcast 4 ms. Waiting for workers...
+I (43011) COORD: L1: Gather 479 ms (comp 309 ms, tx 170 ms), Assemble 444 us
+I (43011) COORD:   W0: 11 chunks (sparse), done=1, compute=308968 us, send=9513 us
+I (43011) COORD:   W1: 12 chunks (sparse), done=1, compute=308508 us, send=8703 us
+I (43021) COORD:   W2: 12 chunks (sparse), done=1, compute=309157 us, send=10292 us
+I (43031) COORD:   W3: 11 chunks (sparse), done=1, compute=308796 us, send=9396 us
+I (43041) COORD: L2: Broadcasting 16384 bytes (71 chunks)...
+I (43151) COORD: L2: Broadcast 106 ms. Waiting for workers...
+I (43901) COORD: L2: Gather 751 ms (comp 618 ms, tx 133 ms), Assemble 145 us
+I (43901) COORD:   W0: 4 chunks (sparse), done=1, compute=618212 us, send=5411 us
+I (43911) COORD:   W1: 5 chunks (sparse), done=1, compute=618595 us, send=5025 us
+I (43911) COORD:   W2: 4 chunks (sparse), done=1, compute=618253 us, send=5283 us
+I (43921) COORD:   W3: 4 chunks (sparse), done=1, compute=617946 us, send=5251 us
+I (43931) COORD: L3: Broadcasting 8192 bytes (36 chunks)...
+I (43951) COORD: L3: Broadcast 14 ms. Waiting for workers...
+PWR,23000,0,0,4652
+I (44691) COORD: L3: Gather 736 ms (comp 644 ms, tx 92 ms), Assemble 21 us
+I (44691) COORD:   W0: 1 chunks (sparse), done=1, compute=643918 us, send=3077 us
+I (44691) COORD:   W1: 1 chunks (sparse), done=1, compute=643852 us, send=3270 us
+I (44701) COORD:   W2: 1 chunks (sparse), done=1, compute=643747 us, send=3223 us
+I (44701) COORD:   W3: 1 chunks (sparse), done=1, compute=644180 us, send=3336 us
+I (44721) COORD: [ 18/64] pred=7(horse) true=7(horse) OK  2201 ms
+I (44721) COORD: CSV,fatcnn_n4,17,7,7,1,2201243,4501,479672,309157,170515,106626,751647,618595,133052,14088,736424,644180,92244
+PWRW,17,656,129,722,144,638,127,654,130
+I (44731) COORD: L1: Broadcasting 3072 bytes (14 chunks)...
+I (44741) COORD: L1: Broadcast 4 ms. Waiting for workers...
+I (45221) COORD: L1: Gather 474 ms (comp 308 ms, tx 166 ms), Assemble 413 us
+I (45221) COORD:   W0: 11 chunks (sparse), done=1, compute=308502 us, send=9864 us
+I (45221) COORD:   W1: 11 chunks (sparse), done=1, compute=308404 us, send=9104 us
+I (45231) COORD:   W2: 11 chunks (sparse), done=1, compute=308817 us, send=9412 us
+I (45241) COORD:   W3: 11 chunks (sparse), done=1, compute=308754 us, send=9405 us
+I (45251) COORD: L2: Broadcasting 16384 bytes (71 chunks)...
+I (45361) COORD: L2: Broadcast 106 ms. Waiting for workers...
+PWR,24000,0,0,4656
+I (46111) COORD: L2: Gather 746 ms (comp 618 ms, tx 127 ms), Assemble 149 us
+I (46111) COORD:   W0: 3 chunks (sparse), done=1, compute=618504 us, send=4290 us
+I (46111) COORD:   W1: 4 chunks (sparse), done=1, compute=618295 us, send=5002 us
+I (46121) COORD:   W2: 3 chunks (sparse), done=1, compute=618513 us, send=4272 us
+I (46131) COORD:   W3: 3 chunks (sparse), done=1, compute=617870 us, send=4280 us
+I (46131) COORD: L3: Broadcasting 8192 bytes (36 chunks)...
+I (46161) COORD: L3: Broadcast 16 ms. Waiting for workers...
+I (46891) COORD: L3: Gather 734 ms (comp 643 ms, tx 90 ms), Assemble 11 us
+I (46891) COORD:   W0: 1 chunks (sparse), done=1, compute=643691 us, send=3330 us
+I (46901) COORD:   W1: 1 chunks (sparse), done=1, compute=643756 us, send=3253 us
+I (46901) COORD:   W2: 1 chunks (sparse), done=1, compute=643685 us, send=3272 us
+I (46911) COORD:   W3: 1 chunks (sparse), done=1, compute=643203 us, send=3276 us
+I (46921) COORD: [ 19/64] pred=8(ship) true=8(ship) OK  2190 ms
+I (46921) COORD: CSV,fatcnn_n4,18,8,8,1,2190399,4097,474894,308817,166077,106594,746369,618513,127856,16346,734423,643756,90667
+PWRW,18,657,129,722,145,639,127,655,130
+I (46941) COORD: L1: Broadcasting 3072 bytes (14 chunks)...
+I (46951) COORD: L1: Broadcast 4 ms. Waiting for workers...
+I (47431) COORD: L1: Gather 471 ms (comp 308 ms, tx 162 ms), Assemble 457 us
+I (47431) COORD:   W0: 11 chunks (sparse), done=1, compute=308663 us, send=9116 us
+I (47431) COORD:   W1: 10 chunks (sparse), done=1, compute=308471 us, send=8841 us
+I (47441) COORD:   W2: 12 chunks (sparse), done=1, compute=308690 us, send=9632 us
+I (47441) COORD:   W3: 11 chunks (sparse), done=1, compute=308824 us, send=9564 us
+I (47451) COORD: L2: Broadcasting 16384 bytes (71 chunks)...
+I (47561) COORD: L2: Broadcast 106 ms. Waiting for workers...
+PWR,25000,0,0,4656
+I (48321) COORD: L2: Gather 751 ms (comp 618 ms, tx 133 ms), Assemble 132 us
+I (48321) COORD:   W0: 4 chunks (sparse), done=1, compute=618064 us, send=5070 us
+I (48321) COORD:   W1: 4 chunks (sparse), done=1, compute=618021 us, send=4871 us
+I (48331) COORD:   W2: 4 chunks (sparse), done=1, compute=618043 us, send=5027 us
+I (48341) COORD:   W3: 4 chunks (sparse), done=1, compute=618068 us, send=5136 us
+I (48341) COORD: L3: Broadcasting 8192 bytes (36 chunks)...
+I (48361) COORD: L3: Broadcast 13 ms. Waiting for workers...
+I (49101) COORD: L3: Gather 737 ms (comp 644 ms, tx 92 ms), Assemble 11 us
+I (49101) COORD:   W0: 1 chunks (sparse), done=1, compute=644088 us, send=3224 us
+I (49101) COORD:   W1: 1 chunks (sparse), done=1, compute=643767 us, send=3202 us
+I (49111) COORD:   W2: 1 chunks (sparse), done=1, compute=644219 us, send=3119 us
+I (49121) COORD:   W3: 1 chunks (sparse), done=1, compute=643105 us, send=3265 us
+I (49131) COORD: [ 20/64] pred=6(frog) true=6(frog) OK  2194 ms
+I (49131) COORD: CSV,fatcnn_n4,19,6,6,1,2194090,4599,471600,308824,162776,106686,751749,618068,133681,13937,737095,644219,92876
+PWRW,19,658,129,723,145,640,127,655,130
+I (49151) COORD: L1: Broadcasting 3072 bytes (14 chunks)...
+I (49161) COORD: L1: Broadcast 4 ms. Waiting for workers...
+I (49641) COORD: L1: Gather 474 ms (comp 308 ms, tx 166 ms), Assemble 423 us
+I (49641) COORD:   W0: 11 chunks (sparse), done=1, compute=308628 us, send=9685 us
+I (49641) COORD:   W1: 11 chunks (sparse), done=1, compute=308796 us, send=9393 us
+I (49651) COORD:   W2: 12 chunks (sparse), done=1, compute=308640 us, send=10310 us
+I (49651) COORD:   W3: 11 chunks (sparse), done=1, compute=308711 us, send=9634 us
+I (49661) COORD: L2: Broadcasting 16384 bytes (71 chunks)...
+I (49771) COORD: L2: Broadcast 107 ms. Waiting for workers...
+PWR,26000,0,0,4540
+I (50531) COORD: L2: Gather 749 ms (comp 618 ms, tx 130 ms), Assemble 132 us
+I (50531) COORD:   W0: 3 chunks (sparse), done=1, compute=618193 us, send=4284 us
+I (50531) COORD:   W1: 4 chunks (sparse), done=1, compute=618257 us, send=5180 us
+I (50541) COORD:   W2: 4 chunks (sparse), done=1, compute=618168 us, send=4865 us
+I (50541) COORD:   W3: 4 chunks (sparse), done=1, compute=618541 us, send=5239 us
+I (50551) COORD: L3: Broadcasting 8192 bytes (36 chunks)...
+I (50571) COORD: L3: Broadcast 13 ms. Waiting for workers...
+PWR,27000,0,0,4652
+PWR,28000,0,0,4652
+PWR,29000,2,0,4652
+PWR,30000,1,0,4652
+PWR,31000,1,0,4652
+PWR,32000,1,0,4652
+PWR,33000,0,0,4656
+PWR,34000,0,0,4648
+PWR,35000,0,0,4652
+PWR,36000,1,0,4652
+PWR,37000,0,0,4652
+PWR,38000,1,0,4652
+PWR,39000,1,0,4656
+PWR,40000,0,0,4652
+PWR,41000,0,0,4652
+PWR,42000,1,0,4652
+E (80571) COORD: TIMEOUT! Done: 3/4
+E (80571) COORD:   W0: chunks=1 done=1
+E (80571) COORD:   W1: chunks=0 done=0
+E (80571) COORD:   W2: chunks=1 done=1
+E (80571) COORD:   W3: chunks=1 done=1
+W (80571) COORD: [20/64] L3 TIMEOUT — retry
+I (80581) COORD: L1: Broadcasting 3072 bytes (14 chunks)...
+I (80581) COORD: L1: Broadcast 3 ms. Waiting for workers...
+I (81061) COORD: L1: Gather 474 ms (comp 308 ms, tx 165 ms), Assemble 408 us
+I (81061) COORD:   W0: 11 chunks (sparse), done=1, compute=308624 us, send=9726 us
+I (81071) COORD:   W1: 11 chunks (sparse), done=1, compute=308713 us, send=9417 us
+I (81071) COORD:   W2: 12 chunks (sparse), done=1, compute=308922 us, send=10215 us
+I (81081) COORD:   W3: 11 chunks (sparse), done=1, compute=308471 us, send=9818 us
+I (81091) COORD: L2: Broadcasting 16384 bytes (71 chunks)...
+I (81201) COORD: L2: Broadcast 107 ms. Waiting for workers...
+PWR,43000,1,0,4652
+I (81951) COORD: L2: Gather 744 ms (comp 618 ms, tx 126 ms), Assemble 131 us
+I (81951) COORD:   W0: 3 chunks (sparse), done=1, compute=618539 us, send=4396 us
+I (81951) COORD:   W1: 4 chunks (sparse), done=1, compute=617807 us, send=5247 us
+I (81961) COORD:   W2: 4 chunks (sparse), done=1, compute=618523 us, send=5057 us
+I (81971) COORD:   W3: 4 chunks (sparse), done=1, compute=618607 us, send=5064 us
+I (81981) COORD: L3: Broadcasting 8192 bytes (36 chunks)...
+I (82001) COORD: L3: Broadcast 16 ms. Waiting for workers...
+I (82741) COORD: L3: Gather 736 ms (comp 643 ms, tx 92 ms), Assemble 12 us
+I (82741) COORD:   W0: 1 chunks (sparse), done=1, compute=643710 us, send=3090 us
+I (82741) COORD:   W1: 1 chunks (sparse), done=1, compute=643776 us, send=3330 us
+I (82751) COORD:   W2: 1 chunks (sparse), done=1, compute=643552 us, send=3231 us
+I (82751) COORD:   W3: 1 chunks (sparse), done=1, compute=643597 us, send=3109 us
+I (82771) COORD: [ 21/64] pred=7(horse) true=7(horse) OK  2190 ms
+I (82771) COORD: CSV,fatcnn_n4,20,7,7,1,2190807,3691,474677,308922,165755,107326,744961,618607,126354,16097,736443,643776,92667
+PWRW,20,652,128,715,143,629,125,644,128
+I (82781) COORD: L1: Broadcasting 3072 bytes (14 chunks)...
+I (82791) COORD: L1: Broadcast 4 ms. Waiting for workers...
+I (83251) COORD: L1: Gather 446 ms (comp 308 ms, tx 137 ms), Assemble 422 us
+I (83251) COORD:   W0: 9 chunks (sparse), done=1, compute=308812 us, send=8181 us
+I (83251) COORD:   W1: 9 chunks (sparse), done=1, compute=308533 us, send=8469 us
+I (83261) COORD:   W2: 8 chunks (sparse), done=1, compute=308816 us, send=7515 us
+I (83261) COORD:   W3: 9 chunks (sparse), done=1, compute=308723 us, send=7854 us
+I (83271) COORD: L2: Broadcasting 16384 bytes (71 chunks)...
+I (83381) COORD: L2: Broadcast 107 ms. Waiting for workers...
+PWR,44000,0,0,4652
+I (84141) COORD: L2: Gather 748 ms (comp 618 ms, tx 129 ms), Assemble 138 us
+I (84141) COORD:   W0: 4 chunks (sparse), done=1, compute=618613 us, send=5034 us
+I (84141) COORD:   W1: 4 chunks (sparse), done=1, compute=618155 us, send=4872 us
+I (84151) COORD:   W2: 3 chunks (sparse), done=1, compute=618464 us, send=4420 us
+I (84151) COORD:   W3: 3 chunks (sparse), done=1, compute=617991 us, send=4565 us
+I (84161) COORD: L3: Broadcasting 8192 bytes (36 chunks)...
+I (84181) COORD: L3: Broadcast 14 ms. Waiting for workers...
+I (84921) COORD: L3: Gather 735 ms (comp 644 ms, tx 91 ms), Assemble 11 us
+I (84921) COORD:   W0: 1 chunks (sparse), done=1, compute=644099 us, send=3290 us
+I (84921) COORD:   W1: 1 chunks (sparse), done=1, compute=643682 us, send=3141 us
+I (84931) COORD:   W2: 1 chunks (sparse), done=1, compute=644176 us, send=3171 us
+I (84941) COORD:   W3: 1 chunks (sparse), done=1, compute=643435 us, send=3182 us
+I (84951) COORD: [ 22/64] pred=0(airplane) true=0(airplane) OK  2168 ms
+I (84951) COORD: CSV,fatcnn_n4,21,0,0,1,2168135,4572,446326,308816,137510,107355,748353,618613,129740,14131,735814,644176,91638
+PWRW,21,653,128,715,143,630,125,645,128
+I (84961) COORD: L1: Broadcasting 3072 bytes (14 chunks)...
+I (84981) COORD: L1: Broadcast 4 ms. Waiting for workers...
+I (85451) COORD: L1: Gather 474 ms (comp 309 ms, tx 165 ms), Assemble 410 us
+I (85451) COORD:   W0: 11 chunks (sparse), done=1, compute=308583 us, send=9546 us
+I (85461) COORD:   W1: 11 chunks (sparse), done=1, compute=308304 us, send=9364 us
+PWR,45000,0,0,4640
+I (85461) COORD:   W2: 13 chunks (sparse), done=1, compute=308612 us, send=10950 us
+I (85471) COORD:   W3: 12 chunks (sparse), done=1, compute=309057 us, send=10032 us
+I (85481) COORD: L2: Broadcasting 16384 bytes (71 chunks)...
+I (85591) COORD: L2: Broadcast 106 ms. Waiting for workers...
+I (86351) COORD: L2: Gather 750 ms (comp 618 ms, tx 132 ms), Assemble 132 us
+I (86351) COORD:   W0: 4 chunks (sparse), done=1, compute=618101 us, send=5060 us
+I (86351) COORD:   W1: 4 chunks (sparse), done=1, compute=618004 us, send=4997 us
+I (86361) COORD:   W2: 4 chunks (sparse), done=1, compute=618127 us, send=5027 us
+I (86371) COORD:   W3: 3 chunks (sparse), done=1, compute=618066 us, send=4412 us
+I (86371) COORD: L3: Broadcasting 8192 bytes (36 chunks)...
+I (86401) COORD: L3: Broadcast 16 ms. Waiting for workers...
+I (87131) COORD: L3: Gather 734 ms (comp 643 ms, tx 90 ms), Assemble 13 us
+I (87131) COORD:   W0: 1 chunks (sparse), done=1, compute=643699 us, send=3340 us
+I (87141) COORD:   W1: 1 chunks (sparse), done=1, compute=643238 us, send=3109 us
+I (87141) COORD:   W2: 1 chunks (sparse), done=1, compute=643695 us, send=3280 us
+I (87151) COORD:   W3: 1 chunks (sparse), done=1, compute=643237 us, send=3141 us
+I (87161) COORD: [ 23/64] pred=4(deer) true=4(deer) OK  2197 ms
+I (87161) COORD: CSV,fatcnn_n4,22,4,4,1,2197549,4557,474971,309057,165914,106649,750931,618127,132804,16291,734383,643699,90684
+PWRW,22,653,128,716,143,631,126,646,128
+I (87181) COORD: L1: Broadcasting 3072 bytes (14 chunks)...
+I (87191) COORD: L1: Broadcast 4 ms. Waiting for workers...
+PWR,46000,1,0,4652
+I (87681) COORD: L1: Gather 489 ms (comp 309 ms, tx 180 ms), Assemble 410 us
+I (87681) COORD:   W0: 12 chunks (sparse), done=1, compute=308452 us, send=10022 us
+I (87681) COORD:   W1: 12 chunks (sparse), done=1, compute=309077 us, send=9671 us
+I (87691) COORD:   W2: 13 chunks (sparse), done=1, compute=308430 us, send=10803 us
+I (87701) COORD:   W3: 11 chunks (sparse), done=1, compute=308894 us, send=9625 us
+I (87711) COORD: L2: Broadcasting 16384 bytes (71 chunks)...
+I (87821) COORD: L2: Broadcast 106 ms. Waiting for workers...
+I (88581) COORD: L2: Gather 753 ms (comp 618 ms, tx 135 ms), Assemble 133 us
+I (88581) COORD:   W0: 4 chunks (sparse), done=1, compute=617768 us, send=5264 us
+I (88581) COORD:   W1: 4 chunks (sparse), done=1, compute=618293 us, send=4905 us
+I (88591) COORD:   W2: 4 chunks (sparse), done=1, compute=617818 us, send=5257 us
+I (88591) COORD:   W3: 4 chunks (sparse), done=1, compute=618259 us, send=4994 us
+I (88601) COORD: L3: Broadcasting 8192 bytes (36 chunks)...
+I (88621) COORD: L3: Broadcast 13 ms. Waiting for workers...
+PWR,47000,1,0,4652
+I (89371) COORD: L3: Gather 744 ms (comp 643 ms, tx 100 ms), Assemble 12 us
+I (89371) COORD:   W0: 1 chunks (sparse), done=1, compute=643263 us, send=3066 us
+I (89371) COORD:   W1: 1 chunks (sparse), done=1, compute=643229 us, send=3327 us
+I (89381) COORD:   W2: 1 chunks (sparse), done=1, compute=643477 us, send=3107 us
+I (89381) COORD:   W3: 1 chunks (sparse), done=1, compute=643442 us, send=3083 us
+I (89401) COORD: [ 24/64] pred=9(truck) true=9(truck) OK  2219 ms
+I (89401) COORD: CSV,fatcnn_n4,23,9,9,1,2219305,4525,489992,309077,180915,106769,753926,618293,135633,13604,744063,643477,100586
+PWRW,23,654,129,717,143,631,126,646,128
+I (89411) COORD: L1: Broadcasting 3072 bytes (14 chunks)...
+I (89421) COORD: L1: Broadcast 4 ms. Waiting for workers...
+I (89891) COORD: L1: Gather 462 ms (comp 309 ms, tx 152 ms), Assemble 438 us
+I (89891) COORD:   W0: 10 chunks (sparse), done=1, compute=309194 us, send=8809 us
+I (89891) COORD:   W1: 10 chunks (sparse), done=1, compute=308673 us, send=8932 us
+I (89901) COORD:   W2: 10 chunks (sparse), done=1, compute=309067 us, send=8820 us
+I (89911) COORD:   W3: 11 chunks (sparse), done=1, compute=308761 us, send=9211 us
+I (89911) COORD: L2: Broadcasting 16384 bytes (71 chunks)...
+I (90031) COORD: L2: Broadcast 111 ms. Waiting for workers...
+I (90781) COORD: L2: Gather 747 ms (comp 618 ms, tx 129 ms), Assemble 147 us
+I (90781) COORD:   W0: 4 chunks (sparse), done=1, compute=618512 us, send=4879 us
+I (90781) COORD:   W1: 4 chunks (sparse), done=1, compute=618435 us, send=5026 us
+I (90791) COORD:   W2: 4 chunks (sparse), done=1, compute=618443 us, send=4874 us
+I (90801) COORD:   W3: 3 chunks (sparse), done=1, compute=618556 us, send=4292 us
+I (90811) COORD: L3: Broadcasting 8192 bytes (36 chunks)...
+I (90831) COORD: L3: Broadcast 13 ms. Waiting for workers...
+PWR,48000,0,0,4656
+I (91561) COORD: L3: Gather 736 ms (comp 643 ms, tx 93 ms), Assemble 11 us
+I (91561) COORD:   W0: 1 chunks (sparse), done=1, compute=643308 us, send=3294 us
+I (91571) COORD:   W1: 1 chunks (sparse), done=1, compute=643833 us, send=3075 us
+I (91571) COORD:   W2: 1 chunks (sparse), done=1, compute=643192 us, send=3223 us
+I (91581) COORD:   W3: 1 chunks (sparse), done=1, compute=643878 us, send=3115 us
+I (91591) COORD: [ 25/64] pred=2(bird) true=5(dog) MISS  2182 ms
+I (91591) COORD: CSV,fatcnn_n4,24,5,2,0,2182703,4047,462190,309194,152996,111492,747650,618556,129094,13741,736947,643878,93069
+PWRW,24,654,129,717,143,632,126,647,128
+I (91611) COORD: L1: Broadcasting 3072 bytes (14 chunks)...
+I (91621) COORD: L1: Broadcast 4 ms. Waiting for workers...
+I (92101) COORD: L1: Gather 473 ms (comp 308 ms, tx 164 ms), Assemble 412 us
+I (92101) COORD:   W0: 11 chunks (sparse), done=1, compute=308882 us, send=9174 us
+I (92101) COORD:   W1: 11 chunks (sparse), done=1, compute=308459 us, send=9502 us
+I (92111) COORD:   W2: 11 chunks (sparse), done=1, compute=308977 us, send=9058 us
+I (92111) COORD:   W3: 11 chunks (sparse), done=1, compute=308603 us, send=9445 us
+I (92121) COORD: L2: Broadcasting 16384 bytes (71 chunks)...
+I (92231) COORD: L2: Broadcast 106 ms. Waiting for workers...
+PWR,49000,2,0,4660
+I (92991) COORD: L2: Gather 750 ms (comp 618 ms, tx 132 ms), Assemble 132 us
+I (92991) COORD:   W0: 4 chunks (sparse), done=1, compute=618281 us, send=5284 us
+I (92991) COORD:   W1: 4 chunks (sparse), done=1, compute=618536 us, send=4868 us
+I (93001) COORD:   W2: 4 chunks (sparse), done=1, compute=618310 us, send=5243 us
+I (93011) COORD:   W3: 4 chunks (sparse), done=1, compute=618001 us, send=4541 us
+I (93011) COORD: L3: Broadcasting 8192 bytes (36 chunks)...
+I (93031) COORD: L3: Broadcast 13 ms. Waiting for workers...
+I (93781) COORD: L3: Gather 739 ms (comp 643 ms, tx 95 ms), Assemble 11 us
+I (93781) COORD:   W0: 1 chunks (sparse), done=1, compute=643931 us, send=3085 us
+I (93781) COORD:   W1: 1 chunks (sparse), done=1, compute=643696 us, send=3354 us
+I (93791) COORD:   W2: 1 chunks (sparse), done=1, compute=643701 us, send=3104 us
+I (93791) COORD:   W3: 1 chunks (sparse), done=1, compute=643714 us, send=3211 us
+I (93811) COORD: [ 26/64] pred=2(bird) true=2(bird) OK  2196 ms
+I (93811) COORD: CSV,fatcnn_n4,25,2,2,1,2196312,4508,473508,308977,164531,106740,750598,618536,132062,13410,739408,643931,95477
+PWRW,25,655,129,718,144,633,126,648,128
+I (93821) COORD: L1: Broadcasting 3072 bytes (14 chunks)...
+I (93831) COORD: L1: Broadcast 4 ms. Waiting for workers...
+I (94301) COORD: L1: Gather 470 ms (comp 308 ms, tx 162 ms), Assemble 408 us
+I (94311) COORD:   W0: 10 chunks (sparse), done=1, compute=308729 us, send=8772 us
+I (94311) COORD:   W1: 10 chunks (sparse), done=1, compute=308422 us, send=9105 us
+I (94321) COORD:   W2: 12 chunks (sparse), done=1, compute=308771 us, send=10307 us
+I (94321) COORD:   W3: 11 chunks (sparse), done=1, compute=308462 us, send=9227 us
+I (94331) COORD: L2: Broadcasting 16384 bytes (71 chunks)...
+I (94441) COORD: L2: Broadcast 107 ms. Waiting for workers...
+PWR,50000,1,0,4656
+I (95201) COORD: L2: Gather 749 ms (comp 618 ms, tx 130 ms), Assemble 139 us
+I (95201) COORD:   W0: 4 chunks (sparse), done=1, compute=618812 us, send=4891 us
+I (95201) COORD:   W1: 4 chunks (sparse), done=1, compute=618364 us, send=5125 us
+I (95211) COORD:   W2: 4 chunks (sparse), done=1, compute=618686 us, send=4901 us
+I (95211) COORD:   W3: 5 chunks (sparse), done=1, compute=617754 us, send=5154 us
+I (95221) COORD: L3: Broadcasting 8192 bytes (36 chunks)...
+I (95241) COORD: L3: Broadcast 13 ms. Waiting for workers...
+I (95981) COORD: L3: Gather 738 ms (comp 643 ms, tx 94 ms), Assemble 11 us
+I (95981) COORD:   W0: 1 chunks (sparse), done=1, compute=643665 us, send=3262 us
+I (95981) COORD:   W1: 1 chunks (sparse), done=1, compute=643649 us, send=3088 us
+I (95991) COORD:   W2: 1 chunks (sparse), done=1, compute=643751 us, send=3192 us
+I (96001) COORD:   W3: 1 chunks (sparse), done=1, compute=643495 us, send=3389 us
+I (96011) COORD: [ 27/64] pred=4(deer) true=4(deer) OK  2191 ms
+I (96011) COORD: CSV,fatcnn_n4,26,4,4,1,2191507,4053,470785,308771,162014,107344,749294,618812,130482,13306,738321,643751,94570
+PWRW,26,655,129,719,144,634,126,648,129
+I (96031) COORD: L1: Broadcasting 3072 bytes (14 chunks)...
+I (96041) COORD: L1: Broadcast 4 ms. Waiting for workers...
+I (96501) COORD: L1: Gather 461 ms (comp 308 ms, tx 152 ms), Assemble 410 us
+I (96501) COORD:   W0: 10 chunks (sparse), done=1, compute=308436 us, send=8769 us
+I (96511) COORD:   W1: 10 chunks (sparse), done=1, compute=308748 us, send=8670 us
+I (96511) COORD:   W2: 10 chunks (sparse), done=1, compute=308438 us, send=9200 us
+I (96521) COORD:   W3: 11 chunks (sparse), done=1, compute=308806 us, send=9418 us
+I (96531) COORD: L2: Broadcasting 16384 bytes (71 chunks)...
+I (96641) COORD: L2: Broadcast 106 ms. Waiting for workers...
+PWR,51000,1,0,4660
+I (97391) COORD: L2: Gather 746 ms (comp 618 ms, tx 128 ms), Assemble 134 us
+I (97391) COORD:   W0: 4 chunks (sparse), done=1, compute=617877 us, send=5020 us
+I (97391) COORD:   W1: 4 chunks (sparse), done=1, compute=618077 us, send=5027 us
+I (97401) COORD:   W2: 4 chunks (sparse), done=1, compute=618047 us, send=4996 us
+I (97411) COORD:   W3: 3 chunks (sparse), done=1, compute=618035 us, send=4421 us
+I (97411) COORD: L3: Broadcasting 8192 bytes (36 chunks)...
+I (97431) COORD: L3: Broadcast 13 ms. Waiting for workers...
+I (98181) COORD: L3: Gather 739 ms (comp 643 ms, tx 95 ms), Assemble 12 us
+I (98181) COORD:   W0: 1 chunks (sparse), done=1, compute=643704 us, send=3136 us
+I (98181) COORD:   W1: 1 chunks (sparse), done=1, compute=643297 us, send=3092 us
+I (98191) COORD:   W2: 1 chunks (sparse), done=1, compute=643671 us, send=3225 us
+I (98191) COORD:   W3: 1 chunks (sparse), done=1, compute=643254 us, send=3511 us
+I (98211) COORD: [ 28/64] pred=0(airplane) true=0(airplane) OK  2179 ms
+I (98211) COORD: CSV,fatcnn_n4,27,0,0,1,2179008,4654,461535,308806,152729,106601,746107,618077,128030,13295,739345,643704,95641
+PWRW,27,656,129,720,144,634,126,649,129
+I (98221) COORD: L1: Broadcasting 3072 bytes (14 chunks)...
+I (98231) COORD: L1: Broadcast 4 ms. Waiting for workers...
+PWR,52000,1,0,4660
+I (98721) COORD: L1: Gather 481 ms (comp 308 ms, tx 172 ms), Assemble 408 us
+I (98721) COORD:   W0: 12 chunks (sparse), done=1, compute=308783 us, send=10062 us
+I (98721) COORD:   W1: 11 chunks (sparse), done=1, compute=308754 us, send=9089 us
+I (98731) COORD:   W2: 13 chunks (sparse), done=1, compute=308489 us, send=10891 us
+I (98741) COORD:   W3: 12 chunks (sparse), done=1, compute=308970 us, send=10081 us
+I (98741) COORD: L2: Broadcasting 16384 bytes (71 chunks)...
+I (98861) COORD: L2: Broadcast 107 ms. Waiting for workers...
+I (99601) COORD: L2: Gather 742 ms (comp 618 ms, tx 124 ms), Assemble 131 us
+I (99601) COORD:   W0: 3 chunks (sparse), done=1, compute=618054 us, send=4264 us
+I (99611) COORD:   W1: 4 chunks (sparse), done=1, compute=618219 us, send=5094 us
+I (99611) COORD:   W2: 4 chunks (sparse), done=1, compute=617858 us, send=4873 us
+I (99621) COORD:   W3: 3 chunks (sparse), done=1, compute=618233 us, send=4605 us
+I (99631) COORD: L3: Broadcasting 8192 bytes (36 chunks)...
+I (99651) COORD: L3: Broadcast 13 ms. Waiting for workers...
+I (100391) COORD: L3: Gather 736 ms (comp 643 ms, tx 92 ms), Assemble 11 us
+I (100391) COORD:   W0: 1 chunks (sparse), done=1, compute=642973 us, send=3320 us
+I (100391) COORD:   W1: 1 chunks (sparse), done=1, compute=643175 us, send=3238 us
+I (100401) COORD:   W2: 1 chunks (sparse), done=1, compute=643145 us, send=3259 us
+I (100411) COORD:   W3: 1 chunks (sparse), done=1, compute=643446 us, send=3057 us
+I (100421) COORD: [ 29/64] pred=9(truck) true=9(truck) OK  2196 ms
+I (100421) COORD: CSV,fatcnn_n4,28,9,9,1,2196790,4515,481752,308970,172782,107370,742696,618233,124463,13165,736350,643446,92904
+PWRW,28,657,129,720,144,635,126,650,129
+I (100431) COORD: L1: Broadcasting 3072 bytes (14 chunks)...
+I (100441) COORD: L1: Broadcast 4 ms. Waiting for workers...
+PWR,53000,2,0,4540
+I (100931) COORD: L1: Gather 480 ms (comp 309 ms, tx 171 ms), Assemble 409 us
+I (100931) COORD:   W0: 11 chunks (sparse), done=1, compute=309106 us, send=9882 us
+I (100931) COORD:   W1: 11 chunks (sparse), done=1, compute=309000 us, send=9631 us
+I (100941) COORD:   W2: 12 chunks (sparse), done=1, compute=308788 us, send=10522 us
+I (100951) COORD:   W3: 11 chunks (sparse), done=1, compute=308453 us, send=9760 us
+I (100951) COORD: L2: Broadcasting 16384 bytes (71 chunks)...
+I (101071) COORD: L2: Broadcast 107 ms. Waiting for workers...
+I (101821) COORD: L2: Gather 747 ms (comp 618 ms, tx 128 ms), Assemble 132 us
+I (101821) COORD:   W0: 4 chunks (sparse), done=1, compute=618768 us, send=5270 us
+I (101821) COORD:   W1: 4 chunks (sparse), done=1, compute=618459 us, send=5007 us
+I (101831) COORD:   W2: 4 chunks (sparse), done=1, compute=618630 us, send=5121 us
+I (101841) COORD:   W3: 4 chunks (sparse), done=1, compute=618398 us, send=4882 us
+I (101851) COORD: L3: Broadcasting 8192 bytes (36 chunks)...
+I (101871) COORD: L3: Broadcast 15 ms. Waiting for workers...
+PWR,54000,0,0,4652
+I (102601) COORD: L3: Gather 734 ms (comp 643 ms, tx 90 ms), Assemble 16 us
+I (102601) COORD:   W0: 1 chunks (sparse), done=1, compute=643476 us, send=3346 us
+I (102611) COORD:   W1: 1 chunks (sparse), done=1, compute=643663 us, send=3094 us
+I (102611) COORD:   W2: 1 chunks (sparse), done=1, compute=643046 us, send=3196 us
+I (102621) COORD:   W3: 1 chunks (sparse), done=1, compute=643698 us, send=3142 us
+I (102631) COORD: [ 30/64] pred=6(frog) true=6(frog) OK  2200 ms
+I (102631) COORD: CSV,fatcnn_n4,29,6,6,1,2200095,4558,480143,309106,171037,107902,747203,618768,128435,15316,734057,643698,90359
+PWRW,29,657,129,721,144,635,127,650,129
+I (102651) COORD: L1: Broadcasting 3072 bytes (14 chunks)...
+I (102661) COORD: L1: Broadcast 4 ms. Waiting for workers...
+I (103141) COORD: L1: Gather 479 ms (comp 308 ms, tx 170 ms), Assemble 421 us
+I (103141) COORD:   W0: 11 chunks (sparse), done=1, compute=308435 us, send=9222 us
+I (103151) COORD:   W1: 11 chunks (sparse), done=1, compute=308727 us, send=9577 us
+I (103151) COORD:   W2: 13 chunks (sparse), done=1, compute=308890 us, send=10360 us
+I (103161) COORD:   W3: 12 chunks (sparse), done=1, compute=308241 us, send=10166 us
+I (103171) COORD: L2: Broadcasting 16384 bytes (71 chunks)...
+I (103281) COORD: L2: Broadcast 106 ms. Waiting for workers...
+I (104041) COORD: L2: Gather 755 ms (comp 618 ms, tx 136 ms), Assemble 132 us
+I (104041) COORD:   W0: 4 chunks (sparse), done=1, compute=618367 us, send=5259 us
+I (104041) COORD:   W1: 5 chunks (sparse), done=1, compute=618289 us, send=5017 us
+I (104051) COORD:   W2: 4 chunks (sparse), done=1, compute=618365 us, send=5230 us
+I (104061) COORD:   W3: 4 chunks (sparse), done=1, compute=618287 us, send=5185 us
+I (104071) COORD: L3: Broadcasting 8192 bytes (36 chunks)...
+I (104091) COORD: L3: Broadcast 13 ms. Waiting for workers...
+PWR,55000,0,0,4656
+I (104831) COORD: L3: Gather 739 ms (comp 644 ms, tx 95 ms), Assemble 11 us
+I (104831) COORD:   W0: 1 chunks (sparse), done=1, compute=643666 us, send=3269 us
+I (104831) COORD:   W1: 1 chunks (sparse), done=1, compute=644158 us, send=3075 us
+I (104841) COORD:   W2: 1 chunks (sparse), done=1, compute=643704 us, send=3205 us
+I (104851) COORD:   W3: 1 chunks (sparse), done=1, compute=643780 us, send=3215 us
+I (104861) COORD: [ 31/64] pred=6(frog) true=6(frog) OK  2210 ms
+I (104861) COORD: CSV,fatcnn_n4,30,6,6,1,2210546,4653,479887,308890,170997,106730,755230,618367,136863,13775,739937,644158,95779
+PWRW,30,658,129,721,144,636,127,651,129
+I (104871) COORD: L1: Broadcasting 3072 bytes (14 chunks)...
+I (104881) COORD: L1: Broadcast 4 ms. Waiting for workers...
+I (105351) COORD: L1: Gather 459 ms (comp 308 ms, tx 150 ms), Assemble 410 us
+I (105351) COORD:   W0: 9 chunks (sparse), done=1, compute=308326 us, send=7991 us
+I (105351) COORD:   W1: 10 chunks (sparse), done=1, compute=308762 us, send=8179 us
+I (105361) COORD:   W2: 10 chunks (sparse), done=1, compute=308582 us, send=8823 us
+I (105371) COORD:   W3: 10 chunks (sparse), done=1, compute=308697 us, send=9470 us
+I (105371) COORD: L2: Broadcasting 16384 bytes (71 chunks)...
+I (105491) COORD: L2: Broadcast 106 ms. Waiting for workers...
+PWR,56000,1,0,4652
+I (106231) COORD: L2: Gather 745 ms (comp 618 ms, tx 127 ms), Assemble 132 us
+I (106231) COORD:   W0: 4 chunks (sparse), done=1, compute=618049 us, send=4885 us
+I (106241) COORD:   W1: 4 chunks (sparse), done=1, compute=618261 us, send=5029 us
+I (106251) COORD:   W2: 3 chunks (sparse), done=1, compute=618369 us, send=4282 us
+I (106251) COORD:   W3: 4 chunks (sparse), done=1, compute=618101 us, send=5155 us
+I (106261) COORD: L3: Broadcasting 8192 bytes (36 chunks)...
+I (106281) COORD: L3: Broadcast 13 ms. Waiting for workers...
+I (107021) COORD: L3: Gather 733 ms (comp 643 ms, tx 89 ms), Assemble 17 us
+I (107021) COORD:   W0: 1 chunks (sparse), done=1, compute=643511 us, send=3258 us
+I (107021) COORD:   W1: 1 chunks (sparse), done=1, compute=643764 us, send=3078 us
+I (107031) COORD:   W2: 1 chunks (sparse), done=1, compute=643675 us, send=3211 us
+I (107031) COORD:   W3: 1 chunks (sparse), done=1, compute=643288 us, send=3272 us
+I (107051) COORD: [ 32/64] pred=2(bird) true=5(dog) MISS  2172 ms
+I (107051) COORD: CSV,fatcnn_n4,31,5,2,0,2172105,4662,459426,308762,150664,106749,745403,618369,127034,13189,733529,643764,89765
+PWRW,31,658,129,722,144,636,127,651,129
+I (107061) COORD: L1: Broadcasting 3072 bytes (14 chunks)...
+I (107071) COORD: L1: Broadcast 4 ms. Waiting for workers...
+I (107541) COORD: L1: Gather 459 ms (comp 308 ms, tx 150 ms), Assemble 408 us
+I (107541) COORD:   W0: 9 chunks (sparse), done=1, compute=308321 us, send=8002 us
+I (107541) COORD:   W1: 10 chunks (sparse), done=1, compute=308790 us, send=8776 us
+I (107551) COORD:   W2: 10 chunks (sparse), done=1, compute=308312 us, send=8762 us
+I (107551) COORD:   W3: 11 chunks (sparse), done=1, compute=308953 us, send=9840 us
+I (107561) COORD: L2: Broadcasting 16384 bytes (71 chunks)...
+I (107681) COORD: L2: Broadcast 108 ms. Waiting for workers...
+PWR,57000,1,0,4652
+I (108431) COORD: L2: Gather 748 ms (comp 618 ms, tx 130 ms), Assemble 131 us
+I (108431) COORD:   W0: 4 chunks (sparse), done=1, compute=618117 us, send=5049 us
+I (108431) COORD:   W1: 4 chunks (sparse), done=1, compute=618313 us, send=5237 us
+I (108441) COORD:   W2: 4 chunks (sparse), done=1, compute=618277 us, send=5092 us
+I (108451) COORD:   W3: 4 chunks (sparse), done=1, compute=618298 us, send=5187 us
+I (108451) COORD: L3: Broadcasting 8192 bytes (36 chunks)...
+I (108471) COORD: L3: Broadcast 13 ms. Waiting for workers...
+I (109211) COORD: L3: Gather 733 ms (comp 643 ms, tx 89 ms), Assemble 11 us
+I (109211) COORD:   W0: 1 chunks (sparse), done=1, compute=643778 us, send=3072 us
+I (109211) COORD:   W1: 1 chunks (sparse), done=1, compute=643585 us, send=3201 us
+I (109221) COORD:   W2: 1 chunks (sparse), done=1, compute=643929 us, send=3083 us
+I (109231) COORD:   W3: 1 chunks (sparse), done=1, compute=643678 us, send=3099 us
+I (109241) COORD: [ 33/64] pred=2(bird) true=4(deer) MISS  2180 ms
+I (109241) COORD: CSV,fatcnn_n4,32,4,2,0,2180029,4644,459926,308953,150973,108449,748816,618313,130503,13740,733849,643929,89920
+PWRW,32,659,130,722,144,637,127,652,129
+I (109261) COORD: L1: Broadcasting 3072 bytes (14 chunks)...
+I (109271) COORD: L1: Broadcast 4 ms. Waiting for workers...
+I (109741) COORD: L1: Gather 472 ms (comp 308 ms, tx 163 ms), Assemble 410 us
+I (109741) COORD:   W0: 11 chunks (sparse), done=1, compute=308862 us, send=9596 us
+I (109751) COORD:   W1: 10 chunks (sparse), done=1, compute=308995 us, send=9155 us
+I (109751) COORD:   W2: 12 chunks (sparse), done=1, compute=308537 us, send=10120 us
+I (109761) COORD:   W3: 12 chunks (sparse), done=1, compute=308674 us, send=9583 us
+I (109771) COORD: L2: Broadcasting 16384 bytes (71 chunks)...
+PWR,58000,1,0,4544
+I (109881) COORD: L2: Broadcast 106 ms. Waiting for workers...
+I (110631) COORD: L2: Gather 745 ms (comp 618 ms, tx 127 ms), Assemble 131 us
+I (110631) COORD:   W0: 4 chunks (sparse), done=1, compute=618187 us, send=5327 us
+I (110631) COORD:   W1: 4 chunks (sparse), done=1, compute=618016 us, send=5019 us
+I (110641) COORD:   W2: 4 chunks (sparse), done=1, compute=617879 us, send=5103 us
+I (110651) COORD:   W3: 3 chunks (sparse), done=1, compute=618587 us, send=4400 us
+I (110661) COORD: L3: Broadcasting 8192 bytes (36 chunks)...
+I (110681) COORD: L3: Broadcast 13 ms. Waiting for workers...
+I (111411) COORD: L3: Gather 733 ms (comp 643 ms, tx 89 ms), Assemble 13 us
+I (111411) COORD:   W0: 1 chunks (sparse), done=1, compute=643289 us, send=3091 us
+I (111421) COORD:   W1: 1 chunks (sparse), done=1, compute=643081 us, send=3324 us
+I (111421) COORD:   W2: 1 chunks (sparse), done=1, compute=643557 us, send=3111 us
+I (111431) COORD:   W3: 1 chunks (sparse), done=1, compute=643662 us, send=3087 us
+I (111441) COORD: [ 34/64] pred=5(dog) true=5(dog) OK  2186 ms
+I (111441) COORD: CSV,fatcnn_n4,33,5,5,1,2186714,4576,472790,308995,163795,106603,745742,618587,127155,13533,733227,643662,89565
+PWRW,33,659,130,723,145,637,127,652,129
+I (111461) COORD: L1: Broadcasting 3072 bytes (14 chunks)...
+I (111471) COORD: L1: Broadcast 3 ms. Waiting for workers...
+PWR,59000,0,0,4656
+I (111951) COORD: L1: Gather 481 ms (comp 309 ms, tx 171 ms), Assemble 437 us
+I (111951) COORD:   W0: 11 chunks (sparse), done=1, compute=309300 us, send=9855 us
+I (111961) COORD:   W1: 12 chunks (sparse), done=1, compute=308732 us, send=10152 us
+I (111961) COORD:   W2: 12 chunks (sparse), done=1, compute=309274 us, send=10265 us
+I (111971) COORD:   W3: 11 chunks (sparse), done=1, compute=308507 us, send=9302 us
+I (111981) COORD: L2: Broadcasting 16384 bytes (71 chunks)...
+I (112091) COORD: L2: Broadcast 107 ms. Waiting for workers...
+I (112841) COORD: L2: Gather 748 ms (comp 618 ms, tx 130 ms), Assemble 130 us
+I (112841) COORD:   W0: 4 chunks (sparse), done=1, compute=618254 us, send=5217 us
+I (112851) COORD:   W1: 4 chunks (sparse), done=1, compute=618420 us, send=4885 us
+I (112851) COORD:   W2: 3 chunks (sparse), done=1, compute=618306 us, send=4475 us
+I (112861) COORD:   W3: 4 chunks (sparse), done=1, compute=618281 us, send=4991 us
+I (112871) COORD: L3: Broadcasting 8192 bytes (36 chunks)...
+I (112891) COORD: L3: Broadcast 13 ms. Waiting for workers...
+PWR,60000,0,0,4652
+I (113621) COORD: L3: Gather 734 ms (comp 643 ms, tx 90 ms), Assemble 11 us
+I (113631) COORD:   W0: 1 chunks (sparse), done=1, compute=643539 us, send=3280 us
+I (113631) COORD:   W1: 1 chunks (sparse), done=1, compute=643607 us, send=3066 us
+I (113641) COORD:   W2: 1 chunks (sparse), done=1, compute=643196 us, send=3219 us
+I (113641) COORD:   W3: 1 chunks (sparse), done=1, compute=643965 us, send=3080 us
+I (113661) COORD: [ 35/64] pred=9(truck) true=9(truck) OK  2197 ms
+I (113661) COORD: CSV,fatcnn_n4,34,9,9,1,2197529,3887,481282,309300,171982,107045,748645,618420,130225,13277,734707,643965,90742
+PWRW,34,659,130,724,145,638,127,653,129
+I (113671) COORD: L1: Broadcasting 3072 bytes (14 chunks)...
+I (113681) COORD: L1: Broadcast 4 ms. Waiting for workers...
+I (114171) COORD: L1: Gather 484 ms (comp 308 ms, tx 175 ms), Assemble 410 us
+I (114171) COORD:   W0: 11 chunks (sparse), done=1, compute=308533 us, send=9760 us
+I (114171) COORD:   W1: 11 chunks (sparse), done=1, compute=308477 us, send=9066 us
+I (114181) COORD:   W2: 13 chunks (sparse), done=1, compute=308715 us, send=10930 us
+I (114191) COORD:   W3: 12 chunks (sparse), done=1, compute=308623 us, send=10279 us
+I (114201) COORD: L2: Broadcasting 16384 bytes (71 chunks)...
+I (114311) COORD: L2: Broadcast 106 ms. Waiting for workers...
+I (115071) COORD: L2: Gather 753 ms (comp 618 ms, tx 134 ms), Assemble 132 us
+I (115071) COORD:   W0: 4 chunks (sparse), done=1, compute=618343 us, send=5117 us
+I (115071) COORD:   W1: 4 chunks (sparse), done=1, compute=618589 us, send=5276 us
+I (115081) COORD:   W2: 4 chunks (sparse), done=1, compute=618294 us, send=5045 us
+I (115081) COORD:   W3: 4 chunks (sparse), done=1, compute=617754 us, send=5071 us
+I (115091) COORD: L3: Broadcasting 8192 bytes (36 chunks)...
+I (115111) COORD: L3: Broadcast 13 ms. Waiting for workers...
+PWR,61000,1,0,4656
+I (115851) COORD: L3: Gather 737 ms (comp 644 ms, tx 93 ms), Assemble 11 us
+I (115851) COORD:   W0: 1 chunks (sparse), done=1, compute=644236 us, send=3305 us
+I (115851) COORD:   W1: 1 chunks (sparse), done=1, compute=643900 us, send=3115 us
+I (115861) COORD:   W2: 1 chunks (sparse), done=1, compute=643969 us, send=3136 us
+I (115871) COORD:   W3: 1 chunks (sparse), done=1, compute=643761 us, send=3078 us
+I (115881) COORD: [ 36/64] pred=1(automobile) true=2(bird) MISS  2209 ms
+I (115881) COORD: CSV,fatcnn_n4,35,2,1,0,2209954,4588,484204,308715,175489,106675,753198,618589,134609,13984,737375,644236,93139
+PWRW,35,660,130,724,145,638,127,653,130
+I (115901) COORD: L1: Broadcasting 3072 bytes (14 chunks)...
+I (115911) COORD: L1: Broadcast 3 ms. Waiting for workers...
+I (116371) COORD: L1: Gather 463 ms (comp 309 ms, tx 154 ms), Assemble 410 us
+I (116371) COORD:   W0: 9 chunks (sparse), done=1, compute=308618 us, send=8378 us
+I (116381) COORD:   W1: 10 chunks (sparse), done=1, compute=308543 us, send=8936 us
+I (116381) COORD:   W2: 11 chunks (sparse), done=1, compute=308713 us, send=9773 us
+I (116391) COORD:   W3: 11 chunks (sparse), done=1, compute=309038 us, send=9425 us
+I (116401) COORD: L2: Broadcasting 16384 bytes (71 chunks)...
+I (116511) COORD: L2: Broadcast 106 ms. Waiting for workers...
+I (117261) COORD: L2: Gather 748 ms (comp 618 ms, tx 129 ms), Assemble 137 us
+I (117261) COORD:   W0: 4 chunks (sparse), done=1, compute=617964 us, send=5227 us
+I (117271) COORD:   W1: 4 chunks (sparse), done=1, compute=618045 us, send=5021 us
+I (117271) COORD:   W2: 4 chunks (sparse), done=1, compute=618297 us, send=5354 us
+I (117281) COORD:   W3: 4 chunks (sparse), done=1, compute=618228 us, send=5222 us
+I (117291) COORD: L3: Broadcasting 8192 bytes (36 chunks)...
+I (117311) COORD: L3: Broadcast 13 ms. Waiting for workers...
+PWR,62000,2,0,4536
+I (118051) COORD: L3: Gather 737 ms (comp 643 ms, tx 93 ms), Assemble 11 us
+I (118051) COORD:   W0: 1 chunks (sparse), done=1, compute=643870 us, send=3103 us
+I (118051) COORD:   W1: 1 chunks (sparse), done=1, compute=643771 us, send=3337 us
+I (118061) COORD:   W2: 1 chunks (sparse), done=1, compute=643797 us, send=3085 us
+I (118061) COORD:   W3: 1 chunks (sparse), done=1, compute=642998 us, send=3223 us
+I (118081) COORD: [ 37/64] pred=4(deer) true=4(deer) OK  2181 ms
+I (118081) COORD: CSV,fatcnn_n4,36,4,4,1,2181369,3901,463145,309038,154107,106667,748055,618297,129758,13496,737179,643870,93309
+PWRW,36,660,130,725,145,639,127,654,130
+I (118091) COORD: L1: Broadcasting 3072 bytes (14 chunks)...
+I (118101) COORD: L1: Broadcast 4 ms. Waiting for workers...
+I (118591) COORD: L1: Gather 480 ms (comp 309 ms, tx 170 ms), Assemble 416 us
+I (118591) COORD:   W0: 12 chunks (sparse), done=1, compute=308727 us, send=10049 us
+I (118591) COORD:   W1: 11 chunks (sparse), done=1, compute=308872 us, send=9842 us
+I (118601) COORD:   W2: 12 chunks (sparse), done=1, compute=308762 us, send=10021 us
+I (118611) COORD:   W3: 11 chunks (sparse), done=1, compute=309275 us, send=9124 us
+I (118611) COORD: L2: Broadcasting 16384 bytes (71 chunks)...
+I (118731) COORD: L2: Broadcast 107 ms. Waiting for workers...
+PWR,63000,1,0,4656
+I (119491) COORD: L2: Gather 758 ms (comp 618 ms, tx 139 ms), Assemble 144 us
+I (119491) COORD:   W0: 4 chunks (sparse), done=1, compute=617994 us, send=5048 us
+I (119491) COORD:   W1: 5 chunks (sparse), done=1, compute=618129 us, send=4858 us
+I (119501) COORD:   W2: 4 chunks (sparse), done=1, compute=617990 us, send=5003 us
+I (119511) COORD:   W3: 4 chunks (sparse), done=1, compute=618601 us, send=5235 us
+I (119511) COORD: L3: Broadcasting 8192 bytes (36 chunks)...
+I (119531) COORD: L3: Broadcast 13 ms. Waiting for workers...
+I (120271) COORD: L3: Gather 734 ms (comp 643 ms, tx 90 ms), Assemble 11 us
+I (120271) COORD:   W0: 1 chunks (sparse), done=1, compute=643490 us, send=3093 us
+I (120271) COORD:   W1: 1 chunks (sparse), done=1, compute=643440 us, send=3269 us
+I (120281) COORD:   W2: 1 chunks (sparse), done=1, compute=643996 us, send=3091 us
+I (120291) COORD:   W3: 1 chunks (sparse), done=1, compute=643520 us, send=3472 us
+I (120301) COORD: [ 38/64] pred=1(automobile) true=1(automobile) OK  2209 ms
+I (120301) COORD: CSV,fatcnn_n4,37,1,1,1,2209495,4377,480210,309275,170935,107137,758251,618601,139650,13960,734628,643996,90632
+PWRW,37,661,130,725,145,639,127,654,130
+I (120321) COORD: L1: Broadcasting 3072 bytes (14 chunks)...
+I (120331) COORD: L1: Broadcast 4 ms. Waiting for workers...
+I (120821) COORD: L1: Gather 489 ms (comp 309 ms, tx 180 ms), Assemble 408 us
+I (120821) COORD:   W0: 12 chunks (sparse), done=1, compute=309071 us, send=9781 us
+I (120831) COORD:   W1: 11 chunks (sparse), done=1, compute=309204 us, send=9397 us
+I (120831) COORD:   W2: 13 chunks (sparse), done=1, compute=309075 us, send=10268 us
+I (120841) COORD:   W3: 11 chunks (sparse), done=1, compute=308855 us, send=9395 us
+I (120851) COORD: L2: Broadcasting 16384 bytes (71 chunks)...
+I (120961) COORD: L2: Broadcast 107 ms. Waiting for workers...
+PWR,64000,1,0,4656
+I (121711) COORD: L2: Gather 751 ms (comp 618 ms, tx 132 ms), Assemble 131 us
+I (121721) COORD:   W0: 4 chunks (sparse), done=1, compute=618594 us, send=4875 us
+I (121721) COORD:   W1: 4 chunks (sparse), done=1, compute=618474 us, send=5022 us
+I (121731) COORD:   W2: 4 chunks (sparse), done=1, compute=618547 us, send=4875 us
+I (121731) COORD:   W3: 4 chunks (sparse), done=1, compute=618528 us, send=4911 us
+I (121741) COORD: L3: Broadcasting 8192 bytes (36 chunks)...
+I (121761) COORD: L3: Broadcast 13 ms. Waiting for workers...
+I (122501) COORD: L3: Gather 735 ms (comp 643 ms, tx 91 ms), Assemble 11 us
+I (122501) COORD:   W0: 1 chunks (sparse), done=1, compute=643026 us, send=3306 us
+I (122501) COORD:   W1: 1 chunks (sparse), done=1, compute=643481 us, send=3089 us
+I (122511) COORD:   W2: 1 chunks (sparse), done=1, compute=642986 us, send=3411 us
+I (122521) COORD:   W3: 1 chunks (sparse), done=1, compute=643750 us, send=3121 us
+I (122531) COORD: [ 39/64] pred=9(truck) true=9(truck) OK  2210 ms
+I (122531) COORD: CSV,fatcnn_n4,38,9,9,1,2210959,4646,489296,309204,180092,107230,751257,618594,132663,13377,735509,643750,91759
+PWRW,38,661,130,726,145,640,127,654,130
+I (122541) COORD: L1: Broadcasting 3072 bytes (14 chunks)...
+I (122551) COORD: L1: Broadcast 4 ms. Waiting for workers...
+PWR,65000,1,0,4580
+I (123021) COORD: L1: Gather 466 ms (comp 309 ms, tx 157 ms), Assemble 447 us
+I (123031) COORD:   W0: 11 chunks (sparse), done=1, compute=308767 us, send=9517 us
+I (123031) COORD:   W1: 10 chunks (sparse), done=1, compute=308673 us, send=8920 us
+I (123041) COORD:   W2: 11 chunks (sparse), done=1, compute=309034 us, send=9325 us
+I (123041) COORD:   W3: 11 chunks (sparse), done=1, compute=308474 us, send=9626 us
+I (123051) COORD: L2: Broadcasting 16384 bytes (71 chunks)...
+I (123161) COORD: L2: Broadcast 107 ms. Waiting for workers...
+I (123911) COORD: L2: Gather 741 ms (comp 618 ms, tx 122 ms), Assemble 132 us
+I (123911) COORD:   W0: 4 chunks (sparse), done=1, compute=618472 us, send=5074 us
+I (123911) COORD:   W1: 4 chunks (sparse), done=1, compute=618716 us, send=4876 us
+I (123921) COORD:   W2: 4 chunks (sparse), done=1, compute=618580 us, send=5055 us
+I (123931) COORD:   W3: 4 chunks (sparse), done=1, compute=618199 us, send=5027 us
+I (123941) COORD: L3: Broadcasting 8192 bytes (36 chunks)...
+I (123961) COORD: L3: Broadcast 14 ms. Waiting for workers...
+I (124701) COORD: L3: Gather 740 ms (comp 643 ms, tx 96 ms), Assemble 11 us
+I (124701) COORD:   W0: 1 chunks (sparse), done=1, compute=643490 us, send=3090 us
+I (124701) COORD:   W1: 1 chunks (sparse), done=1, compute=643550 us, send=3314 us
+I (124711) COORD:   W2: 1 chunks (sparse), done=1, compute=643501 us, send=3114 us
+I (124721) COORD:   W3: 1 chunks (sparse), done=1, compute=643863 us, send=3253 us
+I (124731) COORD: [ 40/64] pred=5(dog) true=5(dog) OK  2183 ms
+I (124731) COORD: CSV,fatcnn_n4,39,5,5,1,2183827,4512,466214,309034,157180,107417,741563,618716,122847,14024,740599,643863,96736
+PWRW,39,662,130,726,145,640,128,655,130
+I (124741) COORD: L1: Broadcasting 3072 bytes (14 chunks)...
+I (124751) COORD: L1: Broadcast 4 ms. Waiting for workers...
+PWR,66000,0,0,4652
+I (125241) COORD: L1: Gather 482 ms (comp 308 ms, tx 174 ms), Assemble 445 us
+I (125241) COORD:   W0: 12 chunks (sparse), done=1, compute=308569 us, send=10134 us
+I (125241) COORD:   W1: 11 chunks (sparse), done=1, compute=308758 us, send=9292 us
+I (125251) COORD:   W2: 11 chunks (sparse), done=1, compute=308713 us, send=9589 us
+I (125261) COORD:   W3: 11 chunks (sparse), done=1, compute=308627 us, send=9954 us
+I (125271) COORD: L2: Broadcasting 16384 bytes (71 chunks)...
+I (125381) COORD: L2: Broadcast 107 ms. Waiting for workers...
+I (126131) COORD: L2: Gather 743 ms (comp 618 ms, tx 124 ms), Assemble 134 us
+I (126131) COORD:   W0: 4 chunks (sparse), done=1, compute=618456 us, send=5053 us
+I (126131) COORD:   W1: 4 chunks (sparse), done=1, compute=618222 us, send=5154 us
+I (126141) COORD:   W2: 3 chunks (sparse), done=1, compute=618572 us, send=4361 us
+I (126151) COORD:   W3: 4 chunks (sparse), done=1, compute=617948 us, send=5097 us
+I (126151) COORD: L3: Broadcasting 8192 bytes (36 chunks)...
+I (126171) COORD: L3: Broadcast 13 ms. Waiting for workers...
+PWR,67000,1,0,4652
+I (126911) COORD: L3: Gather 735 ms (comp 643 ms, tx 91 ms), Assemble 11 us
+I (126911) COORD:   W0: 1 chunks (sparse), done=1, compute=643740 us, send=3109 us
+I (126921) COORD:   W1: 1 chunks (sparse), done=1, compute=643826 us, send=3088 us
+I (126921) COORD:   W2: 1 chunks (sparse), done=1, compute=643692 us, send=3313 us
+I (126931) COORD:   W3: 1 chunks (sparse), done=1, compute=643630 us, send=3066 us
+I (126941) COORD: [ 41/64] pred=4(deer) true=4(deer) OK  2200 ms
+I (126941) COORD: CSV,fatcnn_n4,40,4,4,1,2200650,4560,482985,308758,174227,107424,743339,618572,124767,13803,735064,643826,91238
+PWRW,40,662,130,727,145,640,128,655,130
+I (126961) COORD: L1: Broadcasting 3072 bytes (14 chunks)...
+I (126971) COORD: L1: Broadcast 4 ms. Waiting for workers...
+I (127461) COORD: L1: Gather 482 ms (comp 308 ms, tx 173 ms), Assemble 408 us
+I (127461) COORD:   W0: 11 chunks (sparse), done=1, compute=308368 us, send=9631 us
+I (127461) COORD:   W1: 11 chunks (sparse), done=1, compute=308670 us, send=9339 us
+I (127471) COORD:   W2: 14 chunks (sparse), done=1, compute=308395 us, send=11572 us
+I (127481) COORD:   W3: 12 chunks (sparse), done=1, compute=308818 us, send=10160 us
+I (127481) COORD: L2: Broadcasting 16384 bytes (71 chunks)...
+I (127601) COORD: L2: Broadcast 107 ms. Waiting for workers...
+I (128351) COORD: L2: Gather 753 ms (comp 618 ms, tx 135 ms), Assemble 132 us
+I (128351) COORD:   W0: 4 chunks (sparse), done=1, compute=618224 us, send=5087 us
+I (128361) COORD:   W1: 4 chunks (sparse), done=1, compute=618269 us, send=5151 us
+I (128361) COORD:   W2: 4 chunks (sparse), done=1, compute=618223 us, send=5038 us
+I (128371) COORD:   W3: 4 chunks (sparse), done=1, compute=618222 us, send=5096 us
+I (128381) COORD: L3: Broadcasting 8192 bytes (36 chunks)...
+I (128401) COORD: L3: Broadcast 13 ms. Waiting for workers...
+PWR,68000,0,0,4656
+I (129141) COORD: L3: Gather 736 ms (comp 643 ms, tx 92 ms), Assemble 11 us
+I (129141) COORD:   W0: 1 chunks (sparse), done=1, compute=643949 us, send=3073 us
+I (129141) COORD:   W1: 1 chunks (sparse), done=1, compute=643338 us, send=3288 us
+I (129151) COORD:   W2: 1 chunks (sparse), done=1, compute=643764 us, send=3112 us
+I (129151) COORD:   W3: 1 chunks (sparse), done=1, compute=643353 us, send=3307 us
+I (129171) COORD: [ 42/64] pred=6(frog) true=6(frog) OK  2207 ms
+I (129171) COORD: CSV,fatcnn_n4,41,6,6,1,2207683,4591,482015,308818,173197,107221,753667,618269,135398,13252,736504,643949,92555
+PWRW,41,663,130,727,145,641,128,656,130
+I (129181) COORD: L1: Broadcasting 3072 bytes (14 chunks)...
+I (129191) COORD: L1: Broadcast 4 ms. Waiting for workers...
+I (129691) COORD: L1: Gather 490 ms (comp 308 ms, tx 181 ms), Assemble 424 us
+I (129691) COORD:   W0: 12 chunks (sparse), done=1, compute=308549 us, send=10358 us
+I (129691) COORD:   W1: 12 chunks (sparse), done=1, compute=308918 us, send=10289 us
+I (129701) COORD:   W2: 13 chunks (sparse), done=1, compute=308642 us, send=10792 us
+I (129701) COORD:   W3: 12 chunks (sparse), done=1, compute=308921 us, send=10096 us
+I (129711) COORD: L2: Broadcasting 16384 bytes (71 chunks)...
+I (129831) COORD: L2: Broadcast 106 ms. Waiting for workers...
+PWR,69000,1,0,4652
+I (130571) COORD: L2: Gather 741 ms (comp 618 ms, tx 123 ms), Assemble 131 us
+I (130571) COORD:   W0: 3 chunks (sparse), done=1, compute=617745 us, send=4432 us
+I (130571) COORD:   W1: 4 chunks (sparse), done=1, compute=618393 us, send=4869 us
+I (130581) COORD:   W2: 4 chunks (sparse), done=1, compute=617734 us, send=5043 us
+I (130591) COORD:   W3: 3 chunks (sparse), done=1, compute=618302 us, send=4683 us
+I (130601) COORD: L3: Broadcasting 8192 bytes (36 chunks)...
+I (130611) COORD: L3: Broadcast 13 ms. Waiting for workers...
+I (131361) COORD: L3: Gather 739 ms (comp 643 ms, tx 95 ms), Assemble 11 us
+I (131361) COORD:   W0: 1 chunks (sparse), done=1, compute=643308 us, send=3286 us
+I (131361) COORD:   W1: 1 chunks (sparse), done=1, compute=643166 us, send=3230 us
+I (131371) COORD:   W2: 1 chunks (sparse), done=1, compute=643766 us, send=3280 us
+I (131371) COORD:   W3: 1 chunks (sparse), done=1, compute=643518 us, send=3312 us
+I (131391) COORD: [ 43/64] pred=7(horse) true=5(dog) MISS  2205 ms
+I (131391) COORD: CSV,fatcnn_n4,42,5,7,0,2205083,4642,490026,308921,181105,106943,741951,618393,123558,13702,739613,643766,95847
+PWRW,42,663,130,727,145,641,128,656,130
+I (131401) COORD: L1: Broadcasting 3072 bytes (14 chunks)...
+I (131411) COORD: L1: Broadcast 4 ms. Waiting for workers...
+I (131891) COORD: L1: Gather 473 ms (comp 309 ms, tx 164 ms), Assemble 410 us
+I (131891) COORD:   W0: 10 chunks (sparse), done=1, compute=309029 us, send=8916 us
+I (131891) COORD:   W1: 10 chunks (sparse), done=1, compute=309251 us, send=8739 us
+I (131901) COORD:   W2: 12 chunks (sparse), done=1, compute=308827 us, send=10351 us
+I (131911) COORD:   W3: 11 chunks (sparse), done=1, compute=308733 us, send=9509 us
+I (131921) COORD: L2: Broadcasting 16384 bytes (71 chunks)...
+I (132031) COORD: L2: Broadcast 106 ms. Waiting for workers...
+PWR,70000,1,0,4656
+I (132781) COORD: L2: Gather 752 ms (comp 618 ms, tx 134 ms), Assemble 156 us
+I (132781) COORD:   W0: 4 chunks (sparse), done=1, compute=618687 us, send=4972 us
+I (132791) COORD:   W1: 4 chunks (sparse), done=1, compute=618354 us, send=5169 us
+I (132791) COORD:   W2: 4 chunks (sparse), done=1, compute=618344 us, send=5220 us
+I (132801) COORD:   W3: 4 chunks (sparse), done=1, compute=618524 us, send=4874 us
+I (132811) COORD: L3: Broadcasting 8192 bytes (36 chunks)...
+I (132831) COORD: L3: Broadcast 13 ms. Waiting for workers...
+I (133571) COORD: L3: Gather 738 ms (comp 643 ms, tx 94 ms), Assemble 14 us
+I (133571) COORD:   W0: 1 chunks (sparse), done=1, compute=642958 us, send=3285 us
+I (133571) COORD:   W1: 1 chunks (sparse), done=1, compute=643704 us, send=3082 us
+I (133581) COORD:   W2: 1 chunks (sparse), done=1, compute=643227 us, send=3249 us
+I (133591) COORD:   W3: 1 chunks (sparse), done=1, compute=643889 us, send=3266 us
+I (133601) COORD: [ 44/64] pred=6(frog) true=6(frog) OK  2197 ms
+I (133601) COORD: CSV,fatcnn_n4,43,6,6,1,2197775,4553,473285,309251,164034,106712,752787,618687,134100,13683,738590,643889,94701
+PWRW,43,663,131,728,146,642,128,657,130
+I (133611) COORD: L1: Broadcasting 3072 bytes (14 chunks)...
+I (133631) COORD: L1: Broadcast 4 ms. Waiting for workers...
+I (134101) COORD: L1: Gather 468 ms (comp 308 ms, tx 160 ms), Assemble 412 us
+I (134101) COORD:   W0: 11 chunks (sparse), done=1, compute=308803 us, send=9328 us
+I (134101) COORD:   W1: 11 chunks (sparse), done=1, compute=308635 us, send=9458 us
+I (134111) COORD:   W2: 10 chunks (sparse), done=1, compute=308808 us, send=8805 us
+I (134121) COORD:   W3: 11 chunks (sparse), done=1, compute=308428 us, send=9527 us
+I (134121) COORD: L2: Broadcasting 16384 bytes (71 chunks)...
+PWR,71000,0,0,4524
+I (134241) COORD: L2: Broadcast 106 ms. Waiting for workers...
+I (134981) COORD: L2: Gather 743 ms (comp 618 ms, tx 124 ms), Assemble 132 us
+I (134981) COORD:   W0: 4 chunks (sparse), done=1, compute=618339 us, send=5054 us
+I (134991) COORD:   W1: 4 chunks (sparse), done=1, compute=618330 us, send=4877 us
+I (134991) COORD:   W2: 3 chunks (sparse), done=1, compute=618457 us, send=4409 us
+I (135001) COORD:   W3: 3 chunks (sparse), done=1, compute=618061 us, send=4552 us
+I (135011) COORD: L3: Broadcasting 8192 bytes (36 chunks)...
+I (135031) COORD: L3: Broadcast 13 ms. Waiting for workers...
+I (135771) COORD: L3: Gather 737 ms (comp 643 ms, tx 93 ms), Assemble 11 us
+I (135771) COORD:   W0: 1 chunks (sparse), done=1, compute=643896 us, send=3451 us
+I (135771) COORD:   W1: 1 chunks (sparse), done=1, compute=643504 us, send=3075 us
+I (135781) COORD:   W2: 1 chunks (sparse), done=1, compute=643593 us, send=3112 us
+I (135791) COORD:   W3: 1 chunks (sparse), done=1, compute=643803 us, send=3399 us
+I (135801) COORD: [ 45/64] pred=0(airplane) true=0(airplane) OK  2183 ms
+I (135801) COORD: CSV,fatcnn_n4,44,0,0,1,2183017,4588,468978,308808,160170,106877,743253,618457,124796,13298,737390,643896,93494
+PWRW,44,664,131,728,146,642,128,657,130
+I (135811) COORD: L1: Broadcasting 3072 bytes (14 chunks)...
+I (135821) COORD: L1: Broadcast 4 ms. Waiting for workers...
+PWR,72000,0,0,4652
+I (136301) COORD: L1: Gather 476 ms (comp 308 ms, tx 167 ms), Assemble 408 us
+I (136301) COORD:   W0: 12 chunks (sparse), done=1, compute=308663 us, send=10110 us
+I (136311) COORD:   W1: 11 chunks (sparse), done=1, compute=308554 us, send=9443 us
+I (136311) COORD:   W2: 11 chunks (sparse), done=1, compute=308638 us, send=9555 us
+I (136321) COORD:   W3: 11 chunks (sparse), done=1, compute=308528 us, send=9561 us
+I (136331) COORD: L2: Broadcasting 16384 bytes (71 chunks)...
+I (136441) COORD: L2: Broadcast 106 ms. Waiting for workers...
+I (137191) COORD: L2: Gather 749 ms (comp 618 ms, tx 131 ms), Assemble 133 us
+I (137201) COORD:   W0: 4 chunks (sparse), done=1, compute=618485 us, send=4899 us
+I (137201) COORD:   W1: 4 chunks (sparse), done=1, compute=618024 us, send=5009 us
+I (137211) COORD:   W2: 4 chunks (sparse), done=1, compute=618582 us, send=4871 us
+I (137211) COORD:   W3: 4 chunks (sparse), done=1, compute=617838 us, send=4967 us
+I (137221) COORD: L3: Broadcasting 8192 bytes (36 chunks)...
+I (137241) COORD: L3: Broadcast 13 ms. Waiting for workers...
+PWR,73000,0,0,4628
+I (137981) COORD: L3: Gather 735 ms (comp 643 ms, tx 92 ms), Assemble 11 us
+I (137981) COORD:   W0: 1 chunks (sparse), done=1, compute=643556 us, send=3426 us
+I (137981) COORD:   W1: 1 chunks (sparse), done=1, compute=643711 us, send=3108 us
+I (137991) COORD:   W2: 1 chunks (sparse), done=1, compute=643592 us, send=3416 us
+I (138001) COORD:   W3: 1 chunks (sparse), done=1, compute=643537 us, send=3341 us
+I (138011) COORD: [ 46/64] pred=9(truck) true=9(truck) OK  2195 ms
+I (138011) COORD: CSV,fatcnn_n4,45,9,9,1,2195723,4407,476211,308663,167548,106594,749597,618582,131015,13388,735817,643711,92106
+PWRW,45,664,131,729,146,642,128,657,130
+I (138021) COORD: L1: Broadcasting 3072 bytes (14 chunks)...
+I (138031) COORD: L1: Broadcast 4 ms. Waiting for workers...
+I (138501) COORD: L1: Gather 462 ms (comp 308 ms, tx 153 ms), Assemble 459 us
+I (138501) COORD:   W0: 10 chunks (sparse), done=1, compute=308608 us, send=8663 us
+I (138501) COORD:   W1: 9 chunks (sparse), done=1, compute=308656 us, send=8182 us
+I (138511) COORD:   W2: 12 chunks (sparse), done=1, compute=308548 us, send=10103 us
+I (138521) COORD:   W3: 10 chunks (sparse), done=1, compute=308724 us, send=8774 us
+I (138531) COORD: L2: Broadcasting 16384 bytes (71 chunks)...
+I (138641) COORD: L2: Broadcast 107 ms. Waiting for workers...
+I (139401) COORD: L2: Gather 752 ms (comp 618 ms, tx 134 ms), Assemble 132 us
+I (139401) COORD:   W0: 4 chunks (sparse), done=1, compute=618011 us, send=5040 us
+I (139401) COORD:   W1: 5 chunks (sparse), done=1, compute=618214 us, send=5108 us
+I (139411) COORD:   W2: 4 chunks (sparse), done=1, compute=618157 us, send=5017 us
+I (139411) COORD:   W3: 4 chunks (sparse), done=1, compute=618241 us, send=5191 us
+I (139421) COORD: L3: Broadcasting 8192 bytes (36 chunks)...
+I (139441) COORD: L3: Broadcast 16 ms. Waiting for workers...
+PWR,74000,1,0,4656
+I (140181) COORD: L3: Gather 733 ms (comp 644 ms, tx 89 ms), Assemble 11 us
+I (140181) COORD:   W0: 1 chunks (sparse), done=1, compute=644089 us, send=3325 us
+I (140181) COORD:   W1: 1 chunks (sparse), done=1, compute=643375 us, send=3269 us
+I (140191) COORD:   W2: 1 chunks (sparse), done=1, compute=643855 us, send=3270 us
+I (140201) COORD:   W3: 1 chunks (sparse), done=1, compute=643335 us, send=3244 us
+I (140211) COORD: [ 47/64] pred=3(cat) true=3(cat) OK  2185 ms
+I (140211) COORD: CSV,fatcnn_n4,46,3,3,1,2185460,4524,462003,308724,153279,107422,752958,618241,134717,16153,733203,644089,89114
+PWRW,46,664,131,729,146,643,128,658,131
+I (140221) COORD: L1: Broadcasting 3072 bytes (14 chunks)...
+I (140231) COORD: L1: Broadcast 3 ms. Waiting for workers...
+I (140731) COORD: L1: Gather 490 ms (comp 309 ms, tx 181 ms), Assemble 431 us
+I (140731) COORD:   W0: 13 chunks (sparse), done=1, compute=309070 us, send=10749 us
+I (140731) COORD:   W1: 12 chunks (sparse), done=1, compute=308740 us, send=10223 us
+I (140741) COORD:   W2: 13 chunks (sparse), done=1, compute=308857 us, send=10872 us
+I (140751) COORD:   W3: 12 chunks (sparse), done=1, compute=308680 us, send=10064 us
+I (140761) COORD: L2: Broadcasting 16384 bytes (71 chunks)...
+I (140871) COORD: L2: Broadcast 106 ms. Waiting for workers...
+I (141621) COORD: L2: Gather 749 ms (comp 618 ms, tx 131 ms), Assemble 131 us
+I (141621) COORD:   W0: 3 chunks (sparse), done=1, compute=618008 us, send=4520 us
+I (141621) COORD:   W1: 4 chunks (sparse), done=1, compute=618120 us, send=5019 us
+I (141631) COORD:   W2: 4 chunks (sparse), done=1, compute=617708 us, send=5033 us
+I (141641) COORD:   W3: 3 chunks (sparse), done=1, compute=618429 us, send=4390 us
+I (141651) COORD: L3: Broadcasting 8192 bytes (36 chunks)...
+I (141671) COORD: L3: Broadcast 14 ms. Waiting for workers...
+PWR,75000,1,0,4548
+I (142411) COORD: L3: Gather 738 ms (comp 643 ms, tx 94 ms), Assemble 11 us
+I (142411) COORD:   W0: 1 chunks (sparse), done=1, compute=643590 us, send=3078 us
+I (142411) COORD:   W1: 1 chunks (sparse), done=1, compute=643331 us, send=3441 us
+I (142421) COORD:   W2: 1 chunks (sparse), done=1, compute=643656 us, send=3091 us
+I (142421) COORD:   W3: 1 chunks (sparse), done=1, compute=643768 us, send=3218 us
+I (142441) COORD: [ 48/64] pred=9(truck) true=9(truck) OK  2212 ms
+I (142441) COORD: CSV,fatcnn_n4,47,9,9,1,2212834,3913,490976,309070,181906,106823,749475,618429,131046,14284,738627,643768,94859
+PWRW,47,665,131,730,146,643,128,658,131
+I (142451) COORD: L1: Broadcasting 3072 bytes (14 chunks)...
+I (142461) COORD: L1: Broadcast 4 ms. Waiting for workers...
+I (142931) COORD: L1: Gather 460 ms (comp 309 ms, tx 151 ms), Assemble 442 us
+I (142931) COORD:   W0: 9 chunks (sparse), done=1, compute=309236 us, send=8414 us
+I (142931) COORD:   W1: 10 chunks (sparse), done=1, compute=308710 us, send=9246 us
+I (142941) COORD:   W2: 10 chunks (sparse), done=1, compute=309208 us, send=9018 us
+I (142951) COORD:   W3: 10 chunks (sparse), done=1, compute=308783 us, send=8532 us
+I (142951) COORD: L2: Broadcasting 16384 bytes (71 chunks)...
+I (143071) COORD: L2: Broadcast 106 ms. Waiting for workers...
+PWR,76000,0,0,4652
+I (143811) COORD: L2: Gather 744 ms (comp 618 ms, tx 126 ms), Assemble 132 us
+I (143811) COORD:   W0: 4 chunks (sparse), done=1, compute=618380 us, send=5073 us
+I (143821) COORD:   W1: 4 chunks (sparse), done=1, compute=618343 us, send=5021 us
+I (143821) COORD:   W2: 4 chunks (sparse), done=1, compute=618154 us, send=5012 us
+I (143831) COORD:   W3: 4 chunks (sparse), done=1, compute=618665 us, send=4896 us
+I (143841) COORD: L3: Broadcasting 8192 bytes (36 chunks)...
+I (143861) COORD: L3: Broadcast 14 ms. Waiting for workers...
+I (144591) COORD: L3: Gather 733 ms (comp 643 ms, tx 89 ms), Assemble 11 us
+I (144601) COORD:   W0: 1 chunks (sparse), done=1, compute=643724 us, send=3066 us
+I (144601) COORD:   W1: 1 chunks (sparse), done=1, compute=643672 us, send=3323 us
+I (144611) COORD:   W2: 1 chunks (sparse), done=1, compute=643519 us, send=3100 us
+I (144611) COORD:   W3: 1 chunks (sparse), done=1, compute=643873 us, send=3083 us
+I (144631) COORD: [ 49/64] pred=7(horse) true=7(horse) OK  2172 ms
+I (144631) COORD: CSV,fatcnn_n4,48,7,7,1,2172574,4432,460664,309236,151428,106421,744862,618665,126197,14400,733605,643873,89732
+PWRW,48,665,131,730,146,644,128,658,131
+I (144641) COORD: L1: Broadcasting 3072 bytes (14 chunks)...
+I (144651) COORD: L1: Broadcast 4 ms. Waiting for workers...
+I (145121) COORD: L1: Gather 464 ms (comp 308 ms, tx 155 ms), Assemble 425 us
+I (145121) COORD:   W0: 10 chunks (sparse), done=1, compute=308899 us, send=9016 us
+I (145121) COORD:   W1: 10 chunks (sparse), done=1, compute=308525 us, send=8848 us
+I (145131) COORD:   W2: 10 chunks (sparse), done=1, compute=308886 us, send=9286 us
+I (145141) COORD:   W3: 10 chunks (sparse), done=1, compute=308682 us, send=8481 us
+I (145151) COORD: L2: Broadcasting 16384 bytes (71 chunks)...
+I (145261) COORD: L2: Broadcast 106 ms. Waiting for workers...
+PWR,77000,0,0,4652
+I (146011) COORD: L2: Gather 752 ms (comp 618 ms, tx 133 ms), Assemble 136 us
+I (146011) COORD:   W0: 4 chunks (sparse), done=1, compute=618933 us, send=5177 us
+I (146021) COORD:   W1: 4 chunks (sparse), done=1, compute=618531 us, send=4990 us
+I (146021) COORD:   W2: 4 chunks (sparse), done=1, compute=618787 us, send=5159 us
+I (146031) COORD:   W3: 3 chunks (sparse), done=1, compute=618155 us, send=4299 us
+I (146041) COORD: L3: Broadcasting 8192 bytes (36 chunks)...
+I (146061) COORD: L3: Broadcast 13 ms. Waiting for workers...
+I (146801) COORD: L3: Gather 737 ms (comp 643 ms, tx 94 ms), Assemble 11 us
+I (146801) COORD:   W0: 1 chunks (sparse), done=1, compute=643517 us, send=3184 us
+I (146801) COORD:   W1: 1 chunks (sparse), done=1, compute=643735 us, send=3098 us
+I (146811) COORD:   W2: 1 chunks (sparse), done=1, compute=643368 us, send=3524 us
+I (146821) COORD:   W3: 1 chunks (sparse), done=1, compute=643689 us, send=3093 us
+I (146831) COORD: [ 50/64] pred=6(frog) true=6(frog) OK  2187 ms
+I (146831) COORD: CSV,fatcnn_n4,49,6,6,1,2187528,4115,464727,308899,155828,106955,752841,618933,133908,13145,737736,643735,94001
+PWRW,49,665,131,730,146,644,128,659,131
+I (146841) COORD: L1: Broadcasting 3072 bytes (14 chunks)...
+I (146851) COORD: L1: Broadcast 4 ms. Waiting for workers...
+PWR,78000,1,0,4656
+I (147341) COORD: L1: Gather 487 ms (comp 308 ms, tx 178 ms), Assemble 407 us
+I (147341) COORD:   W0: 12 chunks (sparse), done=1, compute=308540 us, send=10065 us
+I (147351) COORD:   W1: 12 chunks (sparse), done=1, compute=308464 us, send=10114 us
+I (147361) COORD:   W2: 13 chunks (sparse), done=1, compute=308570 us, send=10870 us
+I (147361) COORD:   W3: 12 chunks (sparse), done=1, compute=308685 us, send=10053 us
+I (147371) COORD: L2: Broadcasting 16384 bytes (71 chunks)...
+I (147481) COORD: L2: Broadcast 107 ms. Waiting for workers...
+I (148241) COORD: L2: Gather 749 ms (comp 618 ms, tx 130 ms), Assemble 138 us
+I (148241) COORD:   W0: 4 chunks (sparse), done=1, compute=618167 us, send=4880 us
+I (148241) COORD:   W1: 4 chunks (sparse), done=1, compute=618213 us, send=5037 us
+I (148251) COORD:   W2: 4 chunks (sparse), done=1, compute=618550 us, send=4868 us
+I (148261) COORD:   W3: 4 chunks (sparse), done=1, compute=618198 us, send=5103 us
+I (148261) COORD: L3: Broadcasting 8192 bytes (36 chunks)...
+I (148281) COORD: L3: Broadcast 13 ms. Waiting for workers...
+I (149021) COORD: L3: Gather 738 ms (comp 643 ms, tx 94 ms), Assemble 12 us
+I (149021) COORD:   W0: 1 chunks (sparse), done=1, compute=643695 us, send=3093 us
+I (149031) COORD:   W1: 2 chunks (sparse), done=1, compute=643650 us, send=3086 us
+I (149031) COORD:   W2: 1 chunks (sparse), done=1, compute=643703 us, send=3080 us
+I (149041) COORD:   W3: 1 chunks (sparse), done=1, compute=643484 us, send=3278 us
+I (149051) COORD: [ 51/64] pred=9(truck) true=9(truck) OK  2211 ms
+I (149061) COORD: CSV,fatcnn_n4,50,9,9,1,2211734,4520,487086,308685,178401,107222,749017,618213,130804,13154,738069,643703,94366
+PWRW,50,666,131,731,146,644,128,659,131
+I (149071) COORD: L1: Broadcasting 3072 bytes (14 chunks)...
+I (149081) COORD: L1: Broadcast 4 ms. Waiting for workers...
+PWR,79000,1,0,4652
+I (149561) COORD: L1: Gather 476 ms (comp 309 ms, tx 167 ms), Assemble 410 us
+I (149561) COORD:   W0: 11 chunks (sparse), done=1, compute=308417 us, send=9558 us
+I (149561) COORD:   W1: 11 chunks (sparse), done=1, compute=308729 us, send=9088 us
+I (149571) COORD:   W2: 12 chunks (sparse), done=1, compute=308440 us, send=10072 us
+I (149581) COORD:   W3: 11 chunks (sparse), done=1, compute=309207 us, send=9892 us
+I (149591) COORD: L2: Broadcasting 16384 bytes (71 chunks)...
+I (149701) COORD: L2: Broadcast 106 ms. Waiting for workers...
+I (150451) COORD: L2: Gather 746 ms (comp 618 ms, tx 128 ms), Assemble 131 us
+I (150451) COORD:   W0: 4 chunks (sparse), done=1, compute=618048 us, send=4905 us
+I (150451) COORD:   W1: 4 chunks (sparse), done=1, compute=617695 us, send=5043 us
+I (150461) COORD:   W2: 4 chunks (sparse), done=1, compute=618385 us, send=4871 us
+I (150471) COORD:   W3: 4 chunks (sparse), done=1, compute=618396 us, send=4874 us
+I (150471) COORD: L3: Broadcasting 8192 bytes (36 chunks)...
+I (150491) COORD: L3: Broadcast 13 ms. Waiting for workers...
+PWR,80000,1,0,4652
+I (151231) COORD: L3: Gather 737 ms (comp 643 ms, tx 93 ms), Assemble 11 us
+I (151231) COORD:   W0: 1 chunks (sparse), done=1, compute=643277 us, send=3350 us
+I (151241) COORD:   W1: 1 chunks (sparse), done=1, compute=643643 us, send=3125 us
+I (151241) COORD:   W2: 1 chunks (sparse), done=1, compute=643550 us, send=3360 us
+I (151251) COORD:   W3: 1 chunks (sparse), done=1, compute=643406 us, send=3314 us
+I (151261) COORD: [ 52/64] pred=8(ship) true=8(ship) OK  2193 ms
+I (151261) COORD: CSV,fatcnn_n4,51,8,8,1,2193600,4617,476513,309207,167306,106569,746796,618396,128400,13675,737185,643643,93542
+PWRW,51,666,131,731,146,645,128,659,131
+I (151281) COORD: L1: Broadcasting 3072 bytes (14 chunks)...
+I (151291) COORD: L1: Broadcast 4 ms. Waiting for workers...
+I (151771) COORD: L1: Gather 473 ms (comp 309 ms, tx 164 ms), Assemble 416 us
+I (151771) COORD:   W0: 10 chunks (sparse), done=1, compute=308969 us, send=8483 us
+I (151771) COORD:   W1: 10 chunks (sparse), done=1, compute=309243 us, send=9090 us
+I (151781) COORD:   W2: 12 chunks (sparse), done=1, compute=308917 us, send=10049 us
+I (151791) COORD:   W3: 11 chunks (sparse), done=1, compute=308669 us, send=9625 us
+I (151791) COORD: L2: Broadcasting 16384 bytes (71 chunks)...
+I (151911) COORD: L2: Broadcast 106 ms. Waiting for workers...
+I (152661) COORD: L2: Gather 751 ms (comp 618 ms, tx 133 ms), Assemble 131 us
+I (152661) COORD:   W0: 4 chunks (sparse), done=1, compute=618271 us, send=5080 us
+I (152661) COORD:   W1: 4 chunks (sparse), done=1, compute=618336 us, send=4893 us
+I (152671) COORD:   W2: 4 chunks (sparse), done=1, compute=617920 us, send=5133 us
+I (152681) COORD:   W3: 4 chunks (sparse), done=1, compute=618515 us, send=5241 us
+I (152691) COORD: L3: Broadcasting 8192 bytes (36 chunks)...
+I (152711) COORD: L3: Broadcast 13 ms. Waiting for workers...
+PWR,81000,0,0,4656
+I (153441) COORD: L3: Gather 736 ms (comp 643 ms, tx 92 ms), Assemble 12 us
+I (153451) COORD:   W0: 1 chunks (sparse), done=1, compute=643365 us, send=3248 us
+I (153451) COORD:   W1: 1 chunks (sparse), done=1, compute=643262 us, send=3305 us
+I (153461) COORD:   W2: 1 chunks (sparse), done=1, compute=643502 us, send=3213 us
+I (153461) COORD:   W3: 1 chunks (sparse), done=1, compute=643735 us, send=3092 us
+I (153481) COORD: [ 53/64] pred=7(horse) true=0(airplane) MISS  2197 ms
+I (153481) COORD: CSV,fatcnn_n4,52,0,7,0,2197005,4539,473893,309243,164650,106948,751752,618515,133237,13597,736297,643735,92562
+PWRW,52,666,131,731,146,645,129,660,131
+I (153491) COORD: L1: Broadcasting 3072 bytes (14 chunks)...
+I (153501) COORD: L1: Broadcast 4 ms. Waiting for workers...
+I (153991) COORD: L1: Gather 482 ms (comp 309 ms, tx 172 ms), Assemble 423 us
+I (153991) COORD:   W0: 11 chunks (sparse), done=1, compute=309222 us, send=9878 us
+I (153991) COORD:   W1: 11 chunks (sparse), done=1, compute=308644 us, send=9643 us
+I (154001) COORD:   W2: 13 chunks (sparse), done=1, compute=309302 us, send=10958 us
+I (154011) COORD:   W3: 12 chunks (sparse), done=1, compute=308668 us, send=10026 us
+I (154011) COORD: L2: Broadcasting 16384 bytes (71 chunks)...
+I (154131) COORD: L2: Broadcast 106 ms. Waiting for workers...
+PWR,82000,0,0,4656
+I (154881) COORD: L2: Gather 751 ms (comp 618 ms, tx 133 ms), Assemble 131 us
+I (154881) COORD:   W0: 4 chunks (sparse), done=1, compute=618228 us, send=5323 us
+I (154881) COORD:   W1: 4 chunks (sparse), done=1, compute=618391 us, send=4883 us
+I (154891) COORD:   W2: 4 chunks (sparse), done=1, compute=618242 us, send=5220 us
+I (154901) COORD:   W3: 4 chunks (sparse), done=1, compute=618146 us, send=5197 us
+I (154911) COORD: L3: Broadcasting 8192 bytes (36 chunks)...
+I (154931) COORD: L3: Broadcast 13 ms. Waiting for workers...
+I (155671) COORD: L3: Gather 738 ms (comp 643 ms, tx 94 ms), Assemble 11 us
+I (155671) COORD:   W0: 1 chunks (sparse), done=1, compute=643606 us, send=3092 us
+I (155671) COORD:   W1: 1 chunks (sparse), done=1, compute=643759 us, send=3272 us
+I (155681) COORD:   W2: 1 chunks (sparse), done=1, compute=643576 us, send=3249 us
+I (155681) COORD:   W3: 1 chunks (sparse), done=1, compute=643596 us, send=3089 us
+I (155701) COORD: [ 54/64] pred=6(frog) true=3(cat) MISS  2205 ms
+I (155701) COORD: CSV,fatcnn_n4,53,3,6,0,2205626,4039,482126,309302,172824,106895,751870,618391,133479,13463,738666,643759,94907
+PWRW,53,667,131,732,146,645,129,660,131
+I (155711) COORD: L1: Broadcasting 3072 bytes (14 chunks)...
+I (155721) COORD: L1: Broadcast 4 ms. Waiting for workers...
+I (156201) COORD: L1: Gather 475 ms (comp 308 ms, tx 166 ms), Assemble 432 us
+I (156201) COORD:   W0: 10 chunks (sparse), done=1, compute=308744 us, send=8767 us
+I (156211) COORD:   W1: 11 chunks (sparse), done=1, compute=308450 us, send=9732 us
+I (156211) COORD:   W2: 12 chunks (sparse), done=1, compute=308982 us, send=10068 us
+I (156221) COORD:   W3: 11 chunks (sparse), done=1, compute=308465 us, send=9356 us
+I (156231) COORD: L2: Broadcasting 16384 bytes (71 chunks)...
+I (156341) COORD: L2: Broadcast 106 ms. Waiting for workers...
+PWR,83000,1,0,4652
+I (157091) COORD: L2: Gather 743 ms (comp 618 ms, tx 124 ms), Assemble 148 us
+I (157091) COORD:   W0: 4 chunks (sparse), done=1, compute=618492 us, send=5081 us
+I (157091) COORD:   W1: 4 chunks (sparse), done=1, compute=618655 us, send=5226 us
+I (157101) COORD:   W2: 3 chunks (sparse), done=1, compute=618317 us, send=4418 us
+I (157101) COORD:   W3: 3 chunks (sparse), done=1, compute=617814 us, send=4615 us
+I (157111) COORD: L3: Broadcasting 8192 bytes (36 chunks)...
+I (157131) COORD: L3: Broadcast 13 ms. Waiting for workers...
+I (157871) COORD: L3: Gather 739 ms (comp 643 ms, tx 95 ms), Assemble 11 us
+I (157871) COORD:   W0: 1 chunks (sparse), done=1, compute=643854 us, send=3430 us
+I (157881) COORD:   W1: 1 chunks (sparse), done=1, compute=643810 us, send=3304 us
+I (157881) COORD:   W2: 1 chunks (sparse), done=1, compute=643970 us, send=3326 us
+I (157891) COORD:   W3: 1 chunks (sparse), done=1, compute=643696 us, send=3532 us
+I (157901) COORD: [ 55/64] pred=8(ship) true=8(ship) OK  2191 ms
+I (157901) COORD: CSV,fatcnn_n4,54,8,8,1,2191858,4112,475864,308982,166882,106794,743245,618655,124590,13859,739543,643970,95573
+PWRW,54,667,131,732,146,646,129,660,131
+I (157921) COORD: L1: Broadcasting 3072 bytes (14 chunks)...
+I (157931) COORD: L1: Broadcast 4 ms. Waiting for workers...
+I (158381) COORD: L1: Gather 447 ms (comp 308 ms, tx 138 ms), Assemble 407 us
+I (158381) COORD:   W0: 9 chunks (sparse), done=1, compute=308395 us, send=8376 us
+I (158391) COORD:   W1: 9 chunks (sparse), done=1, compute=308681 us, send=8109 us
+I (158391) COORD:   W2: 9 chunks (sparse), done=1, compute=308412 us, send=8253 us
+I (158401) COORD:   W3: 9 chunks (sparse), done=1, compute=308866 us, send=8541 us
+I (158411) COORD: L2: Broadcasting 16384 bytes (71 chunks)...
+I (158521) COORD: L2: Broadcast 106 ms. Waiting for workers...
+PWR,84000,1,0,4540
+I (159271) COORD: L2: Gather 737 ms (comp 618 ms, tx 119 ms), Assemble 134 us
+I (159271) COORD:   W0: 4 chunks (sparse), done=1, compute=618329 us, send=4880 us
+I (159281) COORD:   W1: 4 chunks (sparse), done=1, compute=617992 us, send=5152 us
+I (159281) COORD:   W2: 3 chunks (sparse), done=1, compute=618534 us, send=4286 us
+I (159291) COORD:   W3: 3 chunks (sparse), done=1, compute=618054 us, send=4374 us
+I (159301) COORD: L3: Broadcasting 8192 bytes (36 chunks)...
+I (159321) COORD: L3: Broadcast 13 ms. Waiting for workers...
+I (160051) COORD: L3: Gather 732 ms (comp 643 ms, tx 89 ms), Assemble 12 us
+I (160051) COORD:   W0: 1 chunks (sparse), done=1, compute=643609 us, send=3379 us
+I (160061) COORD:   W1: 1 chunks (sparse), done=1, compute=643798 us, send=3117 us
+I (160061) COORD:   W2: 1 chunks (sparse), done=1, compute=643560 us, send=3278 us
+I (160071) COORD:   W3: 1 chunks (sparse), done=1, compute=642998 us, send=3200 us
+I (160081) COORD: [ 56/64] pred=8(ship) true=8(ship) OK  2165 ms
+I (160081) COORD: CSV,fatcnn_n4,55,8,8,1,2165452,4673,447720,308866,138854,106511,737699,618329,119370,13511,732835,643798,89037
+PWRW,55,667,131,732,146,646,129,660,131
+I (160101) COORD: L1: Broadcasting 3072 bytes (14 chunks)...
+I (160111) COORD: L1: Broadcast 4 ms. Waiting for workers...
+PWR,85000,1,0,4660
+I (160611) COORD: L1: Gather 498 ms (comp 309 ms, tx 189 ms), Assemble 434 us
+I (160611) COORD:   W0: 12 chunks (sparse), done=1, compute=308693 us, send=9967 us
+I (160621) COORD:   W1: 11 chunks (sparse), done=1, compute=308979 us, send=9568 us
+I (160621) COORD:   W2: 13 chunks (sparse), done=1, compute=308719 us, send=10461 us
+I (160631) COORD:   W3: 13 chunks (sparse), done=1, compute=309075 us, send=10818 us
+I (160641) COORD: L2: Broadcasting 16384 bytes (71 chunks)...
+I (160751) COORD: L2: Broadcast 106 ms. Waiting for workers...
+I (161501) COORD: L2: Gather 748 ms (comp 618 ms, tx 130 ms), Assemble 132 us
+I (161501) COORD:   W0: 4 chunks (sparse), done=1, compute=617763 us, send=5002 us
+I (161511) COORD:   W1: 4 chunks (sparse), done=1, compute=618256 us, send=5097 us
+I (161511) COORD:   W2: 4 chunks (sparse), done=1, compute=617821 us, send=4967 us
+I (161521) COORD:   W3: 4 chunks (sparse), done=1, compute=618239 us, send=5145 us
+I (161531) COORD: L3: Broadcasting 8192 bytes (36 chunks)...
+I (161551) COORD: L3: Broadcast 13 ms. Waiting for workers...
+I (162291) COORD: L3: Gather 735 ms (comp 643 ms, tx 91 ms), Assemble 11 us
+I (162291) COORD:   W0: 1 chunks (sparse), done=1, compute=643521 us, send=3371 us
+I (162291) COORD:   W1: 1 chunks (sparse), done=1, compute=642969 us, send=3287 us
+I (162301) COORD:   W2: 1 chunks (sparse), done=1, compute=643532 us, send=3395 us
+I (162301) COORD:   W3: 1 chunks (sparse), done=1, compute=643707 us, send=3341 us
+I (162321) COORD: [ 57/64] pred=7(horse) true=7(horse) OK  2217 ms
+I (162321) COORD: CSV,fatcnn_n4,56,7,7,1,2217343,4525,498123,309075,189048,106489,748448,618256,130192,13686,735011,643707,91304
+PWRW,56,668,131,733,147,646,129,661,131
+I (162331) COORD: L1: Broadcasting 3072 bytes (14 chunks)...
+PWR,86000,1,0,4520
+I (162341) COORD: L1: Broadcast 4 ms. Waiting for workers...
+I (162841) COORD: L1: Gather 495 ms (comp 309 ms, tx 186 ms), Assemble 413 us
+I (162841) COORD:   W0: 12 chunks (sparse), done=1, compute=308968 us, send=10719 us
+I (162851) COORD:   W1: 12 chunks (sparse), done=1, compute=309033 us, send=10048 us
+I (162851) COORD:   W2: 14 chunks (sparse), done=1, compute=308895 us, send=11826 us
+I (162861) COORD:   W3: 13 chunks (sparse), done=1, compute=308893 us, send=10998 us
+I (162871) COORD: L2: Broadcasting 16384 bytes (71 chunks)...
+I (162981) COORD: L2: Broadcast 106 ms. Waiting for workers...
+I (163731) COORD: L2: Gather 744 ms (comp 618 ms, tx 125 ms), Assemble 130 us
+I (163731) COORD:   W0: 3 chunks (sparse), done=1, compute=618140 us, send=4428 us
+I (163731) COORD:   W1: 4 chunks (sparse), done=1, compute=618275 us, send=4988 us
+I (163741) COORD:   W2: 3 chunks (sparse), done=1, compute=618110 us, send=4416 us
+I (163751) COORD:   W3: 4 chunks (sparse), done=1, compute=618547 us, send=5218 us
+I (163751) COORD: L3: Broadcasting 8192 bytes (36 chunks)...
+I (163771) COORD: L3: Broadcast 13 ms. Waiting for workers...
+PWR,87000,1,0,4652
+I (164511) COORD: L3: Gather 737 ms (comp 643 ms, tx 93 ms), Assemble 11 us
+I (164511) COORD:   W0: 1 chunks (sparse), done=1, compute=643369 us, send=3299 us
+I (164521) COORD:   W1: 1 chunks (sparse), done=1, compute=643531 us, send=3337 us
+I (164521) COORD:   W2: 1 chunks (sparse), done=1, compute=643234 us, send=3477 us
+I (164531) COORD:   W3: 1 chunks (sparse), done=1, compute=643791 us, send=3088 us
+I (164541) COORD: [ 58/64] pred=3(cat) true=7(horse) MISS  2212 ms
+I (164541) COORD: CSV,fatcnn_n4,57,7,3,0,2212196,4627,495601,309033,186568,106812,744145,618547,125598,13404,737628,643791,93837
+PWRW,57,668,131,733,147,647,129,661,131
+I (164561) COORD: L1: Broadcasting 3072 bytes (14 chunks)...
+I (164571) COORD: L1: Broadcast 3 ms. Waiting for workers...
+I (165041) COORD: L1: Gather 467 ms (comp 309 ms, tx 158 ms), Assemble 410 us
+I (165041) COORD:   W0: 11 chunks (sparse), done=1, compute=308964 us, send=9557 us
+I (165041) COORD:   W1: 11 chunks (sparse), done=1, compute=308572 us, send=9156 us
+I (165051) COORD:   W2: 10 chunks (sparse), done=1, compute=309330 us, send=8814 us
+I (165061) COORD:   W3: 11 chunks (sparse), done=1, compute=308454 us, send=9554 us
+I (165071) COORD: L2: Broadcasting 16384 bytes (71 chunks)...
+I (165181) COORD: L2: Broadcast 106 ms. Waiting for workers...
+I (165931) COORD: L2: Gather 752 ms (comp 618 ms, tx 134 ms), Assemble 139 us
+I (165941) COORD:   W0: 4 chunks (sparse), done=1, compute=618573 us, send=4887 us
+I (165941) COORD:   W1: 4 chunks (sparse), done=1, compute=618221 us, send=5067 us
+I (165951) COORD:   W2: 4 chunks (sparse), done=1, compute=618565 us, send=4874 us
+I (165951) COORD:   W3: 4 chunks (sparse), done=1, compute=618132 us, send=4878 us
+I (165961) COORD: L3: Broadcasting 8192 bytes (36 chunks)...
+I (165981) COORD: L3: Broadcast 13 ms. Waiting for workers...
+PWR,88000,1,0,4656
+I (166721) COORD: L3: Gather 733 ms (comp 643 ms, tx 89 ms), Assemble 11 us
+I (166721) COORD:   W0: 1 chunks (sparse), done=1, compute=643594 us, send=3122 us
+I (166721) COORD:   W1: 1 chunks (sparse), done=1, compute=643911 us, send=3099 us
+I (166731) COORD:   W2: 1 chunks (sparse), done=1, compute=643239 us, send=3442 us
+I (166731) COORD:   W3: 1 chunks (sparse), done=1, compute=643623 us, send=3143 us
+I (166751) COORD: [ 59/64] pred=5(dog) true=4(deer) MISS  2187 ms
+I (166751) COORD: CSV,fatcnn_n4,58,4,5,0,2187660,3899,467387,309330,158057,106639,752799,618573,134226,13285,733428,643911,89517
+PWRW,58,668,132,733,147,647,129,661,131
+I (166761) COORD: L1: Broadcasting 3072 bytes (14 chunks)...
+I (166771) COORD: L1: Broadcast 4 ms. Waiting for workers...
+I (167241) COORD: L1: Gather 467 ms (comp 308 ms, tx 158 ms), Assemble 412 us
+I (167241) COORD:   W0: 10 chunks (sparse), done=1, compute=308586 us, send=8722 us
+I (167251) COORD:   W1: 10 chunks (sparse), done=1, compute=308652 us, send=8918 us
+I (167251) COORD:   W2: 11 chunks (sparse), done=1, compute=308553 us, send=9530 us
+I (167261) COORD:   W3: 11 chunks (sparse), done=1, compute=308432 us, send=9707 us
+I (167271) COORD: L2: Broadcasting 16384 bytes (71 chunks)...
+I (167381) COORD: L2: Broadcast 106 ms. Waiting for workers...
+PWR,89000,0,0,4656
+I (168131) COORD: L2: Gather 748 ms (comp 618 ms, tx 130 ms), Assemble 129 us
+I (168141) COORD:   W0: 4 chunks (sparse), done=1, compute=618270 us, send=5064 us
+I (168141) COORD:   W1: 4 chunks (sparse), done=1, compute=618291 us, send=4878 us
+I (168151) COORD:   W2: 4 chunks (sparse), done=1, compute=618301 us, send=5057 us
+I (168151) COORD:   W3: 3 chunks (sparse), done=1, compute=617757 us, send=4522 us
+I (168161) COORD: L3: Broadcasting 8192 bytes (36 chunks)...
+I (168181) COORD: L3: Broadcast 13 ms. Waiting for workers...
+I (168921) COORD: L3: Gather 736 ms (comp 643 ms, tx 92 ms), Assemble 11 us
+I (168921) COORD:   W0: 1 chunks (sparse), done=1, compute=643816 us, send=3442 us
+I (168921) COORD:   W1: 1 chunks (sparse), done=1, compute=643499 us, send=3066 us
+I (168931) COORD:   W2: 1 chunks (sparse), done=1, compute=643969 us, send=3348 us
+I (168941) COORD:   W3: 1 chunks (sparse), done=1, compute=643427 us, send=3279 us
+I (168951) COORD: [ 60/64] pred=6(frog) true=6(frog) OK  2187 ms
+I (168951) COORD: CSV,fatcnn_n4,59,6,6,1,2187375,4634,467233,308652,158581,106710,748929,618301,130628,13246,736795,643969,92826
+PWRW,59,668,132,734,147,647,129,662,131
+I (168961) COORD: L1: Broadcasting 3072 bytes (14 chunks)...
+I (168971) COORD: L1: Broadcast 4 ms. Waiting for workers...
+I (169441) COORD: L1: Gather 459 ms (comp 309 ms, tx 150 ms), Assemble 445 us
+I (169441) COORD:   W0: 10 chunks (sparse), done=1, compute=308587 us, send=8909 us
+I (169441) COORD:   W1: 10 chunks (sparse), done=1, compute=308666 us, send=8777 us
+I (169451) COORD:   W2: 10 chunks (sparse), done=1, compute=308596 us, send=8920 us
+I (169461) COORD:   W3: 10 chunks (sparse), done=1, compute=309005 us, send=9108 us
+I (169461) COORD: L2: Broadcasting 16384 bytes (71 chunks)...
+I (169581) COORD: L2: Broadcast 106 ms. Waiting for workers...
+PWR,90000,1,0,4656
+I (170331) COORD: L2: Gather 755 ms (comp 618 ms, tx 137 ms), Assemble 134 us
+I (170341) COORD:   W0: 4 chunks (sparse), done=1, compute=618095 us, send=5113 us
+I (170341) COORD:   W1: 4 chunks (sparse), done=1, compute=617831 us, send=4853 us
+I (170351) COORD:   W2: 4 chunks (sparse), done=1, compute=617991 us, send=5180 us
+I (170351) COORD:   W3: 4 chunks (sparse), done=1, compute=618188 us, send=5023 us
+I (170361) COORD: L3: Broadcasting 8192 bytes (36 chunks)...
+I (170381) COORD: L3: Broadcast 14 ms. Waiting for workers...
+I (171121) COORD: L3: Gather 730 ms (comp 643 ms, tx 86 ms), Assemble 11 us
+I (171121) COORD:   W0: 1 chunks (sparse), done=1, compute=643938 us, send=3103 us
+I (171121) COORD:   W1: 1 chunks (sparse), done=1, compute=643650 us, send=3387 us
+I (171131) COORD:   W2: 1 chunks (sparse), done=1, compute=644078 us, send=3095 us
+I (171131) COORD:   W3: 1 chunks (sparse), done=1, compute=643253 us, send=3261 us
+I (171151) COORD: [ 61/64] pred=7(horse) true=7(horse) OK  2183 ms
+I (171151) COORD: CSV,fatcnn_n4,60,7,7,1,2183015,4021,459961,309005,150956,106490,755424,618188,137236,14087,730415,643938,86477
+PWRW,60,669,132,734,147,647,129,662,131
+I (171161) COORD: L1: Broadcasting 3072 bytes (14 chunks)...
+I (171171) COORD: L1: Broadcast 4 ms. Waiting for workers...
+I (171651) COORD: L1: Gather 475 ms (comp 308 ms, tx 166 ms), Assemble 443 us
+I (171651) COORD:   W0: 11 chunks (sparse), done=1, compute=308454 us, send=9273 us
+I (171661) COORD:   W1: 10 chunks (sparse), done=1, compute=308955 us, send=8779 us
+I (171661) COORD:   W2: 12 chunks (sparse), done=1, compute=308451 us, send=9787 us
+I (171671) COORD:   W3: 11 chunks (sparse), done=1, compute=308759 us, send=9393 us
+I (171681) COORD: L2: Broadcasting 16384 bytes (71 chunks)...
+PWR,91000,1,0,4528
+I (171791) COORD: L2: Broadcast 107 ms. Waiting for workers...
+I (172541) COORD: L2: Gather 750 ms (comp 618 ms, tx 132 ms), Assemble 132 us
+I (172541) COORD:   W0: 4 chunks (sparse), done=1, compute=618073 us, send=5038 us
+I (172551) COORD:   W1: 5 chunks (sparse), done=1, compute=618489 us, send=4880 us
+I (172561) COORD:   W2: 4 chunks (sparse), done=1, compute=618024 us, send=5001 us
+I (172561) COORD:   W3: 4 chunks (sparse), done=1, compute=618457 us, send=5294 us
+I (172571) COORD: L3: Broadcasting 8192 bytes (36 chunks)...
+I (172591) COORD: L3: Broadcast 13 ms. Waiting for workers...
+I (173331) COORD: L3: Gather 736 ms (comp 643 ms, tx 93 ms), Assemble 11 us
+I (173331) COORD:   W0: 1 chunks (sparse), done=1, compute=643461 us, send=3362 us
+I (173331) COORD:   W1: 1 chunks (sparse), done=1, compute=642970 us, send=3263 us
+I (173341) COORD:   W2: 1 chunks (sparse), done=1, compute=643451 us, send=3371 us
+I (173351) COORD:   W3: 1 chunks (sparse), done=1, compute=643564 us, send=3188 us
+I (173361) COORD: [ 62/64] pred=5(dog) true=3(cat) MISS  2195 ms
+I (173361) COORD: CSV,fatcnn_n4,61,3,5,0,2195327,4034,475025,308955,166070,107447,750715,618489,132226,13274,736678,643564,93114
+PWRW,61,669,132,734,147,648,129,662,131
+I (173371) COORD: L1: Broadcasting 3072 bytes (14 chunks)...
+I (173381) COORD: L1: Broadcast 4 ms. Waiting for workers...
+PWR,92000,0,0,4656
+I (173881) COORD: L1: Gather 489 ms (comp 309 ms, tx 179 ms), Assemble 410 us
+I (173881) COORD:   W0: 12 chunks (sparse), done=1, compute=309071 us, send=10211 us
+I (173881) COORD:   W1: 12 chunks (sparse), done=1, compute=309247 us, send=9996 us
+I (173891) COORD:   W2: 13 chunks (sparse), done=1, compute=308823 us, send=10891 us
+I (173901) COORD:   W3: 13 chunks (sparse), done=1, compute=308774 us, send=10941 us
+I (173901) COORD: L2: Broadcasting 16384 bytes (71 chunks)...
+I (174021) COORD: L2: Broadcast 107 ms. Waiting for workers...
+I (174771) COORD: L2: Gather 747 ms (comp 618 ms, tx 129 ms), Assemble 130 us
+I (174771) COORD:   W0: 3 chunks (sparse), done=1, compute=618279 us, send=4436 us
+I (174771) COORD:   W1: 4 chunks (sparse), done=1, compute=618353 us, send=4953 us
+I (174781) COORD:   W2: 4 chunks (sparse), done=1, compute=618131 us, send=5025 us
+I (174791) COORD:   W3: 4 chunks (sparse), done=1, compute=618345 us, send=5116 us
+I (174791) COORD: L3: Broadcasting 8192 bytes (36 chunks)...
+I (174811) COORD: L3: Broadcast 13 ms. Waiting for workers...
+PWR,93000,1,0,4652
+I (175551) COORD: L3: Gather 736 ms (comp 643 ms, tx 92 ms), Assemble 11 us
+I (175551) COORD:   W0: 1 chunks (sparse), done=1, compute=643210 us, send=3432 us
+I (175561) COORD:   W1: 1 chunks (sparse), done=1, compute=643565 us, send=3279 us
+I (175561) COORD:   W2: 1 chunks (sparse), done=1, compute=643219 us, send=3217 us
+I (175571) COORD:   W3: 1 chunks (sparse), done=1, compute=643840 us, send=3077 us
+I (175581) COORD: [ 63/64] pred=6(frog) true=6(frog) OK  2209 ms
+I (175581) COORD: CSV,fatcnn_n4,62,6,6,1,2209008,4431,489122,309247,179875,107281,747816,618353,129463,13438,736633,643840,92793
+PWRW,62,669,132,735,147,648,129,662,131
+I (175601) COORD: L1: Broadcasting 3072 bytes (14 chunks)...
+I (175611) COORD: L1: Broadcast 3 ms. Waiting for workers...
+I (176081) COORD: L1: Gather 465 ms (comp 308 ms, tx 156 ms), Assemble 435 us
+I (176081) COORD:   W0: 10 chunks (sparse), done=1, compute=308967 us, send=9440 us
+I (176081) COORD:   W1: 10 chunks (sparse), done=1, compute=308605 us, send=8862 us
+I (176091) COORD:   W2: 11 chunks (sparse), done=1, compute=308921 us, send=9609 us
+I (176101) COORD:   W3: 11 chunks (sparse), done=1, compute=308683 us, send=9573 us
+I (176101) COORD: L2: Broadcasting 16384 bytes (71 chunks)...
+I (176211) COORD: L2: Broadcast 106 ms. Waiting for workers...
+I (176961) COORD: L2: Gather 747 ms (comp 618 ms, tx 128 ms), Assemble 131 us
+I (176971) COORD:   W0: 4 chunks (sparse), done=1, compute=618341 us, send=5277 us
+I (176971) COORD:   W1: 4 chunks (sparse), done=1, compute=618255 us, send=5208 us
+I (176981) COORD:   W2: 4 chunks (sparse), done=1, compute=618370 us, send=5344 us
+I (176981) COORD:   W3: 4 chunks (sparse), done=1, compute=618310 us, send=5136 us
+I (176991) COORD: L3: Broadcasting 8192 bytes (36 chunks)...
+I (177011) COORD: L3: Broadcast 13 ms. Waiting for workers...
+PWR,94000,1,0,4656
+I (177751) COORD: L3: Gather 737 ms (comp 643 ms, tx 93 ms), Assemble 12 us
+I (177751) COORD:   W0: 1 chunks (sparse), done=1, compute=643858 us, send=3094 us
+I (177751) COORD:   W1: 1 chunks (sparse), done=1, compute=643868 us, send=3070 us
+I (177761) COORD:   W2: 1 chunks (sparse), done=1, compute=643448 us, send=3256 us
+I (177771) COORD:   W3: 1 chunks (sparse), done=1, compute=643751 us, send=3349 us
+I (177781) COORD: [ 64/64] pred=1(automobile) true=3(cat) MISS  2182 ms
+I (177781) COORD: CSV,fatcnn_n4,63,3,1,0,2182433,3904,465247,308967,156280,106428,747112,618370,128742,13472,737697,643868,93829
+PWRW,63,670,132,735,147,648,129,663,132
+I (177801) COORD: 
+I (177801) COORD: ============================================================
+I (177801) COORD:   BATCH ACCURACY RESULTS (FatCNN, N=4 workers)
+I (177811) COORD: ============================================================
+I (177821) COORD: Images:    64
+I (177821) COORD: Correct:   52
+I (177821) COORD: Accuracy:  81.2%
+I (177831) COORD: Avg latency: 2194 ms
+I (177831) COORD: ============================================================
+PWRDUMP,COORD,94261,0,0,0,3
+PWR,94261,1,0,4652
+PWRDUMP,COORD,94261,0,0,0,3
+PWR,94261,0,0,4656
+PWRDUMP,COORD,94261,0,0,0,3
