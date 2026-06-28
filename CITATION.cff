@@ -10,7 +10,7 @@ authors:
     orcid: "https://orcid.org/0009-0001-6988-0435"
 license: MIT
 repository-code: "https://github.com/myroshnyk/swarmInfer_esp32"
-version: "1.2.0"
+version: "1.2.1"
 date-released: "2026-06-28"
 doi: "10.5281/zenodo.19682783"
 identifiers:
@@ -23,8 +23,10 @@ identifiers:
   - type: doi
     value: "10.5281/zenodo.19683266"
     description: "Version DOI (v1.1.0)"
-  # v1.2.0 (resubmission): add the Zenodo version DOI here after uploading the
-  # new release, then update the `doi:` line above if you want it to point to v1.2.0.
+  - type: doi
+    value: "10.5281/zenodo.21004673"
+    description: "Version DOI (v1.2.0)"
+  # v1.2.1: add its Zenodo version DOI here after the release is archived.
 preferred-citation:
   type: article
   title: "SwarmInfer: Intra-Layer Tensor-Parallel Distributed Inference on ESP32-S3 Microcontroller Clusters via ESP-NOW"
