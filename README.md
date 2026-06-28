@@ -20,34 +20,55 @@ Distributed neural network inference across multiple ESP32-S3 microcontrollers u
 ## Repository Structure
 
 ```
-pub/
-├── common/                     # Shared libraries
-│   ├── tensor_ops.c/h         # INT8 tensor operations (conv2d, relu, maxpool, gap, dense)
-│   └── swarm_protocol.h       # ESP-NOW packet protocol definitions
-├── models/                     # ML pipeline
-│   ├── train_fatcnn.py        # Train FatCNN (CIFAR-10, 408K params)
-│   ├── train_fatcnn_lite.py   # Train FatCNN-Lite baseline (103K params)
-│   ├── fix_quantize.py        # INT8 quantization + C weight export
-│   ├── partition_n.py         # Partition weights for N workers
-│   ├── export_batch.py        # Export CIFAR-10 test images for batch testing
-│   ├── verify_int8.py         # Python INT8 simulation (bit-exact verification)
-│   └── verify_prediction.py   # Quick float32 prediction check
-├── firmware/                   # ESP-IDF projects
-│   ├── swarm_coordinator/     # Distributed coordinator (broadcast → gather → dense)
-│   ├── swarm_worker/          # Distributed worker (receive → compute → send)
-│   ├── single_inference/      # Single-node baseline (FatCNN-Lite)
-│   ├── espnow_benchmark/      # ESP-NOW latency benchmark (ping-pong)
-│   ├── multi_coordinator/     # Multi-peer broadcast test
-│   ├── multi_worker/          # Multi-peer worker
-│   ├── gather_benchmark_coordinator/  # Communication overhead benchmark
-│   └── gather_benchmark_worker/       # Communication overhead worker
-├── scripts/                    # Build & experiment automation
-│   ├── setup_weights.sh       # Generate and partition weights
-│   ├── flash_workers.sh       # Flash all worker boards
-│   ├── flash_coordinator.sh   # Flash coordinator board
-│   ├── run_experiment.sh      # Run complete experiment
-│   └── power_estimation.py    # Datasheet-based energy estimation
-└── docs/                       # Documentation
+swarmInfer_esp32/
+├── common/                       # Shared libraries (used by every firmware project)
+│   ├── tensor_ops.c/h            # INT8 tensor ops (conv2d, relu, maxpool, gap, dense)
+│   ├── swarm_protocol.h          # ESP-NOW packet protocol definitions
+│   ├── ina219.c/h                # INA219 high-side power-sensor driver
+│   └── power_meter.c/h           # On-device power sampling (behind SWARM_POWER_MEASURE)
+├── models/                       # ML + analysis pipeline
+│   ├── train_fatcnn.py           # Train FatCNN (CIFAR-10, 408K params)
+│   ├── train_fatcnn_lite.py      # Train FatCNN-Lite baseline (103K params)
+│   ├── fix_quantize.py           # INT8 quantization + C weight export
+│   ├── partition_n.py            # Even partition of weights for N workers
+│   ├── partition_nscale.py       # Uneven (non-divisible) shards for N=3/5
+│   ├── export_batch.py           # Export CIFAR-10 test images for batch testing
+│   ├── verify_int8.py            # Python INT8 simulation (bit-exact verification)
+│   ├── verify_prediction.py      # Quick float32 prediction check
+│   ├── power_analyze.py          # Derive the measured power/energy table (E8)
+│   ├── quant_ablation.py         # float32 / INT8 / per-channel ablation (E12)
+│   ├── sparsity_dist.py          # Per-layer/per-image sparsity distribution (E13)
+│   ├── seed_sweep.py             # 3-seed training-variance sweep (E14)
+│   ├── analyze_nscale.py         # N=3/5 uneven-shard scaling analysis (E9)
+│   ├── analyze_rf_sweep.py       # Degraded-link robustness analysis (E10)
+│   ├── capture_*.py              # Serial-capture helpers for the experiments
+│   └── mobilenet/                # Scaled-MobileNet 96x96 toolchain (E11)
+├── firmware/                     # ESP-IDF projects
+│   ├── swarm_coordinator/        # Distributed coordinator (broadcast → gather → dense)
+│   ├── swarm_worker/             # Distributed worker (receive → compute → send)
+│   ├── single_inference/         # Single-node baseline (FatCNN-Lite)
+│   ├── swarm_{coordinator,worker}_nscale/  # Uneven shards, N=3/5 (E9)
+│   ├── swarm_{coordinator,worker}_rel/     # Reliability-layer prototype (E10)
+│   ├── {single_inference,swarm_coordinator,swarm_worker}_mbnet/  # MobileNet (E11)
+│   ├── sparse_bench/             # On-device encode/decode benchmark (E13)
+│   ├── espnow_benchmark/         # ESP-NOW latency benchmark (ping-pong)
+│   ├── multi_{coordinator,worker}/         # Multi-peer broadcast test
+│   └── gather_benchmark_{coordinator,worker}/  # Communication-overhead benchmark
+├── scripts/                      # Build & experiment automation
+│   ├── setup_weights.sh          # Generate and partition weights
+│   ├── flash_{workers,coordinator}.sh      # Flash boards
+│   ├── run_experiment.sh         # Run a complete experiment
+│   ├── analyze_logs.py           # Accuracy/latency/Wilson-CI from serial logs
+│   ├── mcnemar.py                # Paired McNemar test on two configs
+│   ├── capture_serial.py         # Serial capture utility
+│   └── power_estimation.py       # DEPRECATED datasheet estimate (superseded by power_analyze.py)
+├── results/                      # Derived results (json/md/csv) backing every table
+├── logs/                         # Raw serial captures (large ones gzipped)
+│   ├── reference_paper_runs/     # The 1,000-image runs that reproduce the main tables
+│   ├── power_runs/               # INA219 power captures (E8)
+│   ├── instrumented_runs/        # Compute/transmit + sparsification ablation (gzipped)
+│   └── *.log                     # nscale, MobileNet, sparse-bench captures
+└── docs/                         # Documentation (incl. power_measurement_procedure.md)
 ```
 
 ## Quick Start
