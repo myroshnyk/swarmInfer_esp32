@@ -26,7 +26,9 @@ identifiers:
   - type: doi
     value: "10.5281/zenodo.21004673"
     description: "Version DOI (v1.2.0)"
-  # v1.2.1: add its Zenodo version DOI here after the release is archived.
+  - type: doi
+    value: "10.5281/zenodo.21005168"
+    description: "Version DOI (v1.2.1)"
 preferred-citation:
   type: article
   title: "SwarmInfer: Intra-Layer Tensor-Parallel Distributed Inference on ESP32-S3 Microcontroller Clusters via ESP-NOW"
